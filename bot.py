@@ -307,3 +307,6 @@ load_dotenv()
 with open("secret.txt", 'r') as Secret:
     bot = DiscordBot()
     bot.run(os.getenv(token=Secret.read()))
+    
+# Add the command to the bot
+bot.add_command(hello)
