@@ -6,3 +6,11 @@
 </p>
 
 Made using Krypton's discord bot template! You may find it [here](https://github.com/kkrypt0nn/Python-Discord-Bot-Template)
+
+## Built With
+
+- [Python 3.11.5](https://www.python.org/)
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE.md](LICENSE.md) file for details
