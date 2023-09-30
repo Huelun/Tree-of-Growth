@@ -1,4 +1,4 @@
-# Python Discord Bot Template
+# The Grove of Growth Discord game
 
 <p align="center">
   <a href="https://discord.com/invite/HvnSusn8bd"><img src="https://img.shields.io/discord/739934735387721768?logo=discord"></a>
