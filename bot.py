@@ -10,12 +10,12 @@ import json
 import logging
 import os
 import platform
-import random
+#  import random #  random was used for statuses
 import sys
 
 import aiosqlite
 import discord
-from discord.ext import commands, tasks
+from discord.ext import commands  # , tasks #  tasks was used for statuses
 from discord.ext.commands import Context
 from dotenv import load_dotenv
 
@@ -68,6 +68,8 @@ It is recommended to use slash commands and therefore not use prefix commands.
 
 If you want to use prefix commands, make sure to also enable the intent below in the Discord developer portal.
 """
+
+
 # intents.message_content = True
 
 # Setup both of the loggers
@@ -143,10 +145,10 @@ class DiscordBot(commands.Bot):
 
     async def init_db(self) -> None:
         async with aiosqlite.connect(
-            f"{os.path.realpath(os.path.dirname(__file__))}/database/database.db"
+                f"{os.path.realpath(os.path.dirname(__file__))}/database/database.db"
         ) as db:
             with open(
-                f"{os.path.realpath(os.path.dirname(__file__))}/database/schema.sql"
+                    f"{os.path.realpath(os.path.dirname(__file__))}/database/schema.sql"
             ) as file:
                 await db.executescript(file.read())
             await db.commit()
@@ -167,6 +169,8 @@ class DiscordBot(commands.Bot):
                         f"Failed to load extension {extension}\n{exception}"
                     )
 
+    #  We don't need the statuses
+    '''
     @tasks.loop(minutes=1.0)
     async def status_task(self) -> None:
         """
@@ -174,6 +178,7 @@ class DiscordBot(commands.Bot):
         """
         statuses = ["with you!", "with Krypton!", "with humans!"]
         await self.change_presence(activity=discord.Game(random.choice(statuses)))
+    
 
     @status_task.before_loop
     async def before_status_task(self) -> None:
@@ -181,6 +186,7 @@ class DiscordBot(commands.Bot):
         Before starting the status changing task, we make sure the bot is ready
         """
         await self.wait_until_ready()
+    '''
 
     async def setup_hook(self) -> None:
         """
@@ -195,7 +201,7 @@ class DiscordBot(commands.Bot):
         self.logger.info("-------------------")
         await self.init_db()
         await self.load_cogs()
-        self.status_task.start()
+        #  self.status_task.start() #  We don't need the statuses
         self.database = DatabaseManager(
             connection=await aiosqlite.connect(
                 f"{os.path.realpath(os.path.dirname(__file__))}/database/database.db"
@@ -223,7 +229,7 @@ class DiscordBot(commands.Bot):
         executed_command = str(split[0])
         if context.guild is not None:
             self.logger.info(
-                f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by {context.author} (ID: {context.author.id})"
+                f"Executed {executed_command} command in {context.guild.name} (ID: {context.guild.id}) by {context.author} (ID: {context.author.id}) "
             )
         else:
             self.logger.info(
@@ -262,23 +268,24 @@ class DiscordBot(commands.Bot):
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(
                 description="You are missing the permission(s) `"
-                + ", ".join(error.missing_permissions)
-                + "` to execute this command!",
+                            + ", ".join(error.missing_permissions)
+                            + "` to execute this command!",
                 color=0xE02B2B,
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.BotMissingPermissions):
             embed = discord.Embed(
                 description="I am missing the permission(s) `"
-                + ", ".join(error.missing_permissions)
-                + "` to fully perform this command!",
+                            + ", ".join(error.missing_permissions)
+                            + "` to fully perform this command!",
                 color=0xE02B2B,
             )
             await context.send(embed=embed)
         elif isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(
                 title="Error!",
-                # We need to capitalize because the command arguments have no capital letter in the code and they are the first word in the error message.
+                # We need to capitalize because the command arguments have no capital letter in the code and they are
+                # the first word in the error message.
                 description=str(error).capitalize(),
                 color=0xE02B2B,
             )
