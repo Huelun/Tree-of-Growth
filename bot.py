@@ -177,7 +177,7 @@ class DiscordBot(commands.Bot):
         """
         Setup the game status task of the bot.
         """
-        statuses = ["with you!", "with Krypton!", "with humans!"]
+        statuses = ["One Dragon Apocalypse"]
         await self.change_presence(activity=discord.Game(random.choice(statuses)))
     
 
@@ -293,9 +293,25 @@ class DiscordBot(commands.Bot):
             await context.send(embed=embed)
         else:
             raise error
+            
+
+@commands.command(name="hello", description="Say hello to the Tree of Growth")
+async def hello(ctx: Context):
+    await ctx.send("Hello, I'm The Tree of Growth!")
+
 
 
 load_dotenv()
 
-bot = DiscordBot()
-bot.run(os.getenv("TOKEN"))
+# Start the bot
+with open("secret.txt", 'r') as Secret:
+    bot = DiscordBot()
+    bot.run(os.getenv(token=Secret.read()))
+@bot.event
+async def on_ready():
+    print(f'Logged in as {bot.user.name} ({bot.user.id})')
+    print('------')
+
+
+# Add the command to the bot
+bot.add_command(hello)
