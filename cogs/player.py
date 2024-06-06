@@ -16,14 +16,14 @@ class Body:
 
 
 class Torso(Body):
-    def __init__(self, mass, base, length, width, circumference, shape, mirror=None):
+    def __init__(self, mass, base, length, width, circumference, shape=0.8, mirror=None):
         self.length = length  # length from waist to shoulder
         self.shoulder_w = width  # width from shoulder to shoulder
         self.waist_c = circumference  # circumference of the waist
         super().__init__(mass, base, mirror)
         self.base = self
-        self.muscle_mass = (self.mass * 0.5) * ureg.kilogram
-        self.fat_mass = (self.mass * 0.5) * ureg.kilogram
+        self.muscle_mass = (self.mass * (shape - 0.05)) * ureg.kilogram
+        self.fat_mass = (self.mass * (1.0 - shape)) * ureg.kilogram
 
 
 class Head(Body):
@@ -35,7 +35,7 @@ class Head(Body):
 
 
 class Limb(Body):
-    def __init__(self, mass, base, length, wide_w, wide_c, narrow_w, narrow_c, mirror=None, prehensile=0.0):
+    def __init__(self, mass, base, length, wide_w, wide_c, narrow_w, narrow_c, mirror=None, shape=0.8, prehensile=0.0):
         self.prehensile = prehensile
         self.length = length
         self.wide_w = wide_w
@@ -43,22 +43,28 @@ class Limb(Body):
         self.narrow_w = narrow_w
         self.narrow_c = narrow_c
         super().__init__(mass, base, mirror)
+        self.muscle_mass = (self.mass * (shape - 0.05)) * ureg.kilogram
+        self.fat_mass = (self.mass * (1.0 - shape)) * ureg.kilogram
 
 
 class Prehensile(Body):
-    def __init__(self, mass, base, width, length, mirror=None, prehensile=0.0):
+    def __init__(self, mass, base, width, length, mirror=None, shape=0.8, prehensile=0.0):
         self.prehensile = prehensile
         self.width = width
         self.length = length
         super().__init__(mass, base, mirror)
+        self.muscle_mass = (self.mass * (shape - 0.05)) * ureg.kilogram
+        self.fat_mass = (self.mass * (1.0 - shape)) * ureg.kilogram
 
 
 class Neck(Body):
-    def __init__(self, mass, base, length, width, circumference, mirror=None):
+    def __init__(self, mass, base, length, width, circumference, shape=0.8, mirror=None):
         self.width = width
         self.circumference = circumference
         self.length = length
         super().__init__(mass, base, mirror)
+        self.muscle_mass = (self.mass * (shape - 0.05)) * ureg.kilogram
+        self.fat_mass = (self.mass * (1.0 - shape)) * ureg.kilogram
 
 
 class Genital(Body):
