@@ -29,7 +29,7 @@ class Multiverse:
         self.add_id(Universe(name), channel_id)
 
     def add_universe(self, universe: Universe):
-        if universe not in self.universes:
+        if universe not in self.universe_to_id:
             self.universe_to_id[universe] = []
 
     def add_id(self, universe: Universe, channel_id):
@@ -39,17 +39,17 @@ class Multiverse:
             self.id_to_universe[channel_id] = universe
 
     def get_universe_from_id(self, channel_id):
-        return self.id_to_universe[channel_id]
+        return self.id_to_universe.get(channel_id, None)
 
     def get_universe_count(self):
-        return len(self.universes)
+        return len(self.universe_to_id)
 
     def get_guild_count(self):
         return len(self.guilds)
 
     def get_player_count(self):
         count = 0
-        for u in self.universes:
+        for u in self.universe_to_id:
             count += len(u.players)
         return count
 
