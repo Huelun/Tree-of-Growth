@@ -10,6 +10,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
+import universe
 
 
 class Owner(commands.Cog, name="owner"):
@@ -180,9 +181,22 @@ class Owner(commands.Cog, name="owner"):
 
         :param context: The hybrid command context.
         """
+        universe.save_data()
         embed = discord.Embed(description="Shutting down. Bye! :wave:", color=0xBEBEFE)
         await context.send(embed=embed)
         await self.bot.close()
+
+    @commands.hybrid_command(
+        name="backup",
+        description="Save the player data for all games.",
+    )
+    @commands.is_owner()
+    async def backup(self, context: Context) -> None:
+
+        universe.save_data()
+
+        embed = discord.Embed(description="Saving not implemented.", color=0xBEBEFE)
+        await context.send(embed=embed)
 
     @commands.hybrid_command(
         name="say",
@@ -228,7 +242,8 @@ class Owner(commands.Cog, name="owner"):
         """
         if context.invoked_subcommand is None:
             embed = discord.Embed(
-                description="You need to specify a subcommand.\n\n**Subcommands:**\n`add` - Add a user to the blacklist.\n`remove` - Remove a user from the blacklist.",
+                description="You need to specify a subcommand.\n\n**Subcommands:**\n`add` - Add a user to the "
+                            "blacklist.\n`remove` - Remove a user from the blacklist.",
                 color=0xE02B2B,
             )
             await context.send(embed=embed)

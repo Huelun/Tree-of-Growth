@@ -260,11 +260,12 @@ class DiscordBot(commands.Bot):
             await context.send(embed=embed)
             if context.guild:
                 self.logger.warning(
-                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the guild {context.guild.name} (ID: {context.guild.id}), but the user is not an owner of the bot."
+                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the guild {context.guild.name} (ID: {context.guild.id}), but the user is not an owner of the bot. "
                 )
             else:
                 self.logger.warning(
-                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the bot's DMs, but the user is not an owner of the bot."
+                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the bot's "
+                    f"DMs, but the user is not an owner of the bot. "
                 )
         elif isinstance(error, commands.MissingPermissions):
             embed = discord.Embed(

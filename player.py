@@ -2,7 +2,8 @@ from units import ureg, Q_
 
 
 class Player:
-    def __init__(self):
+    def __init__(self, player_id):
+        self.id = player_id
         self.troves = 0 * ureg.gram
         self.body = {}
 
