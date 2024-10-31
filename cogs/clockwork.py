@@ -18,6 +18,16 @@ class ClockCog(commands.Cog):
     async def hourly_task(self):
         universe.save_data()
 
+    @tasks.loop(hours=2)
+    async def process_food(self):
+        for u in universe.multiverse_instance:
+            for grower in u.players:
+                grower.digest()
+
+    @tasks.loop(hours=24)
+    async def daily_task(self):
+        universe.delete_old_files()
+
     @hourly_task.before_loop
     async def before_hourly_task(self):
         await self.bot.wait_until_ready()

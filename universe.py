@@ -1,6 +1,7 @@
 import os
 import pickle
 import datetime
+from collections import defaultdict
 
 import player
 
@@ -8,7 +9,13 @@ import player
 class Universe:
     def __init__(self, name):
         self.name = name
-        self.players: set(player.Player) = set()
+        self.players: set[player.Player] = set()
+
+    def get_player_by_id(self, player_id):
+        for grower in self.players:
+            if grower.id == player_id:
+                return grower
+        return None
 
 
 class GuildData:
@@ -91,3 +98,36 @@ def load_data(save_file):
     print(
         "Data of " + str(multiverse_instance.get_player_count()) + " players loaded for " + str(
             multiverse_instance.get_universe_count()) + " universes.")
+    delete_old_files()
+
+
+def delete_old_files():
+    # Get the current time
+    now = datetime.datetime.now()
+    cutoff = now - datetime.timedelta(days=1)  # Define the cutoff as 24 hours ago
+
+    # List all .pkl files in the save directory
+    save_files = [f for f in os.listdir(save_directory) if f.endswith(".pkl")]
+
+    # Group files by day (using day number and year as keys)
+    files_by_day = defaultdict(list)
+    for file in save_files:
+        file_path = os.path.join(save_directory, file)
+        file_time = datetime.datetime.fromtimestamp(os.path.getmtime(file_path))
+
+        # Only consider files older than the cutoff for potential deletion
+        if file_time < cutoff:
+            day_key = file_time.strftime("%Y_%j")  # Year and day of the year
+            files_by_day[day_key].append((file, file_time))
+
+    # Process each day, keeping only the most recent file
+    for day, files in files_by_day.items():
+        # Sort files by modification time (the newest last)
+        files.sort(key=lambda x: x[1])
+
+        # Keep the most recent file and delete the rest
+        for file, _ in files[:-1]:  # Exclude the most recent file
+            os.remove(os.path.join(save_directory, file))
+            print(f"Deleted old file: {file}")
+
+    print("Old files deleted, keeping one file per day.")
