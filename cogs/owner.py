@@ -10,6 +10,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
+
 import universe
 
 
@@ -340,6 +341,16 @@ class Owner(commands.Cog, name="owner"):
             text=f"There {'is' if total == 1 else 'are'} now {total} {'user' if total == 1 else 'users'} in the blacklist"
         )
         await context.send(embed=embed)
+
+    @commands.command(
+        name="list_commands",
+        description="Lists all currently registered commands.",
+    )
+    @commands.is_owner()
+    async def list_commands(self, ctx):
+        """Lists all currently registered commands."""
+        commands = [cmd.name for cmd in ctx.bot.tree.get_commands()]
+        await ctx.send(f"Currently registered commands: {', '.join(commands)}")
 
 
 async def setup(bot) -> None:

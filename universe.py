@@ -1,15 +1,15 @@
+import datetime
 import os
 import pickle
-import datetime
 from collections import defaultdict
-
-import player
+from typing import List
 
 
 class Universe:
     def __init__(self, name):
+        from player import Player
         self.name = name
-        self.players: set[player.Player] = set()
+        self.players: set[Player] = set()
 
     def get_player_by_id(self, player_id):
         for grower in self.players:
@@ -26,42 +26,68 @@ class GuildData:
 
 class Multiverse:
     def __init__(self):
-        #  self.universes = {}
-        self.guilds = {}
-        # Dictionary to store channel ids associated with universes
-        self.universe_to_id = {}
-        self.id_to_universe = {}
+        self.guilds = {}  # Unclear what this is used for, leaving it unchanged
+        self.universe_to_id = {}  # Maps Universe instances to a list of associated channel IDs
+        self.id_to_universe = {}  # Maps channel IDs back to Universe instances
 
     def create_universe(self, channel_id, name: str):
+        """Creates a new universe and associates it with a channel."""
         self.add_id(Universe(name), channel_id)
 
     def add_universe(self, universe: Universe):
+        """Adds a universe if it's not already tracked."""
         if universe not in self.universe_to_id:
             self.universe_to_id[universe] = []
 
     def add_id(self, universe: Universe, channel_id):
+        """Associates a universe with a channel ID."""
         self.add_universe(universe)
         if channel_id not in self.universe_to_id[universe]:
             self.universe_to_id[universe].append(channel_id)
             self.id_to_universe[channel_id] = universe
 
     def get_universe_from_id(self, channel_id):
+        """Retrieves a universe using a channel ID."""
         return self.id_to_universe.get(channel_id, None)
 
     def get_universe_count(self):
+        """Returns the number of universes."""
         return len(self.universe_to_id)
 
     def get_guild_count(self):
+        """Returns the number of guilds."""
         return len(self.guilds)
 
     def get_player_count(self):
-        count = 0
-        for u in self.universe_to_id:
-            count += len(u.players)
-        return count
+        """Returns the total number of players across all universes."""
+        return sum(len(u.players) for u in self.get_universes())
+
+    def update_player_instances(self):
+        """Ensures all players have their unit systems set up properly."""
+        from effect import Effect
+        from item import Item
+        for u in self.get_universes():
+            for p in u.players:
+                if not hasattr(p, "inventory"):
+                    p.inventory: List[Item] = []
+                if not hasattr(p, "effects"):
+                    p.effects: List[Effect] = []
+                for i in p.inventory:
+                    if not hasattr(i, "emoji"):
+                        i.emoji = ""
+
+    def get_universes(self):
+        """Returns a list of all universes currently stored."""
+        return list(self.universe_to_id.keys())
+
+    def __iter__(self):
+        """Allows iteration over universes directly with `for u in multiverse_instance`."""
+        return iter(self.get_universes())
 
 
+# Singleton instance of Multiverse
 multiverse_instance = Multiverse()
+
 save_directory = "saves"
 
 
@@ -88,6 +114,7 @@ def load_most_recent_save():
     save_files.sort(key=lambda f: os.path.getmtime(os.path.join(directory, f)), reverse=True)
     most_recent_save = save_files[0]
     load_data(most_recent_save)
+    print("Loaded most recent save")
 
 
 def load_data(save_file):
@@ -95,6 +122,7 @@ def load_data(save_file):
     with open(os.path.join(save_directory, save_file), 'rb') as file:
         loaded_data = pickle.load(file)
     multiverse_instance.__dict__.update(loaded_data.__dict__)
+    multiverse_instance.update_player_instances()
     print(
         "Data of " + str(multiverse_instance.get_player_count()) + " players loaded for " + str(
             multiverse_instance.get_universe_count()) + " universes.")

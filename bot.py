@@ -12,6 +12,7 @@ import os
 import platform
 #  import random #  random was used for statuses
 import sys
+import tracemalloc
 
 import aiosqlite
 import discord
@@ -20,6 +21,8 @@ from discord.ext.commands import Context
 from dotenv import load_dotenv
 
 from database import DatabaseManager
+
+tracemalloc.start()
 
 if not os.path.isfile(f"{os.path.realpath(os.path.dirname(__file__))}/config.json"):
     sys.exit("'config.json' not found! Please add it and try again.")
@@ -298,4 +301,9 @@ class DiscordBot(commands.Bot):
 
 load_dotenv()
 bot = DiscordBot()
-bot.run(os.getenv("TOKEN"))
+try:
+    # Your bot startup logic
+    bot.run(os.getenv("TOKEN"))
+except Exception as e:
+    print(f"An error occurred: {e}")
+
