@@ -11,6 +11,8 @@ from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
+import universe
+
 
 class Owner(commands.Cog, name="owner"):
     def __init__(self, bot) -> None:
@@ -180,9 +182,22 @@ class Owner(commands.Cog, name="owner"):
 
         :param context: The hybrid command context.
         """
+        universe.save_data()
         embed = discord.Embed(description="Shutting down. Bye! :wave:", color=0xBEBEFE)
         await context.send(embed=embed)
         await self.bot.close()
+
+    @commands.hybrid_command(
+        name="backup",
+        description="Save the player data for all games.",
+    )
+    @commands.is_owner()
+    async def backup(self, context: Context) -> None:
+
+        universe.save_data()
+
+        embed = discord.Embed(description="Saving not implemented.", color=0xBEBEFE)
+        await context.send(embed=embed)
 
     @commands.hybrid_command(
         name="say",
@@ -228,7 +243,8 @@ class Owner(commands.Cog, name="owner"):
         """
         if context.invoked_subcommand is None:
             embed = discord.Embed(
-                description="You need to specify a subcommand.\n\n**Subcommands:**\n`add` - Add a user to the blacklist.\n`remove` - Remove a user from the blacklist.",
+                description="You need to specify a subcommand.\n\n**Subcommands:**\n`add` - Add a user to the "
+                            "blacklist.\n`remove` - Remove a user from the blacklist.",
                 color=0xE02B2B,
             )
             await context.send(embed=embed)
@@ -325,6 +341,16 @@ class Owner(commands.Cog, name="owner"):
             text=f"There {'is' if total == 1 else 'are'} now {total} {'user' if total == 1 else 'users'} in the blacklist"
         )
         await context.send(embed=embed)
+
+    @commands.command(
+        name="list_commands",
+        description="Lists all currently registered commands.",
+    )
+    @commands.is_owner()
+    async def list_commands(self, ctx):
+        """Lists all currently registered commands."""
+        commands = [cmd.name for cmd in ctx.bot.tree.get_commands()]
+        await ctx.send(f"Currently registered commands: {', '.join(commands)}")
 
 
 async def setup(bot) -> None:
