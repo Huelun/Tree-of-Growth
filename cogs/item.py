@@ -1,11 +1,7 @@
 import player
 import util
 from util import format_quantity
-# Initialize the unit registry
-from pint import UnitRegistry, set_application_registry
-ureg = UnitRegistry()
-Q_ = ureg.Quantity
-set_application_registry(ureg)
+from units import ureg, Q_
 
 class Item:
     def __init__(self, name: str, value: float, emoji: str = ""):
