@@ -64,8 +64,8 @@ class Multiverse:
 
     def update_player_instances(self):
         """Ensures all players have their unit systems set up properly."""
-        from effect import Effect
-        from item import Item
+        from cogs.effect import Effect
+        from cogs.item import Item
         for u in self.get_universes():
             for p in u.players:
                 if not hasattr(p, "inventory"):

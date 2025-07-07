@@ -2,8 +2,7 @@ from enum import Enum
 import pickle
 from typing import List
 
-import item
-import effect
+from cogs import item, effect
 
 
 class UnitSystem(Enum):

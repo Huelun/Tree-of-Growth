@@ -7,16 +7,12 @@ from discord import Member, app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
-import item
+from cogs import item, universe, util
 import player
-import universe
-import util
-from effect import EffectType
-from interaction_system import PlayerInteractionView
+from cogs.effect import EffectType
+from cogs.interaction_system import PlayerInteractionView
 from player import UnitSystem
-from util import format_quantity
-
-ureg = util.ureg
+from cogs.util import format_quantity
 
 
 async def meal(ctx: Context):

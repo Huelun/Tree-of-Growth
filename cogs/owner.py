@@ -11,7 +11,7 @@ from discord import app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
-import universe
+from cogs import universe
 
 
 class Owner(commands.Cog, name="owner"):

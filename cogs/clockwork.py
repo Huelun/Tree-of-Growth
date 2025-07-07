@@ -1,5 +1,5 @@
 from discord.ext import commands, tasks
-import universe
+from cogs import universe
 
 
 class ClockCog(commands.Cog):

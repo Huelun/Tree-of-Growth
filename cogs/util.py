@@ -5,7 +5,7 @@ from nltk.tokenize import word_tokenize
 from nltk import pos_tag
 
 import player
-import universe
+from cogs import universe
 from player import UnitSystem
 import pint
 import re

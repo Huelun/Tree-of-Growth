@@ -2,7 +2,7 @@ from typing import Optional, Callable
 
 import discord
 
-from effect import Effect
+from cogs.effect import Effect
 from util import get_player_from_member  # Assumes this function exists to retrieve player data
 
 
