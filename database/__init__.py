@@ -8,7 +8,10 @@ Version: 6.1.0
 
 
 import aiosqlite
-
+from pint import UnitRegistry, set_application_registry
+ureg = UnitRegistry()
+Q_ = ureg.Quantity
+set_application_registry(ureg)
 
 class DatabaseManager:
     def __init__(self, *, connection: aiosqlite.Connection) -> None:

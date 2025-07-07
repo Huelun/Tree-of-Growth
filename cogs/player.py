@@ -31,7 +31,7 @@ class Player:
         # Create the head
         self.body['head'] = Head(
             mass=5,  # Average head weight
-            base=self.body['torso'],  # The head attaches to the torso
+            base=self.body['neck'],  # The head attaches to the neck
             length=0.20,  # Average head length from chin to top
             width=0.15,  # Average width from ear to ear
             circumference=0.58  # Average head circumference
