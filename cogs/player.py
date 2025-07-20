@@ -3,6 +3,7 @@ import pickle
 from typing import List
 
 from cogs import item, effect
+from units import ureg, Q_
 
 
 class UnitSystem(Enum):
@@ -13,59 +14,59 @@ class UnitSystem(Enum):
 class Player:
     def __init__(self, player_id):
         self.id = player_id
-        self.troves = 0
+        self.troves = 0 * ureg.kg
         self.inventory: List[item.Item] = []  # Every item is stored individually
         self.effects: List[effect.Effect] = []
-        self.units = UnitSystem.METRIC  # Default to Metric
+        self.units = "mks"  # Default to Metric
         # Initialize body parts in a dictionary
         self.body = {'torso': Torso(
-            mass=30,  # Average torso weight
-            base=None,  # Torso is the central base part of the body
-            length=0.50,  # Average torso length from waist to shoulder
-            width=0.40,  # Average shoulder-to-shoulder width
-            circumference=0.85,  # Average waist circumference
+            mass=30 * ureg.kg,  # Average torso weight
+            base=self,  # Torso is the central base part of the body
+            length=50 * ureg.centimeter,  # Average torso length from waist to shoulder
+            width=40 * ureg.centimeter,  # Average shoulder-to-shoulder width
+            circumference=85 * ureg.centimeter,  # Average waist circumference
             shape='anthro',  # A basic body shape
         )}
 
         # Create the head
         self.body['head'] = Head(
-            mass=5,  # Average head weight
+            mass=5 * ureg.kg,  # Average head weight
             base=self.body['neck'],  # The head attaches to the neck
-            length=0.20,  # Average head length from chin to top
-            width=0.15,  # Average width from ear to ear
-            circumference=0.58  # Average head circumference
+            length=20 * ureg.centimeter,  # Average head length from chin to top
+            width=15 * ureg.centimeter,  # Average width from ear to ear
+            circumference=58 * ureg.centimeter  # Average head circumference
         )
 
         # Create the neck
         self.body['neck'] = Neck(
-            mass=1,  # Average neck weight
+            mass=1 * ureg.kg,  # Average neck weight
             base=self.body['torso'],  # Neck attaches to the torso
-            length=0.10,  # Average neck length
-            width=0.12,  # Average neck width
-            circumference=0.38  # Average neck circumference
+            length=10 * ureg.centimeter,  # Average neck length
+            width=12 * ureg.centimeter,  # Average neck width
+            circumference=38 * ureg.centimeter  # Average neck circumference
         )
 
         # Create arms (left and right as mirrored limbs)
         self.body['left_arm'] = Limb(
-            mass=3,  # Average arm weight
+            mass=3 * ureg.kg,  # Average arm weight
             base=self.body['torso'],  # Arm attaches to torso at shoulder
-            length=0.60,  # Average arm length from shoulder to wrist
-            wide_w=0.12,  # Width at shoulder
-            wide_c=0.30,  # Circumference at shoulder
-            narrow_w=0.08,  # Width at wrist
-            narrow_c=0.20,  # Circumference at wrist
+            length=60 * ureg.centimeter,  # Average arm length from shoulder to wrist
+            wide_w=12 * ureg.centimeter,  # Width at shoulder
+            wide_c=30 * ureg.centimeter,  # Circumference at shoulder
+            narrow_w=8 * ureg.centimeter,  # Width at wrist
+            narrow_c=20 * ureg.centimeter,  # Circumference at wrist
             prehensile=1.0  # Arms are fully prehensile
         )
 
         self.body['right_arm'] = Limb(
-            mass=3,
-            base=self.body['torso'],
-            length=0.60,
-            wide_w=0.12,
-            wide_c=0.30,
-            narrow_w=0.08,
-            narrow_c=0.20,
-            prehensile=1.0,
+            mass=3 * ureg.kg,  # Average arm weight
+            base=self.body['torso'],  # Arm attaches to torso at shoulder
+            length=60 * ureg.centimeter,  # Average arm length from shoulder to wrist
+            wide_w=12 * ureg.centimeter,  # Width at shoulder
+            wide_c=30 * ureg.centimeter,  # Circumference at shoulder
+            narrow_w=8 * ureg.centimeter,  # Width at wrist
+            narrow_c=20 * ureg.centimeter,  # Circumference at wrist
+            prehensile=1.0,  # Arms are fully prehensile
             mirror=self.body['left_arm']  # Mirror of left_arm
         )
 
@@ -73,41 +74,44 @@ class Player:
 
         # Create legs (left and right as mirrored limbs)
         self.body['left_leg'] = Limb(
-            mass=8,  # Average leg weight
+            mass=8 * ureg.kg,  # Average leg weight
             base=self.body['torso'],  # Leg attaches to torso at hip
-            length=0.90,  # Average leg length from hip to ankle
-            wide_w=0.20,  # Width at hip
-            wide_c=0.50,  # Circumference at thigh
-            narrow_w=0.10,  # Width at ankle
-            narrow_c=0.25  # Circumference at ankle
+            length=90 * ureg.centimeter,  # Average leg length from hip to ankle
+            wide_w=20 * ureg.centimeter,  # Width at hip
+            wide_c=50 * ureg.centimeter,  # Circumference at thigh
+            narrow_w=10 * ureg.centimeter,  # Width at ankle
+            narrow_c=25 * ureg.centimeter  # Circumference at ankle
         )
 
         self.body['right_leg'] = Limb(
-            mass=8,
+            mass=8 * ureg.kg,
             base=self.body['torso'],
-            length=0.90,
-            wide_w=0.20,
-            wide_c=0.50,
-            narrow_w=0.10,
-            narrow_c=0.25,
+            length=90 * ureg.centimeter,
+            wide_w=20 * ureg.centimeter,
+            wide_c=50 * ureg.centimeter,
+            narrow_w=10 * ureg.centimeter,
+            narrow_c=25 * ureg.centimeter,
             mirror=self.body['left_leg']  # Mirror of left_leg
         )
 
         self.body['left_leg'].mirror = self.body['right_leg']  # Set mirror for left_leg
 
         # Create additional accessories: eyes, nose, ears, and mouth
-        self.body['left_eye'] = Eye(mass=0.02, base=self.body['head'], width=0.025)
-        self.body['right_eye'] = Eye(mass=0.02, base=self.body['head'], width=0.025, mirror=self.body['left_eye'])
+        self.body['left_eye'] = Eye(mass=0.02 * ureg.kg, base=self.body['head'],
+                                    width=2.5 * ureg.centimeter)
+        self.body['right_eye'] = Eye(mass=0.02 * ureg.kg, base=self.body['head'],
+                                     width=2.5 * ureg.centimeter, mirror=self.body['left_eye'])
         self.body['left_eye'].mirror = self.body['right_eye']  # Set mirror for left_eye
 
-        self.body['nose'] = Nose(mass=0.05, base=self.body['head'])
+        self.body['nose'] = Nose(mass=0.05 * ureg.kg, base=self.body['head'])
 
-        self.body['left_ear'] = Ear(mass=0.02, base=self.body['head'], length=0.06)
-        self.body['right_ear'] = Ear(mass=0.02, base=self.body['head'], length=0.06,
+        self.body['left_ear'] = Ear(mass=0.02 * ureg.kg, base=self.body['head'], length=6 * ureg.centimeter)
+        self.body['right_ear'] = Ear(mass=0.02 * ureg.kg, base=self.body['head'], length=6 * ureg.centimeter,
                                      mirror=self.body['left_ear'])
         self.body['left_ear'].mirror = self.body['right_ear']  # Set mirror for left_ear
 
-        self.body['maw'] = Maw(mass=0.1, base=self.body['head'], width=0.08, depth=0.02, teeth=0.01)
+        self.body['maw'] = Maw(mass=0.1 * ureg.kg, base=self.body['head'],
+                               width=8 * ureg.centimeter, depth=2 * ureg.centimeter, teeth=1 * ureg.centimeter)
 
     def add_item(self, thing):
         """Adds a unique item to the inventory."""

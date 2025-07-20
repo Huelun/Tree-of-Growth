@@ -3,6 +3,7 @@ import util
 from util import format_quantity
 from units import ureg, Q_
 
+
 class Item:
     def __init__(self, name: str, value: float, emoji: str = ""):
         self.name = name
@@ -22,7 +23,7 @@ class Consumable(Item):
 
     def __init__(self, name: str, value: float, size: float, tier: int, emoji: str = ""):
         super().__init__(name, value, emoji)
-        self.size = size  # Prevents zero-sized items
+        self.size = size * ureg.kilogram  # Prevents zero-sized items
         self.tier = tier  # Ensures tier is at least 1
 
     def use(self, user):
@@ -35,15 +36,15 @@ class Food(Consumable):
 
     def __init__(self, name: str, value: float, size: float, tier: int, protein: float, fat: float, emoji: str = ""):
         super().__init__(name, value, size, tier, emoji)
-        self.protein = protein
-        self.fat = fat
+        self.protein = protein * ureg.kilogram
+        self.fat = fat * ureg.kiligram
 
     def get_description(self, unit_system: player.UnitSystem = player.UnitSystem.METRIC) -> str:
         return (super().get_description() +
-                f"\nMeal Size: {format_quantity((self.size + self.protein + self.fat) * ureg.kg, unit_system)}" +
+                f"\nMeal Size: {(self.size + self.protein + self.fat)}" +
                 f"\nTier: {self.tier}" +
-                f"\nFat: {format_quantity(self.fat * ureg.kg, unit_system)}" +
-                f"\nProtein: {format_quantity(self.protein * ureg.kg, unit_system)}")
+                f"\nFat: {self.fat}" +
+                f"\nProtein: {self.protein}")
 
     def use(self, grower: player.Player):
         """Feed the player based on size, tier, and balance."""

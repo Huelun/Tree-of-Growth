@@ -13,6 +13,7 @@ from cogs.effect import EffectType
 from cogs.interaction_system import PlayerInteractionView
 from player import UnitSystem
 from cogs.util import format_quantity
+from units import ureg, Q_
 
 
 async def meal(ctx: Context):
