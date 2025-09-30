@@ -19,35 +19,36 @@ class Player:
         self.effects: List[effect.Effect] = []
         self.units = UnitSystem.METRIC  # Default to Metric
         # Initialize body parts in a dictionary
-        self.body = {'torso': Torso(
+        self.body = {
+        'torso':Torso(
             mass=30,  # Average torso weight
             base=None,  # Torso is the central base part of the body
             length=0.50,  # Average torso length from waist to shoulder
             width=0.40,  # Average shoulder-to-shoulder width
             circumference=0.85,  # Average waist circumference
             shape='anthro',  # A basic body shape
-        )}
+        ),
 
         # Create the head
-        self.body['head'] = Head(
+        'head': Head(
             mass=5,  # Average head weight
             base=self.body['torso'],  # The head attaches to the torso
             length=0.20,  # Average head length from chin to top
             width=0.15,  # Average width from ear to ear
             circumference=0.58  # Average head circumference
-        )
+        ),
 
         # Create the neck
-        self.body['neck'] = Neck(
+        'neck': Neck(
             mass=1,  # Average neck weight
             base=self.body['torso'],  # Neck attaches to the torso
             length=0.10,  # Average neck length
             width=0.12,  # Average neck width
             circumference=0.38  # Average neck circumference
-        )
+        ),
 
         # Create arms (left and right as mirrored limbs)
-        self.body['left_arm'] = Limb(
+        'left_arm': Limb(
             mass=3,  # Average arm weight
             base=self.body['torso'],  # Arm attaches to torso at shoulder
             length=0.60,  # Average arm length from shoulder to wrist
@@ -56,9 +57,9 @@ class Player:
             narrow_w=0.08,  # Width at wrist
             narrow_c=0.20,  # Circumference at wrist
             prehensile=1.0  # Arms are fully prehensile
-        )
+        ),
 
-        self.body['right_arm'] = Limb(
+        'right_arm': Limb(
             mass=3,
             base=self.body['torso'],
             length=0.60,
@@ -68,7 +69,7 @@ class Player:
             narrow_c=0.20,
             prehensile=1.0,
             mirror=self.body['left_arm']  # Mirror of left_arm
-        )
+        )}
 
         self.body['left_arm'].mirror = self.body['right_arm']  # Set mirror for left_arm
 
