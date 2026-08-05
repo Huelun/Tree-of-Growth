@@ -263,7 +263,8 @@ class DiscordBot(commands.Bot):
             await context.send(embed=embed)
             if context.guild:
                 self.logger.warning(
-                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the guild {context.guild.name} (ID: {context.guild.id}), but the user is not an owner of the bot. "
+                    f"{context.author} (ID: {context.author.id}) tried to execute an owner only command in the guild "
+                    f"{context.guild.name} (ID: {context.guild.id}), but the user is not an owner of the bot. "
                 )
             else:
                 self.logger.warning(
@@ -303,6 +304,10 @@ load_dotenv()
 bot = DiscordBot()
 try:
     # Your bot startup logic
+    from universe import load_most_recent_save
+    load_most_recent_save()
+    from universe import multiverse_instance
+    multiverse_instance.set_discord_client(bot)
     bot.run(os.getenv("TOKEN"))
 except Exception as e:
     print(f"An error occurred: {e}")

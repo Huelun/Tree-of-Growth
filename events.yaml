@@ -1,0 +1,2896 @@
+rampage_event_Acheroth_1:
+  event_type: "rampage"
+  title: "A Growing Concern"
+  description: >
+    It is a beautiful suburban day. The sky is clear, the air is warm, and the only sound that pierces the peaceful
+    suburbia is the chorus of birds singing to each other. That is, until you awaken. You yawn as you stumble out of
+    your home, ready to dominate the neighborhood with your mighty body. With a menacing grin, you arch your back and
+    bellow into the sky, your average voice causing a nearby squirrel to run and hide in a nearby tree.
+    
+    
+    Breathing in heavy grunts, you begin your rampage down the sidewalk, each foot stomping down hard against the
+    pavement. You let out a furious cry as you swipe out at trees and hedges as you pass them, their leaves sent
+    helplessly flying the ground. You kick a neighbors garbage bin, and though you don’t have the strength to topple it
+    over, you do knock an empty soda can lose. With a wicked grin you stomp on top of it, relishing in the metallic
+    crunching as it is crushes under foot.
+    
+    
+    You approach a nearby bus stop, and with a bloodthirsty roar, pound both
+    fists against the clear Plexiglas. The furries waiting beyond the clear barrier jolt in shock as they behold you.
+    “Are you alright? Do you need any help?” a concerned rabbit cries out to you. Yes, concern. You have wrought such
+    terrible concern to the neighborhood! You continue stomping down the street, cackling evilly to yourself.
+    
+    
+    Your stroll got your blood flowing, and gave you quite a workout!
+  requirements:
+    min_size: 40
+    max_size: 80
+  reward:
+    type: "body"
+  author:
+    name: "Acheroth"
+
+rampage_event_Acheroth_2:
+  event_type: "rampage"
+  title: "At the Mall"
+  description: >
+    It is a busy day at the mall; the shops and promenades were packed as the weekend crowd shopped, socialized, and ran
+    their errands. But their day was about to sour.
+    
+    
+    You stomp angrily up the escalator, your face contorted into a sneer. You grunt loudly as you roughly push past
+    others, ignoring their disgusted expressions and insults. Once at the top, you bellow out an enraged roar, and with
+    the confused stares of nearby shoppers, charge into a recycling bin. The bin full and heavy, and your body is
+    relatively average, so there is no clear winner. You both bounce off each other, sending you sliding across the
+    smooth polished floor. But while you are in one piece, the bin is not. It’s lid clanks loudly as it's flung across
+    the promenade, and lose garbage is strewn all over the nearby floor.
+    
+    
+    A confused murmur rises from the crowd as you laugh in delight at the mess. You waste no time in grabbing a small
+    potted plant and rip it from it’s soil, throwing it down onto the floor below. You grab a smoothie from an onlooking
+    lioness, and with a manic cry you pour it down your throat as quickly as possible. Her protests fall on your cold,
+    deaf ears as the sweet sugary slush drips down your maw and neck. Once sated, you throw the sticky wet cup at a
+    nearby shop front window, laughing maniacally as you watch it slowly slide down, leaving a streak of mess. You roar
+    triumphantly at your path of destruction, your average voice drowning in the steady drone of the mall’s ambiance.
+    
+    
+    A big hulking horse in a security uniform comes up and grabs you by your collar, leading you forcefully towards the
+    exit. You go with him, but not because you are following him. You were simply going to go that way anyway. Oh, if
+    only the guard knew how lucky he was. You chose to let him live, but only so that he can tell his story.
+    
+    
+    The smoothie was delicious and a meal in itself! You have consumed {dinner} and grown {d_weight} heavier
+    and {size} taller.
+  requirements:
+    min_size: 40
+    max_size: 80
+  reward:
+    type: "instant_food"
+    name: "smoothie"
+    size: 0.9936696
+  author:
+    name: "Acheroth"
+
+rampage_event_Acheroth_3:
+  event_type: "rampage"
+  title: "Terrifying Presence"
+  description: >
+    You breathe in deeply, taking in the fresh morning air as you walk your larger than normal body through the quiet
+    suburban sidewalks. Furries of all kind walk past you, hurrying on their way to work or errands. And they all step
+    aside, their eyes unable to hide their surprise at your scale. Your smug grin slowly turns more wicked as you
+    steadily feel a primal urge rising above you. Big. You are Big. And it was time to show it.
+    
+    
+    With a deep growl, you lash out and hit someone’s mailbox. Your claws scrape against the thin steel as it snaps off
+    it’s post, sending unopened bills flying across the lawn. With a guttural snarl, you charge into a full garbage bin,
+    sending it flying several meters down the street, flinging lose refuse over lawns, footpaths, streets and parked
+    cars alike. You hear gasps from nearby furries who quickly cross the street to avoid you. Without missing a beat,
+    you pick the garbage bin up and start beating it over a parked car, causing shallow dents in its metallic panels.
+    The alarm quickly sounds, but its piercing shriek is forced to compete with your own deep, furious shouts “Hey!” you
+    hear a voice shout out from behind you. Reflexively, you turn to see a slender but angry fox comes barging out of a
+    near by house “What the fuck are you doing to my car?” He yells. In response, you growl at him menacingly, your
+    large teeth barred and unnaturally large frame deathly still. The fox’s expression changes instantly into fear,
+    before he quickly runs back into his house, the click of his lock carrying all the way back to your ears. Your snarl
+    rises into a victorious roar. Your deeper than normal voice carries louder and further than even you expected,
+    riling up a number of dogs around the neighborhood who bark furiously in response.
+  requirements:
+    min_size: 80
+    max_size: 160
+  reward:
+    type: "body"
+  author:
+    name: "Acheroth"
+
+rampage_event_Acheroth_4:
+  event_type: "rampage"
+  title: "Force of Nature"
+  description: >
+    It is a beautiful day at the beach. Hundreds of sunbathers, swimmers and surfers have come out to enjoy the warm sun
+    and crashing waves. But little did they know their perfect day in paradise was about to take a dreadful turn.
+    
+    
+    Grunting and snorting, you stomp down the beach, feet sinking into the helpless sand with each footfall. You roar at
+    some nearby children who are returning from their swimming trip. Startled, they begin to cry and run to their
+    parents, a futile reaction as they would be able to protect them from you! But still, you think, there a lot more
+    rampaging to do so you'd better move along quickly.
+    
+    
+    Snarling, you find an abandoned sandcastle. It is actually quite impressive; its many keeps and walls have fine
+    details. But none of them can withstand your mighty feet! With cries of fury, you stomp and kick that castle into
+    the ground. Nearby onlookers shake their heads at your wonton destruction. You smirk at them and stomp on.
+    
+    
+    Your terrifyingly average frame approaches the local boardwalk, a popular landmark full of buskers and carnival
+    rides. They all turn to watch you loudly stomp and grunt your way across the wooden planks. Some foreign tourists,
+    apparently not accustomed to how unusually frightening you are, laugh and clap in delight as they film you stomping
+    past them. They throw you some troves, apparently mistaking you for a performer. Fools! You are a force of nature,
+    completely above the want or need for earthly possessions! You pick them up regardless; they could be useful for
+    stomping on later.
+    
+    
+    You have collected **{troves} of troves** from your day out at the beach!
+  requirements:
+    min_size: 40
+    max_size: 80
+  reward:
+    type: "troves"
+  author:
+    name: "Acheroth"
+
+rampage_event_Acheroth_5:
+  event_type: "rampage"
+  title: "At the Mall 2"
+  description: >
+    It was a quiet day at the mall, the lazy Wednesday afternoon crowd sparse and relaxed as they wandered almost
+    aimlessly through the open concourses. That is, until they hear a terrible roar echoing from around the corner.
+    
+    
+    Your larger than natural frame appears, throwing a garbage bin over a nearby guardrail onto the floor below you. It
+    explodes on impact, covering everything nearby in bin juice. With another roar, you turn around and charge towards
+    the food court. Any shopper anywhere near you quickly flees into nearby stores to escape your frighteningly large
+    and fast form.
+    
+    
+    You crash into the dining area, tables and chairs splintering and bending as they are thrown haphazardly into the
+    air. Still you run, carving a path through the seating arrangements as you approach a delicious store selling what
+    looks to be Chinese food. The two workers see you coming and flee out the back, before your form slams into the fake
+    marble counter, causing it to crack loudly and fracture. Snarling and roaring angrily, you reach behind the glass
+    counter top, and tear it off towards you instead. You slam it down behind you before gorging on what is on offer;
+    beef with black bean, sweet and sour chicken, pork lo mien… each mouthful is even more delicious than the last.
+    
+    
+    Suddenly you feel something sharp strike your flank, before your whole body seizes up in explosive pain. Suddenly
+    you are on the floor, and you groggily see that you have been hit by a taser, held by a fearful burly horse in a
+    security uniform. You snarl and start to pick yourself up, but you quickly double back in pain on the floor at the
+    squeeze of the horse’s finger.
+    
+    
+    Soon, you are surrounded by guards, who each take control of one of your limbs, and start lifting you towards the
+    exit. You struggle wildly, your strength easily outmatching any of your carriers; but not all four. It seems your
+    rampage is over a little early today.
+    
+    
+    Your Chinese dinner was very filling! You have eaten {dinner} and grown {d_weight} in weight and {size} in height!
+  requirements:
+    min_size: 80
+    max_size: 160
+  reward:
+    type: "instant_food"
+    name: "Chinese food"
+    fill_stomach: True
+  author:
+    name: "Acheroth"
+
+rampage_event_Acheroth_6:
+  event_type: "rampage"
+  description: >
+    Your footsteps pound heavily on a sidewalk that is barely wide enough to contain you. You growl softly with each
+    deep breath, your deep and rumbling voice piercing the quiet piece of the neighborhood. Oncoming furries are
+    startled and either cross the street or walk back the way they came, their disbelieving eyes never leaving your
+    immense frame. Big. You are just so very, unnaturally big.
+    
+    
+    You don’t even bother to look before crossing the street. Sure enough, an oncoming car comes to a screeching halt as
+    it approaches your hulking form. It was not traveling fast, but your strides are long and it did not see you until
+    it was right there in front of you. It hits your leg, forcing you to step backwards. It was not a big hit; more of a
+    forceful nudge. But the audacity of something pushing you around makes you flash with incredible rage!
+    
+    
+    With a deafening sonorous roar that echoes through the street, you lunge forwards and strike the car’s hood with
+    both fists. The metal folds under your fists, and the engine sputters to a halt. You are not done, however. You rain
+    blow after blow down on the increasingly mangled hood, your strikes causing the car to bounce on its own suspension.
+    The driver quickly opens his door and flees; but you are busy trying to lift the car up.
+    
+    
+    With a lot of effort and barred teeth, you manage to lift its front wheels off the ground. But it is just too heavy
+    to disrupt it’s center of mass. With a frustrated grunt, you settle for ripping what is left of the hood from its
+    street.
+    
+    
+    You’ve successfully combined rampaging with looting! You collect {troves} of troves from your endeavors.
+  requirements:
+    min_size: 160
+    max_size: 320
+  reward:
+    type: "troves"
+  author:
+    name: "Acheroth"
+
+rampage_event_Acheroth_7:
+  event_type: "rampage"
+  description: >
+    Downtown. The overpopulated, expensive heart of your city. There is no better location for you to wreck maximum
+    havoc. You sneer wickedly as you stomp down the broad sidewalk in a wide, hunched gait. The populace pay you
+    no heed; they have been desensitized to aberrant behavior from strangers; your malevolence was completely invisible
+    to them!
+
+
+    You push the pedestrian button at every street, even though you have no intention to cross! You tuck loose
+    bits of rubbish under the windshield wipers of parked cars! You inform a ticketing officer that someone is
+    parked illegally in front of a fire hydrant down the street! There is seemingly no end to the chaos you are
+    causing, and onlookers are powerless to stop you!
+
+
+    Seizing the momentum, you charge into a highrise and make your way to the elevator bank. It’s populated by
+    a small crowd of professionally dressed furries that turn to face you as you come grunting and sprinting towards
+    them. You knock over a potted plant standing between the elevator doors, causing moist soil and mulch to spill
+    across the shiny floor. Now, if anyone were to get on or off one of the cars, they would get their shoes dirty!
+    You relish in the onlookers startled confusion for a moment, before laughing maniacally and running back out
+    of the building.
+
+
+    Your wave of destruction would soon be brought to a heel however, as a passing delivery van drives through
+    a putrid puddle that lay on the street next to you. A torrent of filth sprays over your average body, drenching
+    you from head to toe. It felt warm as it began to be absorbed by your hide, a pleasant and tingly sensation.
+    You begin to laugh maniacally as the feeling spreads deep within you; the mysterious chemicals that lay in
+    that toxic swill gave you extra powers!
+  requirements:
+    min_size: 40
+    max_size: 80.0
+  reward:
+    type: "buff"
+  author:
+    name: "Acheroth"
+rampage_event_Devon_1:
+  event_type: "rampage"
+  description: >
+    It was a relatively normal day in the city, you were much larger than the normal folks who all gawked at you,
+    and their attention filled you with pride. You felt as if you were bigger than the rules, you felt as if you
+    could do anything. In your prideful daze, you cross a road without looking both ways. A red sedan comes screeching
+    towards you, the horn blaring, and the sheepish driver flashing you a panicked look from behind the wheel.
+    It slows down enough not to wipe you out, but it still hits you and bumps you back a little.
+
+
+    You feel your anger welling up inside you, your eyes burn red with fury as you bend over to grip the bumper
+    of the car that had assaulted you, your hands crushing through it as if it was a soda can, releasing a satisfying
+    crunch. The driver rushes out pleading for you to stop, but in your rage you cannot hear them. Flexing your
+    muscles you begin to hoist the car up from the ground, the metal vehicle groaning as if it was begging you
+    to spare it, but you won’t. Continuing to lift, you get it to a point where you know you could just flip it
+    over and just that, you will. With a final heave you swing your arms upward, tossing the car as if it was merely
+    a toy to you, it flies back and lands on its top smashing the roof and windows. You approach the little driver,
+    your frame dwarfing theirs, anger still boiling in your blood. The driver trembles as they stare up at you,
+    they fumble through their pockets before they pull out a bag of Troves.
+
+
+    “Please take this and don’t hurt me!" they whimper.
+
+
+    You snatch the bag from their little hands, and they scurry off with their tail between their legs.
+
+
+    You gain {troves} of Troves from the little person, just enough to quell your anger.
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "troves"
+  author: "Devon"
+rampage_event_Devon_2:
+  event_type: "rampage"
+  description: >
+    It was a beautiful day to go to the beach, so you thought, but it seems like you weren’t the only one. The
+    beach was busy as ever, people were camped out in such a way you could barely see the sand… It would be impossible
+    for you to find a spot to lay down comfortably at your current size.
+
+
+    You simply just wanted a day to relax in the sun, but these people were in your way. You charge into the crowds
+    frustrated, kicking up bucketloads of sand at people as you move, knocking down sturdy umbrellas with your
+    mighty limbs, and trampling beach chairs under your wake. You felt like a giant rampaging through a city albeit
+    you were only destroying umbrellas, chairs, and other beach paraphernalia. People gave you estranged looks
+    as they began to relocate further away from your tantrum.
+
+
+    Letting out a triumphant roar to announce to the world who you were and what you have done, your rampage is
+    finally complete. You’ve claimed a comfortable spot on the beach, and using the broken debris from your rampage
+    as a beach towel, you lay down and enjoy the sun.
+
+
+    Feeling yourself wind down as you watch the sunset, you think about what you have done, the things you have
+    broken, you don’t feel bad about it, in fact you feel inspired by your rampage, perhaps you’ll break something
+    bigger next time.
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "buff"
+  author: "Devon"
+rampage_event_Alsend_1:
+  event_type: "rampage"
+  description: >
+    You stride along downtown, smirking at the stares. You draw quite a lot of attention due to your size that
+    is by now clearly unnatural. You observe your surroundings, enjoying how the crowd parts, clearly able to pick
+    up on your destructive intentions, or just intimidated by your superior size. You go to cross the street when
+    you run into something, much to your annoyance feeling like bruised yourself. What dares inconvenience YOU?
+
+
+    You look down and spot a car... Who would leave a car HERE, on the side of the road by a parking meter?! How
+    DARE they! And you were just minding your own business, looking for... something... to... destroy.
+
+
+    You grin a toothy grin, rear back and strike at the car... And while it dents, a jolt of pain is felt from
+    the impact. After recovering you seethe and let the hate flow through you. Going high this time, you bring
+    your weight down on the car from the top, a satisfying crunch, and no pain. Success! You proceed and start
+    to flatten the car, when at the trunk something breaks and something neon green is on your body. Investigating
+    you decide its either some mad scientist formula... Or Mountain Dew. A taste test confirms it isn't Mountain
+    Dew, but before you can sputter long someone yells at you. Hey! What did you do... To... My... C-car?" The
+    below average mouse's tail goes limp as they see you stand to your full height. Their glasses and lab coat
+    make them look like a stereotypical scientist. You simply growl at them, making them flinch back before you
+    run off down the street to cause more chaos!
+
+
+    However, as you do, you feel strange... Lighter... More energized! Maybe that formula did more than just taste
+    nasty?
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "buff"
+  author: "Alsend"
+rampage_event_Alsend_2:
+  event_type: "rampage"
+  description: >
+    You prowl along the streets of the suburbs, grinning widely. You can see the people can tell you're up to no
+    good, and they rush into and cower in their homes from your unnaturally immense size. Good. You’re terrifying
+    and here to cause havoc. And maybe find a snack as your stomach growls. Big rampaging monsters need their food,
+    after all.
+
+
+    You come across a park and find a bunch of food all set up for you! How gracious of the residents to leave
+    you an offering! You rush over, the concrete just resisting your impact as you strike the ground hopping off
+    a step. If you get much bigger, it'll likely start cracking under you.
+
+
+    As you start to devour the offering, making sure to toss whatever dishes you finish around to make a mess (you’re
+    not some goody two shoes after all) you see some people approaching, then some kids start crying. Oh, this
+    was a child's birthday party, not an offering to you. A bit disappointing on one hand... But on the other how
+    wicked of you! You decide to take it as a win and hurry off to cause more destruction and ruined days after
+    that hearty meal!
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "dinner"
+  author: "Alsend"
+rampage_event_Alsend_3:
+  event_type: "rampage"
+  description: >
+    You smirk, as you leave the city behind, it’s about time to leave your metaphorical (and getting more literal
+    by the day) stomping grounds to spread your legs and ensure everyone knows to fear you! And the people will
+    learn to fear you as you start to rush off, feeling the heft of your weight as you rush out into the countryside.
+
+
+    After a few minutes you come across a house, flinging yourself into the air and flattening their entire flowerbed
+    in one leap before punting a wheelbarrow. Take that, nature! You hurry along to the next place to continue
+    your destructive spree.
+
+
+    After the next house, you spot some grazing cattle. Usually these would be large, heavy, and out of the scope
+    of an individual... But you are more. You are BIG, and you divert, barging through the fence like it wasn’t
+    there and slamming into a cow... It budges but you bounce back. Ok, too heavy to check yet... But... You plant
+    your center of gravity and push, feeling the cow, frozen in fear you’re certain, tip over onto its side! You
+    laugh as you perform a task science says would take multiple people alone! You hurry on towards the next house,
+    breaking another hole in the fence as the cow stands back up and returns to grazing.
+
+
+    Unfortunately, you weren’t quite expecting these rural farmers to be so... Far apart, and after only a few
+    more houses you’re starting to feel the burn of your destructive rush from house to house. As such, you decide
+    to head back into the city, at a slower pace, and remember to take it a bit slower next time to go longer.
+    Though you do consider on the other hand it WAS a good workout, and got your blood pumping, so maybe you WILL
+    do this again. Though for now you just want to rest.
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "body"
+  author: "Alsend"
+rampage_event_Alsend_4:
+  event_type: "rampage"
+  description: >
+    You stomp along the sidewalk, smirking as you glance back and see your storming us causing slight damage to
+    the sidewalk, seeing you’re starting to get too big for even the ground to resist is a very good thing... But
+    big people need big cash, and for that, you've decided to participate in some grand theft auto. And not the
+    video game.
+
+
+    As you hunt for a mark, you look at those looking at your massive form nervously, making most flinch away.
+    The bolder ones are cowed by a snarl towards them, nobody wanting to draw the ire of someone so large.
+
+
+    Then, you find it. It’s a very nice car, and a model you recognize as tough and easy to repair. Just in case.
+    It's heist time! Time to be as sneaky as someone like you can be...
+
+
+    You rush over as the owner in a nice suit is getting out. You toss them to the sidewalk and disengage the parking
+    brake before closing the door ever so gently- oops, you broke the windows.
+
+
+    You climb on top of the car, trying to minimize damage, and proceed to use your long limbs to reach the ground
+    and push off, using the car like an oversized skateboard as you make off with your ill-gotten goods! You even
+    manage to cause mass havoc along the way, tearing up street signs, causing crashes, and violating SO many traffic
+    laws!
+
+
+    You pawn the car off for {troves} of troves to a fence who seemed very eager to pay you and get you out. Who
+    ever said that crime didn't pay?
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "troves"
+  author: "Alsend"
+rampage_event_Alsend_5:
+  event_type: "rampage"
+  description: >
+    You stride through the suburbs. The people on the sidewalk must watch your step as they're too small to be
+    able to rely on you noticing before you move over them and smush them. You hardly even noticed the car you
+    crumpled under your mass a few blocks back.
+
+
+    You see a flash of light and move to a house, knocking over its fence, and look into the second story window.
+    You watch the person playing a game until they notice you and scream, tumbling over and yanking cords around
+    them. You just laugh! You didn’t even need to DO anything but watch!
+
+
+    When you turn around you see a crowd. What, were they stupid enough to try and chase you out? But no, one steps
+    forward and makes an offer. You leave their neighborhood alone for payment. Looking at their offering, it’s
+    a nice haul, so you agree. Sure, you’d take the {troves} of troves and leave them be... For now. After all,
+    when you were even bigger, they wouldn’t be able to argue with you!
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "troves"
+  author: "Alsend"
+rampage_event_Alsend_6:
+  event_type: "rampage"
+  description: >
+    Sometimes it was annoying walking among the smaller folk. Being so large they'd annoy you with blabber about
+    'watch your step!' and 'I cant see' then act all surprised when they ended up under you somehow. Seriously,
+    be it a stomp or tail flatten, they never learn!
+
+
+    That's why you came out to the pond. You suppose some called it a lake, but you were big, so it was a pond,
+    to soak in the water as it was said to be strangely warm, and they're right. Not long after you do, however,
+    you bump into something. Fishing it out, you find yourself holding a nuclear waste barrel. Flinching, you hurl
+    it, coincidentally towards the nearest facility, before scrambling out of the water.
+
+
+    Once outside you use a nearby tree to scratch against in the vain attempts to scratch any radiation off, accidentally
+    toppling it and you fall over, flailing as your body knocks more trees over. However, when you recover you
+    feel... Good. Really good! Maybe the waste somehow... Powered you up? You stand and grin before stomping towards
+    the city. If so, then you could officially call yourself a Kaiju, even if a small one... And Kaiju rampage
+    in cities!
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "buff"
+  author: "Alsend"
+rampage_event_Alsend_7:
+  event_type: "rampage"
+  description: >
+    You realize you've been tormenting the city enough with your destructive rampages. But you know what HASN'T
+    received your destructive bouts enough? NATURE! You head into the forest, ready to introduce Mother Nature
+    to... Well, you don’t have a funny saying to finish that, but you're so big, who cares?  As you push over trees,
+    ruin trails, and generally be a destructive menace, you hear growls. It seems you wandered on a Wolf hunting
+    party, and they weren't happy about it!  Too bad for them you're as strong as you're tall! You manage to take
+    them down quite easily, even if some end up not making it. You look at the wolf and wonder how Wolf Steak tastes.
+    You gain an opportunistic meal from the slain wolves.
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "custom_food"
+    name: "Wolf Steak"
+  author: "Alsend"
+rampage_event_Alsend_8:
+  event_type: "rampage"
+  description: >
+    Annoyed with the crowded sidewalk, you decide to walk on your personal one, even if the annoying littles call
+    them 'roads' and insist on using their cars on it. No matter, you're large enough that you can go over any
+    that come your way, and if a few ended up crumpled... Oh well. They should just be glad the pedestrians are
+    quick enough to watch your step  Sadly, the littles don't agree and soon the police are on the way. You're
+    not scared of them, but you’d rather not deal with them, so you start to run, leaving damaged road behind you
+    as you add small bounds to move over large traffic jams faster. You go over a police barricade, not sure why
+    they thought that would work.  It’s not all that hard to escape in all honesty, as the police were restricted
+    to cars and horizontal maneuvering... And you weren’t. Using buildings to do fast turns that leave you wanting
+    to yell 'PARKOUR!' and the rubble left behind from things you throw behind you make keeping up with you a lost
+    cause.  Once out of the city, you laugh in triumph. They already couldn’t catch you, and you kept getting bigger!
+    Soon they wouldn't be able to STOP you either!  That chase was quite a workout!
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "body"
+  author: "Alsend"
+rampage_event_Alsend_9:
+  event_type: "rampage"
+  description: >
+    You heard about an area of town that was being struck by a rash of big people causing mayhem, so you came yourself...
+    But not to help. They're rampaging and causing destruction...
+
+
+    Thats YOUR job!
+
+
+    You spot one exiting with some cash registers from a store and stop them, smirking down at them. They look
+    up in awe and a bit of fear as you take their ill gotten gains for yourself before pushing them over. "Get
+    lost, shrimp!" You taunt before moving on. Any bigger person rampaging you come across, you effortlessly outsize
+    and outdo. They beating at a car? You flatten it. They stealing? You take what they took... And maybe more.
+
+
+    Soon you leave to ther other's relief, making out with {troves} of stolen goods taken from smaller bigs. Today
+    was a good day.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "troves"
+  author: "Alsend"
+rampage_event_Alsend_10:
+  event_type: "rampage"
+  description: >
+    You feel the concrete shake and give under your mass, as you stride down a little suburb. You'd heard your
+    friends who had paid you to leave them alone before (they say bribe, but you disagree) were holding a massive
+    party, and didn't invite you! How rude!
+
+
+    You sweep cars off the road with the most casual of ease, as you approach the little community. Seems they
+    made it a gated community since you were last here. No matter, you simply step over the gate and keep on in.
+
+
+    As you approach, you hear a ruckus, obviously the party, but it gets quiet as you come into view as everyone
+    seems tense. You scold them about not inviting their dearest friend too, plopping down in the back, smirking
+    down at them and after a few moments they start to get back to what they were doing.
+
+
+    It seemed they were holding some kind of music festival with catering. The music was actually pretty good,
+    and so was the catering. Of course you had to tell them that as you ate the whole thing by yourself before
+    it was technically out. Oops. Oh well. Nobody had the heart to mention how the {dinner} of catering seemed
+    to have made you {d_weight} or {size} bigger either. Or how in getting the food you toppled 3 trees, destroyed
+    all the tents, then sat on a car as you ate.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "instant_food"
+    name: "Catering"
+  author: "Alsend"
+rampage_event_Alsend_11_1:
+  event_type: "rampage"
+  description: >
+    You're getting very big, that is true, but you always wanted to stomp houses. Unfortunately, you're not quite
+    large enough for the ones you think of. Yet. But practice makes perfect, and you need to practice after all!
+
+
+    That's what brings you to trailer park as you grin as you look at all the tin cans you're about to crumple.
+    You go for a classic Kaiju crush on the first, stomping it under your sole, the trailer gives in under your
+    weight, going into a V shape as you move for your next toy.
+
+
+    The next trailer is taller, but not as wide, as you can reach around it. You decide to hug it into a flat sheet
+    of metal. They could call you the trailer compactor! You then spot it.
+
+
+    A large, fancy (relatively) trailer. You approach and decide to have fun with it. You grip it and lift, tearing
+    the connections from the ground as you carry it. This one is occupied as the residents beg for you to let them
+    go, but you just laugh and let them squirm as you stomp off, but eventually get tired and ditch the trailer.
+    Maybe next time you'll be able to steal it entirely. Regardless, it burned some energy and carrying the trailer
+    left a light pleasant burn.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "body"
+  body_blacklist:
+    - "Snake male"
+    - "Snake female"
+    - "Kentaur male"
+    - "Kentaur female"
+  author: "Alsend"
+rampage_event_Alsend_11_2:
+  event_type: "rampage"
+  description: >
+    You're getting very big, that is true, but you always wanted to stomp houses. Unfortunately, you're not quite
+    large enough for the ones you think of. Yet. But practice makes perfect, and you need to practice after all!
+
+
+    That's what brings you to trailer park as you grin as you look at all the tin cans you're about to crumple.
+    You go for a classic Kaiju crush on the first, lifting your tail high enough and bringing it down, the trailer
+    gives in under your weight, going into a V shape as you move for your next toy.
+
+
+    The next trailer is taller, but not as wide, as you can reach around it. You decide to constrict it into a
+    flat sheet of metal. They could call you the trailer compactor! You then spot it.
+
+
+    A large, fancy (relatively) trailer. You approach and decide to have fun with it. You wrap your body around
+    it and lift, tearing the connections from the ground as you carry it. This one is occupied as the residents
+    beg for you to let them go, but you just laugh and let them squirm as you stomp off, but eventually get tired
+    and ditch the trailer. Maybe next time you'll be able to steal it entirely. Regardless, it burned some energy
+    and carrying the trailer left a light pleasant burn.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "body"
+  body_whitelist:
+    - "Snake male"
+    - "Snake female"
+  author: "Alsend"
+rampage_event_Alsend_11_3:
+  event_type: "rampage"
+  description: >
+    You're getting very big, that is true, but you always wanted to stomp houses. Unfortunately, you're not quite
+    large enough for the ones you think of. Yet. But practice makes perfect, and you need to practice after all!
+
+
+    That's what brings you to trailer park as you grin as you look at all the tin cans you're about to crumple.
+    You go for a classic Kaiju crush on the first, sitting on it, the trailer gives in under your weight, going
+    into a V shape as you move for your next toy.
+
+
+    The next trailer is taller, but not as wide, as you can reach around it. You decide to hug it into a flat sheet
+    of metal. They could call you the trailer compactor! You then spot it.
+
+
+    A large, fancy (relatively) trailer. You approach and decide to have fun with it. You grip it and lift, tearing
+    the connections from the ground as you carry it. This one is occupied as the residents beg for you to let them
+    go, but you just laugh and let them squirm as you stomp off, but eventually get tired and ditch the trailer.
+    Maybe next time you'll be able to steal it entirely. Regardless, it burned some energy and carrying the trailer
+    left a light pleasant burn.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "body"
+  body_whitelist:
+    - "Kentaur male"
+    - "Kentaur female"
+  author: "Alsend"
+rampage_event_Alsend_12:
+  event_type: "rampage"
+  description: >
+    You decide to try your luck with your size and mess with a scientific institution. They're always cooking up
+    something good in those, right?
+
+
+    You arrive and frown. You'd hoped to do the whole rip the roof off and look in thing you see in movies, but
+    this place is still too tall for that. Maybe next time. You resort to using your knowledge from hours playing
+    Rampage World Tour to climb the building and cause a lot of damage, while looking for anything interesting.
+    It's the Kaiju thing to do, and as you approach those sizes, it's time to practice!
+
+
+    You sadly don't find anything to steal or eat, but do punch through a door and get shocked, falling off the
+    building. Seems someone was doing something with a Tesla Coil?! On the top floor?! That floor's going to give
+    way at some point with all the equipment in there. Dang, the place was doomed anyways from foolish scientists!
+    What's next? They try and grow a Kaiju to fight you?
+
+
+    As you head off to let the heat on you die down, you feel the electricity still, but now it feels... Good?
+    Maybe it did something to you?
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "buff"
+  author: "Alsend"
+rampage_event_Alsend_13:
+  event_type: "rampage"
+  description: >
+    You stomp along your best buddies formerly gated community. You got annoyed and tore it down, and they no longer
+    have the heart to try and resist you, as they now do whatever you say. Want a massage? They do it. Make them
+    do a dance for your amusement? Of course.
+
+
+    Soon your stomach rumbles and they move to bring you food, broken by your evergrowing rule ... But you think
+    something else looks much tastier... Suddenly you snatch a few of them, licking your lips.
+
+
+    Everyone watches horrified as one of those you caught goes down your gullet, as someone screams and they run,
+    but you're large enough to catch plenty until you're full, having devoured {dinner} of your prey, growing {d_weight}
+    heavier and {size} taller from your meal.
+  requirements:
+    min_size: 10240
+    max_size: 40960.0
+  reward:
+    type: "instant_food"
+    name: "Your best buddies"
+    fill_stomach: True
+rampage_event_Alsend_14:
+  event_type: "rampage"
+  description: >
+    Walking through the streets, the small cars make you a bit nostalgic for when you were little (and young) and
+    played with toy cars. Too bad now cars were that size you couldn't... Play with ... Toy cars...
+
+
+    OF COURSE!
+
+
+    You could just play with REAL cars that way! You gleefully find some that looked cool, shooing away any tinies
+    in them, and start to mess with them. You underestimate your strength and crash a car right through a wall
+    into a bank!
+
+
+    Well... Since its THERE, you help yourself to {troves} of troves and hurry off, a bit embaressed
+  requirements:
+    min_size: 10240
+    max_size: 40960.0
+  reward:
+    type: "troves"
+  author: "Alsend"
+rampage_event_Alsend_15:
+  event_type: "rampage"
+  description: >
+    You barge your way into the store, knocking over displays and shelves. This place had once been a big box store,
+    but now was locally owned, and in the transition their security was light.
+
+
+    You gleefully cause devastation, taking advantage of your unusual size to even turn the overstock to understock.
+    How evil! They’d have to use stepping stools to put everything back! Mwahaha!
+
+
+    As you make your way to leave, you decide to grab a few registers on the way. You could get the money in them
+    later, then sell the actual machines! Everyone watched in shock at your actions as you stormed out with {troves}
+    worth of troves!
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "troves"
+  author: "Alsend"
+rampage_event_Alsend_16:
+  event_type: "rampage"
+  description: >
+    You push your way through the crowd until they start to part for you like usual. Good, they know a rampaging
+    force of nature when they see one.
+
+     You were at a car show, though not for the reasons others were. These were well known cars and damaging them
+    could make people fear you! Finally, you arrive at the display area, where you rush in and start striking at
+    the cars. Sadly, they’re tough, so you seek an aid and find a broom, though even with your weapon and above
+    average size, the cars take at worst minor damage. We're going to have to ask you to leave" a security guard
+    growls as his coworkers try to surround you. ASK you to leave?! Ha! That won't work! But you were done here
+    anyway so you run for the exit.
+
+    Your rampage would be long  remembered! (For a week or two) and you feel pumped, your little car attack having
+    worked out lesser used parts of your muscles.
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "body"
+  author: "Alsend"
+rampage_event_Alsend_17:
+  event_type: "rampage"
+  description: >
+    You’re feeling particularly destructive, and a bit hungry today as you slither down the road, intentionally
+    going over peoples shoes and toes, reveling in those they scream in fright at you and back off. Yes! You are
+    a TERRIFYING Snake! 
+
+
+    Something catches your eye... A pet shop. And your stomach rumbles as you eye a particularly fat mouse as an
+    idea forms. Time to cause devastation to a small business! The epitome of evil rampaging! 
+
+
+    You wait until someone enters and dart in, how dare they not have a flap or entrance! No doubt trying to foil
+    your plot! Once in, you start to move faster, with purpose, and carefully pull the lid on the mouse's cage
+    up when- "HEY!" You’re spotted! You quickly swallow the mouse in one gulp before batting the cage at the owner
+    with your tail. You make a beeline for the door, happily gobbling up any other snacks you can as the own swings
+    a broom at you! 
+
+
+    As you escape, nobody quite notices how it takes you a bit longer to exit than you did to enter, as you've
+    grown {size} from the {dinner} of Mouse and other tasties you ate in your chaotic game of real life Snake,
+    now with 100% less apples!
+  requirements:
+    min_size: 40
+    max_size: 80.0
+  reward:
+    type: "instant_food"
+    name: "A particularly fat mouse and other tasties"
+  body_whitelist:
+    - "Snake male"
+    - "Snake female"
+  author: "Alsend"
+rampage_event_Goji_1:
+  event_type: "rampage"
+  description: >
+    It's a nice day at the beach, packed with people as you make your way down it, feeling the warm sand underneath
+    you. Strolling by people getting quiet and staring at your larger than life body, some pointing and whispering
+    amongst themselves. You wish the beach was empty so you can could have time to yourself, wanting to toss everyone
+    aside. Despite the whispers surrounding you, you're not worried about what they're saying, basking in the attention
+    you’re receiving instead. Giving people a side eye as you pass by, almost encouraging someone to challenge
+    you, knowing they will lose. Suddenly a small child runs in front of you, not paying you any attention and
+    kicks a beach ball into the air, along with it, sand. The flying sand flying straight into your face and eyes,
+    shutting them tight, you roar out in anger and frustration. Making a B-line to where the child was, narrowly
+    missing them but plowing through umbrellas, chairs, and cooler’s. People fleeing out of your way as you rampage
+    across the beach, mowing down everything underneath your giant body.
+
+
+    A few beach guards try all they can to restrain you, only to be thrust away a good distance getting back up
+    and running the opposite direction. Finally getting the sand out of your eyes, looking around seeing people
+    scream in terror running away. You spot a life guards tower. Quickly making your way over to it you shove it
+    over to the side with your body, shortly after a snow cone truck following suit, the weight nothing to you.
+
+
+    You've closed the beach for the rest of the day and now have it all to yourself, finally being able to enjoy
+    yourself alone.
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "body"
+  author: "Goji"
+rampage_event_Huelun_1:
+  event_type: "rampage"
+  description: >
+    You decide that the best place to wreak havoc today should be the mall. They've had it too easy for too long.
+    Time to show them who's boss!
+
+
+    The entrance doors clearly being too small for you to inconvenience yourself by squeezing through them, you
+    decide to enter in style, crashing through the glass door like it's paper.
+
+
+    You sweep through the mall like a tornado, punching in windows and knocking down anything that isn't nailed
+    to the ground. It takes security so long to catch up to you that you've reached the other end of the mall by
+    the time they catch you!
+
+
+    Face to face with 5 normal sized guards, they quiver in fear as you tower over them, staring them down with
+    a look that says "try me... Not willing to test you in hand to hand combat, the guards take out their tasers
+    and shoot you all at once! No! You won't go down like this again!
+
+
+    Fighting the shock you barely manage to regain your balance as your come to your senses again. Letting out
+    a enraged roar, you barrel through the guards before quickly breaking through the nearest exit.
+
+
+    Victory! Even if the guards managed to scare you off, you managed to go on a rampage through the mall and come
+    out still standing!
+
+
+    The whole thing has left you ecstatic. Or would just static be a better description? It feels like somehow,
+    the charge of the tasers unlocked some power within you!
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "buff"
+  author: "Huelun"
+rampage_event_Huelun_2:
+  event_type: "rampage"
+  description: >
+    Finding the sidewalks of downtown particularly annoying today, you decide you'd rather be a menace to society
+    in the city park today!
+
+
+    You stop around the fields of the park, leaving large footprints in the ground with every step. Running alongside
+    a path, you kick a trash bin like a soda can as it flies past someone's head, who turns to see you before running
+    away in panic! You grin slyly at the fear your destruction causes.
+
+
+    Heading to the park's basketball court, you grab a basketball out of someone's hands and slam dunk as hard
+    as you can, bending the entire hoop from your sheer weight and popping the basketball! Handing the remains
+    of the basketball to the person you stole it from, you then run off laughing maniacally as he just stands completely
+    stunned at what just happened!
+
+
+    Continuing your destructive day in the park, you eventually discover a food truck set up in the park! All this
+    rampaging has made you rather hungry, so you decide to get a "small snack". Reaching for the back doors of
+    the truck, you tear them off the hinges before trying to crawl inside. The man running the truck screams in
+    panic before running to the front of the truck to try to escape! As you crawl your way in, you hear the sound
+    of metal groaning behind you and your forward progress stops. Curses! You're stuck on the door! Reaching for
+    whatever food you can, you shove as many burgers and snacks as you can down your throat before you try to squeeze
+    your way back out the way you went in. Some of the previously horrified onlookers let out a few slight chuckles
+    at your predicament before you manage to rip yourself out of the back of the food truck, letting out a low
+    bellied roar in the general direction of the laughs. You send the crowd running as you rub your belly in satisfaction.
+    No wonder the guy had so many customers!
+
+
+    You've grown {d_weight} in weight and {size} in height from the {dinner} of food you pillaged!
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "instant_food"
+    name: "As many burgers and snacks as you can shove down your throat"
+    fill_stomach: true
+rampage_event_Growbold_1:
+  event_type: "rampage"
+  description: >
+    You were wandering around in the forest today, enjoying how you could see over the tops of some of the smaller
+    trees. Leaves fell from your heavy footsteps and many woodland creatures bolted from your approach. But it
+    was kinda boring, there was no challenge or way to test the limits of your huge body.
+
+
+    That's when something caught your eye. You saw a strange light coming from a nearby clearing. Going closer
+    to investigate you found an rift hovering in the air. A sudden urge of curiosity and confidence in how tough
+    you are, you decide to enter it.
+
+
+    There's a weird pulling sensation and your overwhelmed with vertigo as you tumble through a glowing tunnel
+    of light. When you wake up you seem to be in the same forest. However, on closer investigation you notice that
+    the trees seem wilder, more primal. In the distance you hear a roar and catch sight of a long reptilian neck
+    poking above the trees. It's a DINOSAUR!? No way you went back in time.
+
+
+    Glancing behind you, you see the rift still there. Well since you can go back whenever you want you decide
+    to embrace your own primal nature and go on a rampage.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "body"
+  author: "Growbold"
+  option1: Oh No! As you were exploring a volcano erupted! You got so far away from the rift and need to out
+    run the lava flow to get back to your own time safely.
+  option2: You encounter a T-rex and get into an intense battle, as your equally titanic bodies clash 
+    together, with you eventually coming out victorious.
+  option3: As you smash through the trees and scare away smaller dino's you let out a roar, as you revel in 
+    your rampage. You then catch a whiff of something sweet. One of the large trees you knocked over is 
+    oozing a massive amount of sap. Suddenly hungry you gorge yourself on the delicious prehistoric ambrosia.
+rampage_event_Jagaz_1:
+  event_type: "rampage"
+  description: >
+    Whoever made those shots of giant monsters emerging from the ocean clearly has never actually measured how
+    deep they are on average. Sure, upon returning from your swim, you still made quite a wave, but the water already
+    only reached your hips by the time you were still hundreds of meters away from the shore.
+
+
+    It gave people plenty of time to prepare for your arrival, which mostly meant that there were a lot of curious
+    onlookers and surfer dude-bros who came running out to catch the waves you made. Oh my, isn't that nice of
+    you? I love me some seafood~!" you laugh as you pick up the pace.
+
+
+    People scattered, but at the end of the day, they couldn't outrun your strides and you quickly caught up to
+    them. You chase crowds of people down the beach and along the boulevard, grabbing whoever you could before
+    dropping them into your waiting maw.
+
+
+    By the time the crowd had thinned so much that it was no longer worth to pursue them, you had eaten {dinner}
+    worth of prey, which your outrageous metabolism has already turned into {d_weight} weight and {size} extra
+    height.
+  requirements:
+    min_size: 40960
+    max_size: 163840.0
+  reward:
+    type: "instant_food"
+    name: "Crowds of people"
+  author: "Jagaz"
+rampage_event_Jagaz_2:
+  event_type: "rampage"
+  description: >
+    You have reached the point where your existence alone is officially recognized as a menace to society and a
+    threat to the country at large. Although that means surprisingly little, all things considered. What are they
+    gonna do? Arrest you? Good fucking luck putting you into a prison.
+
+
+    Regardless though, a proper villain needs a proper lair too, and so you take to the surroundings of the city,
+    in particular a most convenient mountain range that was just a couple dozen miles away, barely half an hour
+    for you.
+
+
+    Exploring this mountain range is a little more difficult than expected. The moment you come close, your cataclysmic
+    steps trigger all kinds of avalanches and rock slides. A terrible danger for any mountaineers. A small inconvenience
+    to you.
+
+
+    It does make you reconsider getting a lair in a mountain though. No way a cave could remain for long with the
+    earthquakes your steps cause.
+
+
+    However, just as you were about to leave empty handed, you spot something which had been uncovered by one of
+    the rock slides. A brilliant crystal formation! Which is... floating in the air? Curiosity got the better of
+    you and you touch it. With a thunderous clap that leaves your ears ringing, it flies apart into fine dust.
+
+
+    But whatever energy caused its formation in the first place now crackled up your arm, leaving you energized...
+    empowered! Yeeeeessssss!
+  requirements:
+    min_size: 40960
+    max_size: 163840.0
+  reward:
+    type: "buff"
+  author: "Jagaz"
+hero_event_Acheroth_1:
+  event_type: "hero"
+  description: >
+    Its midday downtown, and you are frustrated. You have been patrolling all day, yet no one has appreciated your
+    assistance. Even the old ladies crossing the street made it clear that they would rather trust the pedestrian
+    lights than your own, superior judgment.
+
+
+    Your spirits lift as a tattered poster on a filthy traffic light catches your attention. "Help Wanted!" It
+    reads, with a phone number listed below. Finally, someone in distress! Wasting no time, you whip out your phone
+    and answer the call! Or rather, make it. Yeah?" A gruff voice answers. "I'm here to heed your call for help!"
+    You declare heroically. There's a brief pause on the other end. "What, you mean the posters? Yeah come around
+    now and we'll talk." He gives you an address and abruptly hangs up.
+
+
+    Ten minutes later you arrive at the scene, thoroughly out of breath. Its a rather dingy looking restaurant,
+    closed and locked. You pound on the door, and a very fat pig opens it "You're the one that just called?" He
+    asks. I'm here to save the day!" You loudly proclaim, widening your stance. He pauses a moment before gesturing
+    you in. He leads you through the kitchen, stopping at a sink filled with an enormous pile of filthy dishes.
+    "Our washer quit last week. Pay's eight bucks an hour, and we'll see if you're a good fit later tonight. Sounds
+    good?"Food hygiene was a legitimate danger to your city. It's not pretty, but if you wont do it, then who will?
+    "I'll keep your customers safe!" You loudly proclaim, unaware that the pig was already gone. You leap into
+    action, attacking the dirt and scum with nothing but soap, water, a scrubbing cloth and your fists.
+
+
+    Several hours later, the dishes are all squeaky clean and stacked in order, ready for the nights rush. The
+    pig waddles over to you and handing you a cheque. "You've done a good job here, kid. But we wont keep you on,
+    you're just too fucking weird." He says as he waddles away.
+
+
+    You've earned {troves} of troves from your days work!
+  requirements:
+    min_size: 40
+    max_size: 80.0
+  reward:
+    type: "troves"
+  author: "Acheroth"
+hero_event_Acheroth_2:
+  event_type: "hero"
+  description: >
+    It is a beautiful sunny day at the beach. The sand and surf is packed with both locals and tourists alike,
+    enjoying the summers heat.
+
+
+    You sit atop a lifeguards tower, survey the calm blue waters intently for any sign of the dangers they may
+    hold. Sharks, tsunamis, hostile warships, Squid themed kaijus… you know they were all out there, just waiting
+    to cause chaos and destruction on the helpless civilians. And only you stand in their path.
+
+
+    Your concentration was abruptly broken by a voice from below. "That's not a public chair, you have to get down.
+    Irritated, you look down to see a rather fit otter in nothing but speedos and a swimming cap bearing the colors
+    of a lifeguard. "I'm helping!" You snap back. "I have an immense body, and with that comes immense responsibilities!
+    The otter's brow furrows as he briefly looks over your impressively average sized frame. "Right… if you want
+    to be helpful, were setting up a fundraising concert down by the pier; they could use an extra pair of hands.
+    You virtually fling yourself from the tower, landing hard on the sand below. "You can count on me!" You shout
+    over your shoulder as your swiftly limp towards the pier.
+
+
+    You spend the rest of the afternoon helping the lifeguards assemble a temporary set of bleachers on the sand.
+    You're all provided with a free pizza for your time!
+  requirements:
+    min_size: 40
+    max_size: 80.0
+  reward:
+    type: "custom_food"
+    name: "One of the biggest pizzas on the menu"
+    size: 7.5
+  author: "Acheroth"
+hero_event_Acheroth_3:
+  event_type: "hero"
+  description: >
+    You stride confidently through the crowded mall, patrolling the entire concourse lest any nefariousness rear
+    its head.
+
+
+    Suddenly, on your fifty eighth pass, Disaster strikes! A small rabbit child drops a toy pony, and it is quickly
+    crushed by a passing elder in an electrified wheelchair. You move like lightning, and arrive at the accident
+    scene just as the child begins to cry.
+
+
+    “I will mend your child's broken heart!" You shout to her parents, puffing your average chest heroically as
+    you stare into space. The father looks confused and disoriented, his attention caught between you and his grieving
+    daughter.  “Uh, no that’s OK it’s just a cheap… “Where did you buy this heirloom sir?" you demand. He vaguely
+    gestures behind him “The pharmacy back… “NEVER FEAR I AM HERE!" you scream, causing everyone to jolt. You sprint
+    towards towards the pharmacy, forcing several furries to dodge out of your way. However, despite your haste,
+    by the time you purchase a replacement toy it is too late. The family has moved on, and is lost in the crowd.
+
+
+    As you return to the pharmacy in search of a refund, a poster catches your eye. “Free Flu Shots". Your eyes
+    slowly widen, as an understanding sinks into you. In order to protect others, you must first protect yourself!
+
+
+    You again explode into a sprint, heading straight to the back of the store. “I require a flu shot!" you shout
+    in general towards the startled chemists working behind the counter. Shortly after you are asked to calm down
+    and take a seat to your left, you are ushered into a side room and jabbed in the arm.
+
+
+    You emerge from the pharmacy oddly full of energy. You dont know exactly what was in that shot, but your body
+    is reacting to it! You're itching to do… something!
+  requirements:
+    min_size: 40
+    max_size: 80.0
+  reward:
+    type: "buff"
+  author: "Acheroth"
+hero_event_Acheroth_4:
+  event_type: "hero"
+  description: >
+    It’s an overcast autumn day at the beach. The summer crowds are long gone, but that doesn’t mean that it sits
+    empty. Surfers still fill the waters, fishermen still occupy the piers, and joggers still trudge through the
+    sand. But the lifeguards have ceased their duties in the offseason, leaving everyone vulnerable. That is, if
+    it were not for you.
+
+
+    Your unnaturally large body surveys the beach for any signs of danger, standing tall and proud. In the distance
+    you see a strange person laughing maniacally as they stomp a sand castle. But as its architect has since departed,
+    it is not a crime worthy of your time.
+
+
+    You later spot a fox approaching an unattended pile of belongings. By his cautious approach, it is apparent
+    they are not his. You stealthily walk over to the scene of the impending crime. You witness the fox open a
+    purse, taking money and credit cards, before turning to make his escape.
+
+
+    He takes two steps before colliding with your monstrous body, bouncing backwards and falling to the sand. His
+    eyes are wide, his face an expression of stunned fear as he looks up at you. “I believe you have mistaken your
+    ownership of those possessions." Your louder than normal voice booms down on him. Without a word, he releases
+    the valuables before quickly scurrying away. You let him escape, confident that he will think twice before
+    trying something like this again.
+
+
+    You smile smugly as you begin patrolling the beach. You do not notice the beached jellyfish until a sharp pain
+    jolts up your leg. Swearing, you jump back and grab your injured foot. You know that there is vinegar by the
+    now abandoned lifeguard station, but you instead stare mesmerized. The pain feels… kind of good.Kind of powerful.
+    The venom is changing you, making you stronger. You are… Jellyfish man!
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "buff"
+  author: "Acheroth"
+hero_event_Jagaz_1:
+  event_type: "hero"
+  description: >
+    A warning flashes up. Hostiles detected!
+
+
+    A moment later and they are naught but cosmic dust, but you know that the liberation of the galaxy from the
+    tyrannical oppressor Zorgon just started!
+
+
+    Alas, a second of inattention and a drone rams into your ship, sending you spinning. You collide with Zorgon's
+    battle ship, leaving naught but a fiery explosion.
+
+
+    The big red letters **YOU DIED** flash across the screen and much to your shock you realize that you don't
+    have a dime to continue.
+
+
+    Bummer. You leave the arcade and the sun blinds you, just as you find yourself in the midst of a panic!
+
+
+    People are shouting and crying out, dozens nay hundreds are running for their lives!
+
+
+    Saving the galaxy can wait, as you realize your city needs you! You tear off your shirt without hesitation.
+    NEVER FEAR, I AM HERE!" you loudly proclaim as you rush, half naked, into the direction from which they are
+    running.
+
+
+    As your eyes clear, you see that you are met with irritation.
+
+
+    You quickly spot the signs. A fund raiser for the homeless!? You deftly change direction, intent to win for
+    all those without place to call their own.
+
+
+    You give it your all and zeal carries you far: About two blocks or so.
+
+
+    Someone splashes water into your face. When did you fall? Hey buddy, you okay?" a concerned looking rhino in
+    a shirt with Security written on it asks. Yeah, all good," you confirm a little dazed.
+
+
+    While you didn't win the race, your impromptu participation earned you  a drinking bottle, and despite collapsing,
+    you actually feel pretty good after this burst of activity, so that's neat...
+  requirements:
+    min_size: 40
+    max_size: 80.0
+  reward:
+    type: "body"
+  author: "Jagaz"
+hero_event_Jagaz_2:
+  event_type: "hero"
+  description: >
+    As you do your usual patrol through downtown, you are approached by an exhausted looking panther, whose white
+    shirt is soaked with sweat. Hey mate", he greets you, having tolook up to your staggering size as you tower
+    over him. Your determined stride sees you very nearly run him over.
+
+
+    A brief awkward shuffle follows as he smiles up at you with a wave, "Ya look fit as a bull, could ya maybe
+    help a cobber out for a few mins? Certainly, what do you need, citizen?" you reply friendly, yet formal.
+
+
+    The panther raises a brow as he recoils a bit, "Ya a copper, mate?" he asks in a tone that makes copper sound
+    bad.
+
+
+    You look down yourself for a moment, just to confirm that you are not made of metal. No?" you reply after a
+    second, before you shake your head, "Anyway, I'll help ya! Oh, ya will? Ripper mate! Ya really saved my arvo!
+    I thought I'd be out bush with those bludgers getting pissed on the job!" he responds and claps his hands.
+
+
+    You have no idea what he's saying, but it sounds serious, and so you prepare for the worst as you follow him
+    to the nearby apartment building.
+
+
+    What awaits you is a valiant battle indeed. Several pieces of furniture - a bed, couch, several wall units
+    - need to be carried up five flights of stairs. Individually, none of these pieces would be a match for you,
+    but it is a battle of attrition, one in which you and the panther struggle together.
+
+
+    Worn down but not out, you eventually overcome the threat of the inanimate objects and have them all neatly
+    arranged in a new flat. You may have hit your head on the doorframe more than once. You also inhaled some suspicious
+    dust coming from the couch, which left your limbs weirdly tingly. That was sum hard yakka, but yer a real cobber,
+    mate, good on ya! Whatcha say we go down an get us some maccas, my treat?" the panther offers by the end.
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "body"
+  author: "Jagaz"
+hero_event_Jagaz_3:
+  event_type: "hero"
+  description: >
+    Making your way through the city is becoming increasingly difficult as your bulk has grown so large that you
+    take multiple lanes up all by yourself. Which makes it all the more pleasant when you find a large avenue to
+    stroll down. You can see that the buildings here are all new... and even more curiously... 
+
+     They are decorated with images of you. Relief work, chiseled into the facades of stores and apartments, painted
+    to look like classical Roman and Greek depictions, except that it shows you and your many different heroic
+    deeds you had undertaken so far. You pause and lean in to have a closer look at them, only to startle one of
+    the inhabitants as your face takes up the entirety of their window's view and then some. 
+
+    Your presence doesn't go unnoticed for long, and how could it, being as giant as you are? You just didn't expect
+    how the people would react. "They're here!" someone shouts and a strange sort of alarm rings out across the
+    avenue as a small crowd of people had already gathered in a respectful distance. More and more people appeared,
+    wearing shirts showing you in various heroic poses, with some clear artistic liberties that exaggerate your
+    already larger-than-life physique even more. 
+
+
+    Someone clearly owes you some royalties, but that thought doesn't stay on your mind as a lot, almost all of
+    them really, drop to their knees before you. "Bless us, great one!" someone who wears a suspiciously priestly
+    garb cries out, urging you on to say something. Fortune be upon you?" you respond, to a lot of cheering.
+
+
+    Before you know it, you find yourself knelt down in a futile attempt to become closer to your worshippers as
+    you listen to their many petitions. Though even laying flat on your chest, you would not have been low enough
+    to be eyelevel with any of them. 
+
+
+    As the sun starts to set, the crowd finally disperses, leaving you in a state of wonder.
+
+
+    You feel strangely empowered. A taste of divinity perhaps?
+  requirements:
+    min_size: 40960
+    max_size: 163840.0
+  reward:
+    type: "buff"
+  author: "Jagaz"
+hero_event_Jagaz_4:
+  event_type: "hero"
+  description: >
+    You are enjoying the sensation of the sand beneath your feet as it (barely) cushioned the tremendous weight
+    of your steps. You move slowly and deliberately, considering how easy it would be to crush a person (or several)
+    under foot by accident. It helps that a corridor is kept open for you too.
+
+
+    The pleasant day out in the sun is interrupted however when you spot something in the distance. At first you
+    had mistaken it for some big rock, but at a second glance you realize that it is a stranded whale! The poor-yet-massive
+    creature must have gotten quite lost and confused to end up here!
+
+
+    You could see a crowd that had formed around it already. Hydrating the aquatic beast with buckets of water,
+    while others made the futile attempt to push it back into the ocean. Let me give you a hand," you declare as
+    you carefully maneuver yourself into position. 
+
+
+    You lift with ease what hundreds can't shift. The whale lets out a confused wail as you raise it upwards. Careful
+    down there, I can't see shit right now," you speak and wait a moment to allow people to clear out, before you
+    walk into the waves. You have to clear a bit of distance before the water got deep enough for the whale to
+    be released again. How did you get that far on land anyway..." you muse out loud and you could feel that the
+    whale would have shrugged if it had shoulders to do so. Anyway, safe journey!" The whale gave you a grateful
+    bellow, blasting a fountain of water upwards before it vanished beneath the waves.There is a spontaneous fund
+    raiser to reward your efforts, and while you initially want to decline it, {troves} of troves was a little
+    too good to pass up on.
+  requirements:
+    min_size: 40960
+    max_size: 163840.0
+  reward:
+    type: "troves"
+  author: "Jagaz"
+hero_event_Huelun_1:
+  event_type: "hero"
+  description: >
+    You spend your day patrolling the local mall, striding around with large and confident steps as people go about
+    their everyday activities while trying to stay out of your way as best they can.
+
+
+    You pace the mall for hours, the only thing out of the ordinary being your quite large presence.
+
+
+    Eventually you notice an abnormally long line at the mall's local pizza place. Hoping to see any form of action
+    today, you decide to investigate.
+
+
+    Looking to the front, you see a small lady absolutely losing her cool at the cashier for what sounds like giving
+    her the wrong type of soda with her order? You're not really sure since she seems to be going absolutely hysteric.
+
+
+    Quickly springing into action, you walk to the front of the line, many people breathing a sigh of relief as
+    they see you pass them. Do you know how many people you're holding up? Stop wasting people's time and get out
+    of the line!" You say behind her.
+
+
+    Full of entitlement and rage, she whips her drink in the general direction of your voice before turning around.
+    For most people, she would have missed entirely, the drink sailing clear over their heads. You however, are
+    not so lucky, having the drink hit you square in the face!
+
+
+    As she turns around to look at you with rage on her face, the look quickly washes away as she turns her head
+    upwards to look at your now frustrated and soda stained face. Quickly grabbing her order, she runs away before
+    you have the chance to do anything to her. Hey thanks for the help." The cashier says. "I called security 15
+    minutes ago and they still haven't shown up!""Just doing what I can to help..." You say a little frustrated,
+    still dripping with soda. You know what? You went through the trouble of dealing with her for me, I might as
+    well return the favor. Order whatever you want, It's on the house! I'm sure my boss would agree. Ordering one
+    of the biggest pizzas on the menu, you claim your prize and decide to head home to enjoy it (and probably take
+    a shower).
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "custom_food"
+    name: "One of the biggest pizzas on the menu"
+    size: 7.5
+  author: "Huelun"
+hero_event_Huelun_2:
+  event_type: "hero"
+  description: >
+    You decide to take a heroic patrol around your neighborhood.
+
+
+    While you're keeping a sign out for any danger, you notice a kid trying to reach a kite stuck in a tree! The
+    kite is so high up you have a hard time believing this kid even managed to get it up there himself. It must
+    be a good 15 feet off the ground!
+
+
+    Then it hits you. It must have been some unseen neighborhood villain you missed! What nefarious evildoer could
+    have done this to such a poor child? You have to set things right!
+
+
+    Walking over to the child, he looks at you stunned by your size for a few moments as you offer your help to
+    him, using your superior to climb the tree and give the kite and give it back to him. Now who did this to you,
+    you poor soul? They must know what they did is wrong!" You say to the child in a heroic voice.
+
+
+    Letting out a slight chuckle you fail to notice, the kid points in a direction behind you and says "they're
+    still over there! Hurry you might catch them! Not noticing the sarcastic tone in the heat of the moment, you
+    quickly turn around to give chase, failing to notice the very thick tree branch you just grabbed the kite off
+    of.
+
+
+    You jump into it at full speed, knocking you off the tree as you land on the ground with a very loud and unceremonious
+    thud that knocks the kid off his feet, before the branch falls off the tree and hits you on the head again.
+    By the time you come to your senses the kid is nowhere to be seen, only the waning echoes of his hysterical
+    laughter as he runs away remain.
+
+
+    Wait a minute... Now that you think about it, that kid was probably a lot older than you thought he was! Your
+    new size made you let your guard down around that mischievous teenager. Curses, you've been fooled! At least
+    this encounter was a valuable lesson that has changed your outlook on the world. That, and probably a minor
+    concussion.
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "buff"
+  author: "Huelun"
+hero_event_Huelun_3:
+  event_type: "hero"
+  description: >
+    Are you sure this is the right direction?" You say to your small pig traveling companion as you trek through
+    the woods with him. Sure is! I've travelled this path for years. I know this part of the forest like the back
+    of my hand! But you don't have h-" you try to say as you push what must be the thousandth branch out of your
+    way on this trip, before it quickly snaps back into place, hitting you square in the face with a fistfull of
+    leaves.
+
+
+    Rubbing the bump on your cheek as you step into a small clearing. Before you lies a huge boulder blocking the
+    entrance to a small cave, easily several hundred kilograms heavy. the pig joyfully announces "here we are!
+    Say thanks again for coming out all this way! It's nice to know even big shots like you will help support their
+    local businesses. What sort of business requires walking for hours into the forest to some small cave?" You
+    say with a bit of frustration, still rubbing the sore spot from the tree branch. Why don't you move that boulder
+    out of the way and I can show you instead of telling you?" The pig says excitedly, clearly still ignorant to
+    your annoyance at his vagueness about what exactly he needs a hero for.
+
+
+    Stepping up to the boulder, you get as best of a grip as you can and begin muscling it out of the way. Slowly,
+    but surely, you make steady progress and eventually are able to roll it down the hill, revealing the bounty
+    held within the cave.
+
+
+    Within must be at least a dozen different types of mushrooms, most of them of shapes and colors you swear you've
+    never seen anything similar to before. Truffles!" The pig says with joy. "The darn things are so hard to farm
+    that the only way I can get them is by foraging for them! Good thing I got the nose for it or I would've never
+    found this place again! Are you sure these are safe to eat...? They look a little... alien.""Of course they
+    are! Here, why don't you try one? It's the least I could do for all your help!" The pig says as he offers one
+    of them to you at random.
+
+
+    Picking up your prize, you take a bite out of the surprisingly delicious mushroom before downing the rest in
+    a single bite!
+
+
+    You body tingles with some kind of magical feeling. It feels great!
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "buff"
+  author: "Huelun"
+hero_event_Huelun_4:
+  event_type: "hero"
+  description: >
+    Deciding to continue your heroic responsibilities, you return to the beach for your daily patrol.
+
+
+    Climbing atop a lifeguards tower, you survey the calm water as usual for any sign of danger as you sit precariously
+    atop the creaking chair. "They really need to make stronger chairs" you think to yourself, worried that staying
+    up here might not be the best idea anymore.
+
+
+    Your focus is once again broken by a familiar voice as you hear a sigh from below. Looking down you see the
+    familiar shape of the otter lifeguard who shooed you off the tower before. Hand on his face, he looks utterly
+    fed up with your heroic duties. How inconsiderate of him! You're still only trying to help!
+
+
+    After a brief moment to recompose himself he speaks up to you. "I've already told you that isn't a public seat!
+    And besides why do you even want to be up there? You barely fit!"Once again irritated by his sincere lack of
+    gratitude you reply "It helps me keep an eye out for danger! How else am I supposed to-" before being abruptly
+    interrupted by the sound of crumpling metal.
+
+
+    Having lost focus on balancing yourself atop the much too small lifeguard tower, it buckles under your weight
+    before you and the tower fall forwards into the sand. Oh great now that's another problem I have to deal with
+    today! You wanna help people so badly? There's a car stuck on the beach over there I've been trying to dig
+    out for the last hour. Go help them out! Can do!" you reply cheerily as you head over to complete your heroic
+    assignment. And please for my own sake stay off the towers!" He yells behind you as you walk away at a much
+    faster than normal speed.
+
+
+    After another hour you manage to drag the car back on dry land. What a workout! Your muscles feel positively
+    exhausted but the appreciation of the car's owner was absolutely worth the effort!
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "body"
+  author: "Huelun"
+hero_event_Huelun_5:
+  event_type: "hero"
+  description: >
+    Going for a stroll down your favorite route downtown, you begin another day of heroic escapades.
+
+
+    The very ground shakes slightly with your every step as you watch the streets from your vantage point, easily
+    standing over any person or vehicle that might block your view.
+
+
+    As people scramble to stay out of your way, often hearing you before they see you at this point, your comparatively
+    large ears hear the faint sound of an alarm! Finally, some real action!
+
+
+    Breaking into a full sprint in the direction of the sound, the sidewalk cracks slightly under your step as
+    you reach the source of the sound. It's the sound of a bank robbery!
+
+
+    Far too large to fit through the front door, you decide the best course of action is to catch them on the getaway.
+    Hiding behind  the nearby two story building, you wait for the robbers to drive past in their getaway vehicle.
+
+
+    In a lucky break, you appear to have guessed their plans correctly, as you hear the telltale sign of a car
+    rapidly accelerating in your direction! Waiting for the perfect moment, you step out from behind the building
+    and swing a limb in front of the still accelerating vehicle, stopping it dead in its tracks and leaving quite
+    the large dent in its front side!
+
+
+    In a panic, the driver shifts the car into full reverse in a desperate attempt to escape, but It's too late!
+    You grab the top of the vehicle, easily overpowering it and holding it dead in place until the police arrive.
+
+
+    As a token of thanks for your genuine act of heroism, the bank offers you a small share of the valuables you
+    rescued! You gain {troves} of troves!
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "troves"
+  author: "Huelun"
+hero_event_Huelun_6:
+  event_type: "hero"
+  description: >
+    You're finding it harder and harder to walk on these downtown streets...
+
+
+    It seems with every step you take there's someone there, scrambling to get out of your way as your heavy footsteps
+    walk past. Your patrols certainly aren't getting any easier with the fact that you have to give constant attention
+    to avoid stepping on someone!
+
+
+    Trying to find a better way, you spot the rush hour traffic in the middle of the busy streets. There's a lot
+    less people around there! Perhaps It'll be easier to move around the traffic?
+
+
+    Walking with the cars on the road turns out to be the right move. Despite the angry beeping of rush hour drivers
+    and still having to watch your step, it's much easier than navigating your way through crowds of panicked pedestrians!
+
+
+    Picking up your pace along the much easier path, you discover that maybe all these nearly stopped cars weren't
+    cause entirely by rush hour. There's a wrecked truck up ahead! Looking to be spilling out... some sort of chemical?
+
+
+    Hoping to help all these people get home at a more reasonable time, you march your way over to the wrecked
+    truck and tell everyone around to stand aside. Grabbing the side of the truck you lift it back up on its wheels
+    and clean it up as best you can. Despite your best efforts to avoid splashing it everywhere, you find yourself
+    covered in this mystery chemical, which seeps into your body, leaving you with a warm tingly feeling.
+
+
+    Satisfied with your work and unbothered by whatever that chemical was you make your way home through the busy
+    rush hour traffic, feeling better than ever! Maybe you should try to get more of whatever that mystery chemical
+    is when you get the chance?
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "buff"
+  author: "Huelun"
+hero_event_Huelun_7:
+  event_type: "hero"
+  description: >
+    Deciding to take it easy on your heroism today, you decide to spend the day going on a light patrol around
+    your neighborhood.
+
+
+    Squeezing yourself through your front door, you stand up for a biiiiiig stretch before heading in whichever
+    direction the day takes you.
+
+
+    Jogging along one of the busier roads, you notice a pile of cars stacked up in the biggest crash you've ever
+    seen!
+
+
+    Seeing emergency services already start to arrive, you rush over to try to help how you can. Offering your
+    help, you are quickly directed by the firefighters trying to open the wrecked vehicles to assist them.
+
+
+    Grabbing onto the first door they're trying to open, you peel open the bent roof of car holding the door shut
+    before tearing the crumpled door off the hinges, allowing the first trapped person to be rescued.
+
+
+    Making short work of tearing open crumpled cars, you manage to help save every person trapped in the crash!
+    The paramedics briefly thank you for your service, before rushing the injured off the hospital.
+
+
+    With the emergency resolved, the chief firefighter, a burly and grizzled anthro husky, walks up to you. Thanks
+    for the help big fella. Without you a lot of those people probably would've had way less of a chance of surviving
+    that. Say if you're ever looking to do more of that, try taking a few shifts down at the fire station. And
+    tell 'em I sent ya! After deliberating briefly you accept his offer and agree to take a few shifts down at
+    the station in the near future. It's about time you got involved in hero work a bit more officially!
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "body"
+  author: "Huelun"
+hero_event_Huelun_8:
+  event_type: "hero"
+  description: >
+    You decide to go for a relaxing day on the beach!
+
+
+    Walking along the shoreline, you wave to your favorite otter lifeguard sitting on his tower as you pass by.
+    How's it going lil guy?" you teasingly say to the otter, standing at almost eye level with him despite the
+    fact that he's on the top of his lifeguard tower. Uh... hey again..." The otter says with a a grumpy look on
+    his face as he stares down your scarily large frame.
+
+
+    In an effort to shoo you off again, the otter informs you that they're setting up another fundraising concert
+    down by the pier. Not looking for much action today, you decide to spend the day helping them set up, doing
+    the majority of the heavy work and reaching high places, they're done in almost half the time thanks to you!
+    Taking your free pizza dinner once again, you accidentally wind up eating most of the pizza they had there!
+    Looks like you're bigger than you realize!
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "custom_food"
+    name: "One of the biggest pizzas on the menu"
+    size: 7.5
+  author: "Huelun"
+hero_event_Huelun_9:
+  event_type: "hero"
+  description: >
+    Taking up a shift at the local fire station, you decide to be a hero in a more normal way. Well, as normal
+    as someone as big of you can be!
+
+     Due to your size, the fire chief has pointed out that you'll probably have to run alongside them, since you'll
+    be too big to catch a ride on the trucks. Your shift starts out pretty uneventful, just relaxing outside the
+    firehouse waiting for something to happen, waving to a few onlookers staring in awe at your size. Then the
+    first alarm happens. Quickly you gather your equipment and chase after the fire trucks on foot. Despite being
+    so big, you're just barely able to keep up for the 10 minutes it takes to get to the emergency. Being large
+    enough to not even need a ladder to get into the second story window, you quickly get put in rescue duty, literally
+    grabbing people out of the building and carrying them to safety. Once the fire is out and the people are rescued,
+    you prepare to head back to the fire house only to get another emergency call, followed by another and another!
+    For the rest of the shift, you're working almost back to back emergencies. By the time you clock out you're
+    completely exhausted. Recognizing that your contributions saved many lives today, the fire chief decides to
+    pay you extra for your hard work. 
+
+     You earn {troves} troves!
+  requirements:
+    min_size: 10240
+    max_size: 40960.0
+  reward:
+    type: "troves"
+  author: "Huelun"
+hero_event_Mangetsu_1:
+  event_type: "hero"
+  description: >
+    As you looked around in the Park, sitting next to the walkway you are listing to the peaceful sounds of the
+    animals and the People who walks past you who mutters about your impressive size. Thinking about to get where
+    to get some food. Many things don’t quite satisfy your appetite in the restaurants. While you where thinking
+    about it you stomach growls a bit. A bit embarrassed you put your hand on you stomach and let out a little
+    sigh.
+
+
+    In that moment you feel a tap on your lower Body, as you turn around you see a little child there with a little
+    flyer in its hand “Hey! Are you Hungry? There is a Charity Event in front of the Mall! 'Eat for the Good' I
+    think its called!" it says happy and leaves you the flyer.
+
+
+    As you inspect the little writing you can make it a bit out what it is about. For each kilogram food you can
+    eat, they donate troves to the local orphanage. Fast you realize that the kid was probably an orphan. Touched
+    by the fate of the poor kid and the desire to end the revolution of your growling belly you decide to go the
+    mall.
+
+
+    As you carefully make your way to the mall, looking out a bit for the smaller people and don’t run over anybody
+    it does not take long for you to reach your target. As you present the flyer on the front of the event the
+    people went a bit pale because they didn't expect someone of your size to join the event.
+
+
+    But since they didn’t exclude it they let you take a seat and started to bring you plate after plate of normal
+    portions of food which almost vanished into you waiting month. The event speaker announced every kilogram that
+    you reached and you can see how they fill the donation box with the promised money for the orphanage.
+
+
+    After almost an hour of feasting the speaker comes over next to you, kindly says they are out of food right
+    now and if it would be fine for you to leave. Thinking about it, your belly was quite full now, so you check
+    the amount of food you ate and the troves that will be donated to the orphanage. You get up satisfied and happy
+    with your doing on this event.
+
+
+    Quickly checking again, you saw that you ate {dinner} kg of food and grew {d_weight} in weight and {size} in
+    height.
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "instant_food"
+    name: "Plate after plate of normal portions of food"
+    fill_stomach: True
+  author: "Mangetsu"
+hero_event_Goji_1:
+  event_type: "hero"
+  description: >
+    Making your way down the now much smaller sidewalk, you're larger than normal size, almost making it so you
+    don’t fit on it at all. You hear a meow of distress, looking around you see a small cat stuck up in a tree.
+    Seeing where it is you smile with excitement and say to yourself, “Yes! Finally a good way to put my size to
+    good use!" you say giddily. Turning towards the tree you look down the street both ways and make your way across.
+
+
+    Making your way up to the tree you see that the cat is stuck on one of the middle branches. Going up to the
+    tree you make your way up to the branch, stretching, you put one hand out. Making little “pst pst pst" sound’s
+    to get the cat to come down.  After a minute the cat finally jumps onto your hand and you lower it down to
+    the ground. It steps off your hand and rubs up against you, purring.
+
+
+    Smiling at it you hear a door open and a small girl comes out and picks up the cat at your feet.
+
+
+    “Thank you so much, you saved my cat!" she says.
+
+
+    Her parents came out just after, walking up as well. Thanking you for the kind gesture they hand you a bag
+    of money.
+
+
+    With a flutter of excitement in your chest you open the bag and see that they gave you {troves}. You smile,
+    thank them, and continue about your day.
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "troves"
+  author: "Goji"
+hero_event_Fin_1:
+  event_type: "hero"
+  description: >
+    It was a bright and sunny day when you decided to spend some time at the beach. Keyword: was. Now the wind
+    was whipping sand in your face as you stumbled through the maelstrom.
+
+
+    All around you, beach-goers were being tossed about like plastic bags in the wake of a semi-truck, but not
+    you. You were sturdy, tall. Big. Even the wind was no match for your imposing stature, doing little more than
+    causing your body to sway in the breeze. You were not a leaf on the wind, but a mountain bracing against the
+    forces of nature, herself. Though not all things were as sturdy as you.
+
+
+    Your ears perk up at the sound of danger. Or rather, a cry of someone else in danger. Then you see it. Through
+    the haze of sand and rain – and tumbling vacationers – a watchtower had fallen, crushing an unfortunate otter
+    beneath its heavy frame. Several others are attempting to free the poor mustelid, but to no avail. You squint
+    your eyes in determination – or maybe to keep the sand from blinding you – then push on toward the fallen
+    lifeguard's tower.
+
+
+    The distance is great, but your strength and size are greater. In little time you reach the trapped otter and
+    several eyes turn your way. It’s hard to ignore someone as big as you, but there’s no time to idle. Heroes
+    don’t wait for help, and neither can you.
+
+
+    Several, smaller furs scramble out of your way as you bend low, digging your arms under the heavy wooden beams.
+    Straining your muscles, you attempt to lift the structure as strong gusts buffet your form and sand thrashes
+    your backside. For a moment you lose grip, but quickly recover and hold fast to the beam. You slow your breathing.
+    Focus. And with a battle cry, you lift the watchtower.
+
+
+    The structure slowly rises as you notice other furs around you jumping in to help. You could probably do it
+    without them, but you could never turn away such valorous support. Within moments the trapped otter is free
+    again. And with a display of vigor, you make the final push and set the watchtower right once more. And as
+    the storm clears away, you lean against the structure – your upper portions nearly level with the chair at
+    the top – and smile down at the otter.
+
+
+    “Thanks for that," the otter manages. He staggers to his feet, looking up at you. “Lucky for me the local giant
+    was patrolling the beach. Don’t know how much longer my legs would’ve lasted. “It was . . . nothing," you pant,
+    clearly exhausted. “I couldn't have done it alone." Your humility is met with appreciative murmurs from the
+    smaller heroes around you, but deep down everyone knew you were just being polite.
+
+
+    “Right," the otter agrees. “Say, why don’t I get ya’ a lil’ treat for helping me out?" The otter nods to a
+    nearby ice cream shop, hopeful.
+
+
+    Lifting the watchtower was a good workout, but you’ve got other things to do, more hapless little folk in need
+    of a big savior.
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "body"
+  author: "Fin"
+hero_event_October_1:
+  event_type: "hero"
+  description: >
+    Another gorgeous day out in the suburbs, another day to help others. You spend time wandering about, seeing
+    the other furs all just a little bit shorter than yourself, listening and watching for any one in distress.
+    As you’re crossing the street, someone grabs you at the median. You hear “Hey man, could you help me? I gotta
+    take a break, this thing’s just too much for me." You reply that of course you could help, anything for someone
+    in need! “Thanks, just spin this sign for a bit, I need to rest. My arms are about to fall off! You shrug and
+    spend some time waving the sign, spinning it and grabbing as many people’s attention as you can. You can see
+    how there spinner was having problems, this sign would awfully unwieldy for anyone even just a bit smaller
+    than you! You’re able to even get fancy with it, throwing it in the air and doing all sorts of maneuvers that
+    would have been impossible for a smaller fur. When he returns, you don’t even feel winded from whipping that
+    large sign around for so long.
+
+
+    It seems that your antics did bring in a better wee crowd, and the store-owner gave you a bonus for the help!
+    You earned {troves} of troves for your “heroics".
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "troves"
+  author: "October"
+hero_event_October_2:
+  event_type: "hero"
+  description: >
+    Another day at the mall, another chance to look for those in need. Your increasing height has made it easier
+    to get a vantage and see over the throngs of people. You scan over the crowd, looking for any signs of distress…
+    nothing yet. Everyone seems to content to just shop and go about their days. Nothing exciting yet. Except for
+    a few furs that get out of your way, turning to look at your bulk going by. As you cut a swath through the
+    crowds, you realize that absolutely nothing exciting seems to be happening today.
+
+
+    You head over to the food court to take a break and sit down for a bit. Maybe a bite to eat would be enough
+    to keep you going? As you head over, though, you hear someone shouting, “Help! Thief!" You turn and see someone
+    running off with a purse that clearly doesn't match their outfit! With your size, you’re able to cover the
+    distance and catch up with the purse-snatcher quite easily. You ask them if what they had taken was theirs,
+    then take it back and return it to the owner. You easily hold the much-smaller thief in place for security
+    to come and take care of.
+
+
+    After all was said and done, one of the restaurants at the food court offers you a meal for your heroics!
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "dinner"
+  author: "October"
+hero_event_Alsend_1:
+  event_type: "hero"
+  description: >
+    You make your way down a new city block today! As your body grows, so do your responsibilities, for with great
+    size comes great stride length!
+
+
+    People seem nervous around you even as you walk gently to avoid damaging public property, which wouldn’t be
+    very heroic after all, but a smile and wave seems to help them relax.
+
+
+    But then, a loud crash! Someone was in trouble! You leap into action, wincing as the concrete gives under your
+    weight ever so slightly, but before long you arrive at a construction site where a bunch of large I beams have
+    scattered! This looked like a job for you! Stand back citizens, I shall right this wrong!" You bellow, collecting
+    the beams and returning them to their original place using your immense body's immense strength, the beams
+    each weren't too large, small enough you can lift them with little issue, but large enough they would've needed
+    multiple men to do what you do, then holding them in place for the workers to strap them back down. Thank you!"
+    The site supervisor approaches you. "That mess woulda set us back days if you hadn't come along! Though the
+    bars revealed a sinkhole we'll need to fill, I'm glad we found it early" how fortunate, you think. "In the
+    sinkhole was some odds and ends! I dunno what we could do with 'em, think you could take them off our hands?"
+    And they're offering you the treasure that was unearthed! Being a good person really does pay off!
+
+
+    For some reason, nobody seems to accept your payment you got from the site, but you do manage to sell the treasure
+    off to a junkyard and receive {troves} of troves that people WILL take! Who ever said good deeds don’t get
+    rewarded?
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "troves"
+  author: "Alsend"
+hero_event_Alsend_2:
+  event_type: "hero"
+  description: >
+    You leap into action as a monster octopus is attacking the city! Luckily with your size, you outsize it even
+    if just a bit, and can take it down fairly easily. In the discussion of what to do, a nearby chef offers to
+    cook the octopus up for saving their sushi restaurant!
+
+
+    The chef cooks it up, and the city holds a celebration in your honor where you stuff yourself on {dinner} sushi,
+    and a few citizens notice you even grew {d_weight} or {size} bigger, cheering as they see their protector grow
+    even larger.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  type: "instant_food"
+  name: "Monster octopus sushi"
+  author: "Alsend"
+hero_event_Alsend_3:
+  event_type: "hero"
+  description: >
+    You had just done a very heroic act, so heroic you didn't even know how to describe it and hoped someone had
+    been watching, and had been rewarded with a map! To what? Probably someone in danger, that's what! And so,
+    you set off to rescue the innocent!
+
+
+    Following the map for a week and a day (ok, maybe it was like, an hour on account of your size) you soon arrive
+    to a big X! They must be buried alive! How awful! You use your large body to not even need a shovel and soon
+    find the poor sod's jail, tearing it open... To find jewels? Bah! This was a TREASURE map!
+
+
+    But no matter! You collect the treasure to donate to the local museum like a good citizen! They say something
+    about these being a famous treasure or something, though you arent sure which as there's said to be millions
+    of those in this area, and insist on paying you a finder's fee of {troves} troves!
+
+
+    At least there weren't any Snakes!
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "troves"
+  author: "Alsend"
+hero_event_Alsend_4:
+  event_type: "hero"
+  description: >
+    You come across a grounded ferry. There had been storms recently, and the river had been running fast and dangerous
+    lately, and it seems to have grounded a boat with cargo! The crew is in awe of you impressive size, and ask
+    if you can help them get at least to the other side to save them time going around.
+
+
+    As a true hero, of course you help them! You push them across the river, you immense body and powerful... Er...
+    Power... Letting you resist the rapids and get them across, where they're very thankful to you! And you're
+    glad to help, even if that was tiring.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "body"
+  author: "Alsend"
+hero_event_Alsend_5:
+  event_type: "hero"
+  description: >
+    You're getting very large now, making you very good at spotting danger, but today you find yourself walking
+    through a forest. You weren't sure what drew you here, but you had to follow your heart!
+
+
+    Soon you hear voices. They sound like children! For a moment you think they're lost, but you hear some whining
+    about the 'log being gone' this must be a group of kids who play in the forest! "Would you little ones like
+    some help?" You ask as the children, actually children this time, look up at you in awe. "I see your bridge
+    is gone! Lucky I just renewed my bridge licence!" You move to where signs of a log having been but fell into
+    the creek after a heavy rain is, and use your back as a bridge! The children all cross and thank you. It was
+    my pleasure to help young ones! Now, I must be off!" You start to head back to town, the happiness from the
+    children's pure smiles blooming into a new power!
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "buff"
+  author: "Alsend"
+hero_event_Alsend_6:
+  event_type: "hero"
+  description: >
+    You make your rounds, ready to use your above average stature in order to help people when you hear signs of
+    a struggle! Please, you just stole a loaf of bread from me this morning! Yeah, I know, but it had raisins.
+    I HATE raisins. See, Knifey here thinks we should just kill you, but i was like 'no, Knifey!' but now I'm like...
+    Yeah... No more fucking raisins An insane man assaulting a baker! Not on your watch! You rush in, eager to
+    help. Your arrival and booming "What seems to be the issue?" Scares the insane man off.
+
+
+    The baker picks up the bread and sighs, then looks to you. "Thank you... What's your name? You freeze. You
+    hadn’t thought of the perfect hero name yet! You flash back to an important moment... *You make your rounds,
+    ready to use your above average stature in order to help people...* "Stature!" You announce. Oh great, another
+    'Stature', this some kinda tall person cult?" The baker grumbles, obviously confused from his ordeal. "Well,
+    this bread is no use to me. You have it." He leaves.
+
+
+    Once he does, you try it. Oatmeal Raisin Bread? Interesting! But you also feel funny... Powerful... Was this
+    some kind of... Superfood?!
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "buff"
+  author: "Alsend"
+hero_event_Alsend_7:
+  event_type: "hero"
+  description: >
+    You slither along the roads, watching for any signs of danger. Most people don’t even notice you, making you
+    surprisingly stealthy for such a large snake... Or just people don’t look down.
+
+
+    Then, you hear a whimpering sound, as your head perks up, you taste the air. Someone needed help! It sounds
+    like a child, so you carefully go into the alley. "Are you ok?" You call out, startling the poor child. Wh-who
+    are you? I just want my m-mommy!" The young girl cries. Sssssshhhh" you reassure. "I’m going to come out, don’t
+    be scared." You slither out as she sees you, and is a bit surprised before beaming. Snakey!" Lucky you, seems
+    it’s a child who likes snakes. Using that as an in, you get her to give you enough information to get her home.
+    It turns out the family keep pet snakes, the non-talking kind if course, and take care of injured talking snakes,
+    and are very grateful to you. They insist you join them for dinner for bringing their daughter home!
+
+
+      The meal is filling, as normal food or mice, they know how to prepare them to be delicious and very healthy!
+    So healthy in fact that the {dinner} meal alone made you grow {size} bigger!
+  requirements:
+    min_size: 40
+    max_size: 80.0
+  reward:
+    type: "instant_food"
+    name: "Normal food or mice"
+  body_whitelist:
+    - "Snake male"
+    - "Snake female"
+  author: "Alsend"
+hero_event_Rico_1:
+  event_type: "hero"
+  title: "Stop the robber 1!"
+  description: >
+    You're out and about strolling around, then suddenly... BOOM, CRASH... you can hear police sirens blaring out. 
+    You wonder what's going on. You turn around and hear the police shout out "STOP THAT PERSON!!!"
+    In a moment's flash you see a relatively small cheetah holding a large bag sprint past you.
+    
+    
+    They are fast... but not as fast as you. Thank goodness for all that cardio you've been doing.
+    You sprint towards the cheetah at (sprint speed), it's a long chase but they eventually tire out! You tackle the cheetah and pin them down.
+    
+    
+    You hear the police behind you cheering. Wait the police were just watching you run while in their cars?
+    Either way the praise is nice. One of the police officers come up to you and arrest the cheetah then says,
+    "Thanks man you really saved us this time. Come down to the station and claim their reward we'll have one for you."
+    
+    
+    That was not how you were expecting your morning stroll to go.
+    You head down to the station... Walking in, the police officer notices you and says, "Oh hey! you're the one that caught the robber."
+    They pause, and go to the back of the station, after a moment they return with a bag full of troves! and a piece of paper
+    "If you could just sign here." You sign your name and walk off with {troves} of troves!
+  requirements:
+    min_size: 20.0
+    max_size: 80.0
+    min_fitness_pct: 0.03
+  reward:
+    type: "troves"
+  author: "Rico"
+hero_event_Rico_2:
+  event_type: "hero"
+  title: "Stop the robber 2!"
+  description: >
+    You're out and about strolling around, then suddenly... BOOM, CRASH... you can hear police sirens blaring out. 
+    You wonder what's going on? You turn around and hear the police shout out "STOP THAT PERSON!!!"
+    in a moment you see a large bull man sprinting towards you.
+    
+    
+    Suddenly you find yourself wrestling with a bull person.
+    They are strong... but not as strong as you are. Your work in the gym has really proven useful here!
+    You continue wrestling with the bull eventually after a while... you are victorious and you pin the bull man down!
+    
+    
+    You hear the police behind you cheering. Did they seriously watch that whole thing happen and not do anything?
+    Either way you find the praise nice. One of the police officers come up to you and arrest the bull.
+    The officer says "Thanks, you really saved us this time. Here take pick one of these, on us!"
+    
+    
+    You are given the option between a one session pass to the gym, free dessert coupon. You ponder on your options...
+    You could take the gym pass and do a proper workout today or do some cardio, or free dessert.
+  requirements:
+    min_size: 20.0
+    max_size: 80.0
+    min_muscle_pct: 0.45
+  reward:
+    type: "body"
+  author: "Rico"
+hero_event_Rico_3:
+  event_type: "hero"
+  title: "Emergency!"
+  description: >
+    You're in bed resting since it's late at night, then you receive a phone call... Slightly worried you pick up the call.
+    It's a call from emergency services, "Hey, we need all the help we can get! There has been an emergency! Report to the nearest hospital."
+    As much as you want to rest in bed it's an emergency! You get your clothes on and head out right away.
+    
+    
+    As you walk into the hospital you notice the frantic staff all around. The supervisor comes to you and says 
+    "Good you're here to help right? There was a terrible accident on the road and we need all people to come help with large vehicle licenses!"
+    He hands you the keys to the ambulance and says "There are more on the way, but we needed someone big and strong to carry these people!"
+    
+    
+    You take the keys, get into the emergency vehicle and drive to the scene of the accident.
+    You step out and begin helping by lifting debris off of people. 
+    You lifted (Usual full body workout lift) of debris and helped carry and load (Full body workout lift/60kg*4 rounded to nearest whole number) people into ambulances without breaking a sweat!
+    
+    
+    After helping all the people at the accident you get into the ambulance and drive back to the hospital.
+    The staff help unload the injured from the ambulances. The supervisor comes in and says "Thank you so much you've saved so many lives today."
+    "Here take this, it's the least we can do." They hand you a bag full of trove!
+  requirements:
+    min_size: 20.0
+    max_size: 160.0
+  reward:
+    type: "troves"
+  author: "Rico"
+dinner_event_Jagaz_1:
+  event_type: "dinner"
+  description: >
+    Dinnertime!
+
+
+    Plated before you, you find delectable offerings of Greek cuisine. Individually they would be little more than
+    appetizers, but together they are a full meal and more.
+
+
+    To your left, neatly arrayed against each other, meatballs in one of the most vibrant tomato sauces you ever
+    witnessed. Next to them, a row of char grilled peppers. You can practically taste their spicy sweetness already.
+
+
+    To your right, a small bowl of the tzatziki, the garlicy yoghurt goodness. It is nothing like the runny crap
+    you can get from the supermarket that barely even tastes of anything but oil. It is accompanied by steaming
+    hot pita bread, just waiting for you to rip and tear, and dip until it is done.
+
+
+    Of course, there is also the obligatory salad. Even this seemingly modest offering speaks of care... for one
+    its not absolutely drowned in dressing. It is a wonderful arrangement of color: chunky tomato pieces, grated
+    zucchini, olives and cheese, alongside fresh onion.
+
+
+    And in the middle, the center piece, a long slice of feta cheese, wrapped in puff pastry and drizzled with
+    golden honey. A perfect blend of salt and sweet; a sensation of texture both soft and crisp.
+
+
+    Now perhaps, Greek isn't exactly your go-to cooking, but this place - where did you even get this? - absolutely
+    knew how to put in the effort.
+
+
+    You gain {d_weight} and grow {size}.
+  requirements:
+    min_size: 10
+    max_size: 250.0
+  reward:
+    type: "dinner"
+  author: "Jagaz"
+dinner_event_Jagaz_2:
+  event_type: "dinner"
+  description: >
+    A Dire Sandwich appears!
+
+
+    You're pretty sure you can hear boss music playing.
+
+
+    Before you towers a monstrosity in the guise of a wheat product. A quadrupledecker stacked with cheese, meat,
+    possibly even vegetables. Someone seems to have tried to take a bite out of it, but has clearly not been powerful
+    enough to finish the job. In fact, you can see the poor sod lie just next to it; having succumbed to its caloric
+    bombast.
+
+
+    You swear to avenge your fallen comrade.
+
+
+    As challenger, the first strike is yours, and you decide to use your secret move right away.
+
+
+    You use Eat!
+
+
+    It's super effective.
+
+
+    The Dire Sandwich was devoured!
+
+
+    You gain {d_weight} and grow {size}.
+  requirements:
+    min_size: 10
+    max_size: 250.0
+  reward:
+    type: "dinner"
+  author: "Jagaz"
+dinner_event_Jagaz_3:
+  event_type: "dinner"
+  description: >
+    Alright, you were already struggling to find something good to eat before, but it is getting increasingly ridiculous
+    now. However, since you were already eating raw trees, maybe you could consider eating other more... unusual
+    things? After all, everything hasa caloric value. If you got a chunk of uranium to suck on, you'd probably
+    be good for a while! 
+
+
+    Or get a new superpower... Either way, sweet relief arrives when your eyes fall upon a suspiciously unmarked
+    road-tanker conveniently rolling by. Throwing caution to the wind, you give brief chase before you grab the
+    vehicle and lift it up. Its still pretty big, all things considered. Somewhere in that ill defined sweet spot
+    between barrel and bucket. You don't give anyone time to protest or elaborate as you rip a hole into the tank
+    and start chugging the contents like you were back in college. Whatever this was, it left a fizzy sensation
+    on your tongue and makes your stomach gurgle in excitement. You feel something at the back of your throat and
+    as you open your mouth, a window rattling, leave rustling, bird scaring burp echoes forth from your lips and
+    across the surrounding countryside.
+
+
+    Looks like you already processed all of it. Given your gains of {d_weight} and {size} you reckon this was worth
+    some {dinner} worth of calories!
+  requirements:
+    min_size: 40960
+    max_size: 163840.0
+  reward:
+    type: "dinner"
+  author: "Jagaz"
+dinner_event_Alsend_1:
+  event_type: "dinner"
+  description: >
+    You find a new All-You-Can-Eat place! Most have banned you on principle, but this one doesn't know you yet!
+
+
+    You arrive to the awe of the staff as they look up at you squeezing through the door, unsure if this was some
+    prank show or not. Sadly for their stocks, this was real.
+
+
+    You start with a handful of sliders and some bread, the cheese melted by a heating lamp. Sure, not the best
+    of burgers, but occasionally you just need quantity over quality, especially when you're so BIG.
+
+
+    Next you decide to be funny, and get a salad but drench it in dressing, and add tons of cheese and meat to
+    it, a bit of bacon, and many other things making it seem more a mismatch pile than a salad.
+
+
+    After that there's chicken and pizza, an odd mix, but as hungry as you are, you hardly care. Food is food,
+    and this food fills your stomach, but never quite enough.
+
+
+    This is how things go on as the staff first watches you in awe. Then shock. Then fear. Then finally, horror
+    as you methodically eat immense amounts of their stock before FINALLY finishing, satisfied.
+
+
+    You, of course, get another ban to place under your belt, but the meal filled your stomach well! You have consumed
+    {dinner} and grown {d_weight} in weight and {size} in height.
+  requirements:
+    min_size: 100
+    max_size: 300.0
+  reward:
+    type: "dinner"
+  author: "Alsend"
+dinner_event_Alsend_2:
+  event_type: "dinner"
+  description: >
+    It's time to eat, but not even a buffet can really fill you up proper anymore. You need to special order meals...
+    Or find them yourself.
+
+
+    You head into the forest to find some game. After a bit of looking, you spot a deer. You get ready and strike,
+    using your great size and weight to jerk it suddenly enough to make it quick and painless.
+
+
+    Once you have your prey, you dig in, today might be a cooked day, or make some jerky, or even just devour it
+    if your powerful digestive system can handle it.
+
+
+    If you're being honest, it is a bit thrilling to be so big, and you know that this {dinner} meal will help
+    you become even bigger! In fact, you notice it seems it already had, making you {d_weight} heavier and {size}
+    taller! That was fast!
+  requirements:
+    min_size: 250
+    max_size: 1750.0
+  reward:
+    type: "dinner"
+  author: "Alsend"
+dinner_event_Alsend_3:
+  event_type: "dinner"
+  description: >
+    It's getting harder and harder to stay fed in the city. You have to empty a store, and even the most well stocked
+    ones just aren’t cutting it anymore... So why not cut out the middleman and go right to the source.
+
+
+    You stride into the fields and find a nice, fat cow you can lift. You heft it and start to walk off with your
+    easily claimed ill-gotten gains when the farmer rushes out. Groaning, you put the cow down for a moment to
+    heft a hay bale and roll it at him hard. He has to avoid it and, in that time, you heft the cow again and rush
+    inti the forest, the animal very confused.
+
+
+    Once in the forest, you use tools on you, either brought or natural, and butcher the cow, and use a fire to
+    cook it and eat. They were right; Fresh-Butchered Stolen beef DOES taste better!
+
+
+    Due to your experience level, you managed to salvage {dinner} of the cow and grow {size} from the meal!
+  requirements:
+    min_size: 640
+    max_size: 2580.0
+    max_karma: -25
+  reward:
+    type: "dinner"
+  author: "Alsend"
+dinner_event_Alsend_4:
+  event_type: "dinner"
+  description: >
+    Your stomach starts to rumble, so you need to set out for food, and at this point, that means hunting. You
+    head into the forest that luckily has so much game it can likely sustain hundreds of people your size or bigger.
+    Rumors say its magical, and at least its magical for your stomach!
+
+
+    You find a group of wild cattle, who had escaped the nearby ranch after a very inconsiderate giant broke their
+    fence. It was of course hard to know which ranch or who caused this group to escape but you're glad it lets
+    you be fed.
+
+
+    You strike quick so it doesnt suffer and get to work, harvesting the cow for a total of {dinner} of meat! They
+    get big in this forest! This meal makes you grow {d_weight} heavier and {size} taller!
+  requirements:
+    min_size: 640
+    max_size: 10240.0
+  reward:
+    type: "dinner"
+  author: "Alsend"
+dinner_event_Alsend_5:
+  event_type: "dinner"
+  description: >
+    You've gotten so big, you're having to think of what to eat that won't be depleted too fast, that can support
+    you. Huffing, you lean against a tree... Wait! That's it! The forest! Brocolli were like little trees, and
+    your parents always said to eat it to grow up big and strong! You quickly start to forage, uprooting bushes,
+    eating whatever greens you can find, and maybe getting some birds and squirrels in the mix for a dash ofmeat!
+    Once your feeding frenzy is done, you feel full and the forest isn't even slightly  depleted. This should be
+    able to sustain you for awhile! 
+
+
+    Your meal was a total of {dinner} and made you grow {d_weight}, which is about {size} taller!
+  requirements:
+    min_size: 10240
+    max_size: 40960.0
+  reward:
+    type: "dinner"
+  author: "Alsend"
+dinner_event_Alsend_6:
+  event_type: "dinner"
+  description: >
+    You hate Mondays. That’s not to say it IS Monday, or you’re even going to work, no, this thought is more a
+    joke because before you is a nice homemade lasagna, a meal fit for a cat.
+
+
+    You dig in, devouring the piece you got yourself, enjoying the sauce and pasta, but still feel hungry... You'd
+    MEANT for this dish to last you longer... But you have noticed you've been apparently going through a late
+    growth spurt, so maybe your body needs the food?
+
+
+    You have a second piece, this time the cheese is what stands out, melted just how you like it, as you eye the
+    last piece... Fuck it.
+
+
+    This piece is somehow even better, as the meat baked in takes center stage on your taste buds as you finish
+    what had been intended to last a few days in one sitting. You expect to feel bloated, but you feel... really
+    good, actually. Huh.
+
+
+    Unbeknownst to you, devouring the {dinner} of Lasagna gave your body the fuel needed to grow {size} larger!
+    Your clothes are going to fit even worse now!
+  requirements:
+    min_size: 40
+    max_size: 120.0
+  reward:
+    type: "dinner"
+  author: "Alsend"
+dinner_event_Growbold_1:
+  event_type: "dinner"
+  description: >
+    You wandering around the nearby forest to see if you can scrounge up some dinner. However, it seems you've
+    been hunting a bit too much here lately and the local wildlife population has gone down. That and your tall
+    enough that stealthily moving among the trees has become a very difficult task.
+
+
+    Just as your about to give up you notice a large sign has been left in the woods. It addresses you directly
+    and points to free food. Normally you wouldn't trust something like this, but your really starving. Besides
+    your so big now, that your sure you could handle any problem.
+
+
+    Following the sign leads you to another and then another, until you find yourself at an abandoned house with
+    a hot tub in the backyard. The tub has been drained of water and is instead filled with an aromatic broth.
+    You can see chunks of beef,  bobbing in the liquid alongside dozens of vegetables. The aroma is mouthwatering
+    and you soon find yourself devouring the hearty stew for a total {dinner} of food.
+
+
+    By the time your done, you lie on the ground next to the empty tub. You pat your full rounded belly, having
+    stuffed yourself so much. You suddenly notice a note taped to the side of the tub. Apparently this is a gift
+    from a secret admirer, one that wishes to see you get even bigger. Perhaps someday you'll meet this patron
+    and properly thank them. Till then you'll happily accept their gifts whenever they are offered. This meal makes
+    you grow {d_weight} heavier and {size} taller!
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "dinner"
+  author: "Growbold"
+dinner_event_Grits_1:
+  event_type: "dinner"
+  description: >
+    With your shaking footsteps, you make your way over the unpaved and gravel-covered sideroads to the suburban
+    village a few miles away. Brushing away the tree branches that are specifically cut to let through trucks with
+    no issue. But you just have simply grown bigger than trucks, at least in height. And your hunger surely was
+    craving for a truckload of food at this point.
+
+
+    That is why you are on your way to the local harvest festival, where the farmers from the suburban village
+    sell their harvested goods before donating most of them to charity at the end of the event.
+
+
+    A ton of fruit and vegetables sounded just right for you today. Even a giant has to take care of their stature
+    and health after all. Plus it would be a nice change of pace from all the fast food and meat you have eaten
+    in the last few weeks.
+
+
+    Maybe even drink some home-brewed cider and beer. Or maybe just the self-made juices and some cheese too.
+
+
+    Arriving at the festival you are greeted by frozen stares. Some people look in amazement, while others look
+    in horror at the giant beast walking between the packed stands of the market. People step out of your way as
+    you look at all the colorful options surrounding you. What should you choose?
+
+
+    Your thoughtful browsing of the delicious-smelling goods was suddenly interrupted by a deafening growl of your
+    belly. "Ah, what gives? I am here to eat! I am just gonna eat some of everything!“ And with this exclamation,
+    the most lucrative harvest festival for the local farmers started as you dragged your giant body from one booth
+    to the next. Clearing them out systematically and seemingly inhaling the produce with a few bites.
+
+
+    In the end, sitting down in the center of the marketplace and leaning against the fountain. With your third
+    barrel of juicy liquid in your palm and a fairly stuffed belly. Letting out a loud burp, petting your belly
+    as the sun sets. Thinking to yourself. "I gotta visit the next festival as well.“
+
+
+    Looking at all the empty booths, and back to your belly filled with {dinner} of fruits and juices.
+
+
+    You had grown mightier by {d_weight} and taller by {size}.
+  requirements:
+    min_size: 1000
+    max_size: 10000.0
+    max_karma: 0
+  reward:
+    type: "dinner"
+  author: "Grits"
+dinner_event_Foxx_1:
+  event_type: "dinner"
+  description: >
+    It is an early morning. You sit up to stretch, letting out a small groan doing so. However, it is overtaken
+    by the sounds of your big, but empty stomach rumbling in hunger. Luckily for you, you just happened to book
+    a room at this rather nice hotel, one that just opened recently. They even have special rooms for people your
+    size, which so happens to have an unlimited breakfast buffet that they've boasted about.
+
+
+    So you decide to test them if this was really all it was cracked up to be, with you soon making (stomping,
+    really) your way down to the designated buffet area. And you must say, it is huge! Much bigger than your average
+    buffet, over ten times as big, even! Probably because of the recent spike of big folk popping up and wrecking
+    buffets. They are so kind to even have extra large doors on the side for people like you. The owner of this
+    hotel is waiting for you actually. They say you're more than welcome to try eating out the place, with the
+    smuggest smile to ever be seen on their face.
+
+
+    Jokes on them though, as you are starving after a good night's rest. In a flash of an eye, you dart past the
+    large doors opened for you, without caring for what you are digging into, really. You quickly begin to empty
+    out counter after counter of warm breakfast items, including the breakfast usuals of steaming scrambled eggs,
+    egg Benedict's, and french toast, not to mention the meats like bacon, sausages, breakfast steaks, and more!
+    With the hotel owner and their pride plummets to the floor after each and every counter of food eaten. Not
+    after so much time, you eat {dinner} worth of breakfast items, gaining {d_weight} while growing {size}, alongside
+    with your growing grin as you walk past the shattered hotel owner, who is completely defeated at the entrance
+    to the buffet. You pat your happy and full stomach as you check out with your win-win this morning. You'll
+    definitely be coming back here with a good customer review!
+  requirements:
+    min_size: 320
+    max_size: 10240.0
+  reward:
+    type: "dinner"
+  author: "Foxx"
+dinner_event_Huelun_1:
+  event_type: "dinner"
+  description: >
+    Taking a nice morning walk along the beach, you rub your stomach as it groans with hunger. It has been getting
+    increasingly more difficult to find a good source of food at your gigantic size. You spot a particularly large
+    fish break the surface of the water far out at sea when the idea finally hits you. The ocean has tons of huge
+    creatures to feast upon! Wading out into the deep water, you chase after the large tuna and apex predators
+    of the ocean as they struggle to outpace you. You try to make it as quick and painless for them as possible
+    as you scarf down {dinner} of seafood! Having gained {d_weight} and grown another {size}, you head back to
+    shore to enjoy the day, your appetite finally sated.
+  requirements:
+    min_size: 10240
+    max_size: 163840.0
+  reward:
+    type: "dinner"
+  author: "Huelun"
+dessert_event_Alsend_1:
+  event_type: "dessert"
+  description: >
+    Snack time! You get a stash of various cookies you’d been saving for a special occasion... You suppose now
+    would have to do. You marvel over the small collection of cookies you have, from Oatmeal Raisin to Sugar Cookies.
+    Even if some may not be quite to your taste, there’s a little something for everyone.
+
+
+    Just one couldn’t hurt. Right? You take one and savor it, as it seems to just melt in your mouth, the taste
+    just right, one of your favorites! It was so soft it was like it had just came out of the oven, though you
+    aren’t sure how it was like that, you also hardly care.
+
+
+    One more wouldn’t hurt. Right? This one is crunchy, a sharp crack as it breaks in half, crumbs spilling into
+    your lap. Oh well, you'll have to vacuum later. Right now, you were too busy enjoying the cookie.
+
+
+    And you’re sure one more- ah, who're you kidding?! You put aside any you hate and devour the rest in one sitting,
+    acting like a fine wine critic, but with delicious cookies, and all too soon they're all gone. You’ll remember
+    this delicious feast for a long while. Your waistline will too, as this added {d_weight} of fat!
+  requirements:
+    min_size: 40
+    max_size: 250.0
+  reward:
+    type: "dessert"
+  author: "Alsend"
+dessert_event_Alsend_2:
+  event_type: "dessert"
+  description: >
+    You're craving something sweet... But you’re getting so large it's hard to get a good number of sweets to sate
+    your sweet tooth without resorting to stealing. Sighing wistfully at an ice cream tub knowing you'd finish
+    it in a bite or two likely, you head home.
+
+
+    To your surprise, there’s a package marked fragile there, only marked as "From a secret admirer" as you look
+    around but see nobody. You take it in and carefully open it.
+
+
+    And find a cake.
+
+
+    A large one too. You check the tag, ok, average calorie and sugar count for... HOW MANY SERVINGS?! Your eyes
+    widen. They had to have done that to hide how much it had right? One slice would barely be a sliver if what
+    you’d expect!
+
+
+    But on the other hand, sweets are getting harder to get. Maybe this could sate you? You get a small slice and
+    enjoy the rich texture and chocolatey taste. Another couldn’t hurt right?
+
+
+    Before you know it, the whole cake is gone, and you may or may not be regretting your life choices that led
+    you here. Your waistline definitely is, as it's added {d_weight} in pure fat from this!
+  requirements:
+    min_size: 250
+    max_size: 10240.0
+  reward:
+    type: "dessert"
+  author: "Alsend"
+dessert_event_Huelun_1:
+  event_type: "dessert"
+  description: >
+    Your mass has increased so much that sweets from almost any source are merely tiny snacks to you. Desperate
+    to satisfy your sweet tooth, you find a nearby candy factory! Luckily for you, you arrived at just the right
+    time, as they have an absolutely massivesurplus of sweets which they were unable to find a buyer for, and need
+    to find a way to dispose of it. Not waiting another moment, you dig into the literal mountain of candy as You
+    shove piles at a time into your mouth. Before you know it, all the candy is gone, leaving your frame {d_weight}
+    heavier! You might want to pace yourself next time before this gets out of hand...
+  requirements:
+    min_size: 10240
+    max_size: ".inf"
+  reward:
+    type: "dessert"
+  author: "Huelun"
+work_event_Mangetsu_1:
+  event_type: "work"
+  description: >
+    You decide you want to work a bit. While you look at the job board something catches your eyes: ‘Help on the
+    Pig Farm!’ With big hopes to get a pig for a day of work you head there.
+
+
+    You reach the farm and get greeted by the farmer. He looks at you and decides that with your size it would
+    be best to do normal things. So he lets you clean up the pig stables and give them their food. Its a messy
+    and dirty work but you still have your dream of getting a pig after all!
+
+
+    After your work shift is over you go back to the farmer to get the pig you hoped for. He thanks you for the
+    hard work you have done and gives you some troves.
+
+
+    A little disappointed, but still happy that you got something you take the troves and go back home.
+  requirements:
+    min_size: 40
+    max_size: 80.0
+  reward:
+    type: "work"
+  author: "Mangetsu"
+work_event_Mangetsu_2:
+  event_type: "work"
+  description: >
+    As you look through your troves reserves, your mind is quickly set. Maybe you do have troves, maybe not, regardless,
+    it is not enough! So you go to the job board in the city. As you bend over a bit to read the notes to see where
+    you could work today you see once again “Help on the Pig Farm". Still a bit upset to have to do all the dirty
+    work you want to go back there when you are more impressive.
+
+
+    While you are looking you see that the nightclub needs a bouncer for an event. Looking at yourself again you
+    start to grin and make your way to the nightclub. You greet the owner and ask if the bouncer position is still
+    available. He looks over you and then to another person who looks up to you with big eyes. He offers that you
+    both can do the shift together, so not everyone gets too imitated by your presence. Happy, both of you accept
+    and the smaller one gets equipment, but you, yourself get none, after all you already have your size!
+
+
+    Like expected with someone of your size, right at the entrance many people who wanted to make trouble go very
+    silent as they see you. Happy that you can do some easy work and get easy troves you work together with the
+    other one through the shift.
+
+
+    At the end the Nightclub owner comes to both of you and hands over the troves for the shift.
+
+
+    As you count your troves you see that you earned {troves} of troves.
+  requirements:
+    min_size: 80
+    max_size: 160.0
+  reward:
+    type: "work"
+  author: "Mangetsu"
+work_event_Mangetsu_3:
+  event_type: "work"
+  description: >
+    While walking around the city you are looking again for a way to increase your troves! After all only a working
+    person can increase his richness. You stumble onto someone and watch surprised down on the person that you
+    ran over, you quickly recognize him as the owner of the nightclub.
+
+
+    You take your time to help him up and ask if he is alright. He seems at first a bit annoyed, but after looking
+    at and up to you he recognizes you. Remembering how the event went the last time you worked there, he asks
+    if you got some spare time to earn some troves again as a bouncer.
+
+
+    A bit surprised that the works starts coming towards you accept to work again as bouncer. Both of you went
+    to the nightclub and he gives you again orders for the evening.
+
+
+    Like the last time you worked there your presence is mostly enough to make sure that people don't try stupid
+    things, but you have to go inside the building and carry some drunk persons outside and send them their way.
+    Getting inside was not the easiest because many small ones are in your way, but after they realize that you
+    are coming they try as best as they can make it easier for you.
+
+
+    After working through the shift the club owner comes to you and handles the bag of troves for your work, thanking
+    him for the chance to again.
+
+
+    After counting your troves you happily put {troves} of troves back into the bag and went back home.
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "work"
+  author: "Mangetsu"
+work_event_Alsend_1:
+  event_type: "work"
+  description: >
+    You're starting to get very large, easily twice a normal person's size, and such need to start looking for
+    ways to exploit that fact the best you can. After all, the better a job you do, the more pay, right? And its
+    not like many can replace you!
+
+
+    While browsing the personnel ads one catches your eye. Logger? You do suppose your size could make it easier,
+    even if not able to just pull trees up single handed. **YET**. But you do apply still. Plus Nature could do
+    with being taken down a peg so long as its done smart.
+
+
+    You arrive and the other workers look up at you in awe, making you smirk, and preen a little. Hey, big folk
+    should get to feel big. Though you are a bit too big for the axes, so you're put on carry duty, moving the
+    trees to the trucks. After some tests you're assigned to the ones you can lift alone so the others can focus
+    on the ones you can't, though you mentally swear you'll handle those one day, just need to get bigger.
+
+
+    After your time there, the boss is impressed with how much you did, and even with your pay outshining the other's,
+    you still saved them money, a win/win, and you're given an open offer to help them anytime before they start
+    on replanting trees to replace what was cut down.
+  requirements:
+    min_size: 320
+    max_size: 640.0
+  reward:
+    type: "work"
+  author: "Alsend"
+work_event_Alsend_2:
+  event_type: "work"
+  description: >
+    You need some more money, and you need it fast, and hopefully your massive size can help.
+
+
+    You make your way around town, and find some construction workers looking disgruntled. Inquiring as to the
+    issue, they inform you that their machinery was supposed to be here today but never showed up, and they needed
+    to finish the house. Seeing a chance, you offer to help them, as your size and strength would be able to help
+    them out.
+
+
+    They agree and you get to work, lifting things and helping them get onto to roof, and watching to be sure to
+    catch them. There's one tense moment someone almost falls but you reach up and gently push them back to safety.
+
+
+    Once the work is done, the team finds they're now far ahead of scedule and pay you the budget they won't need
+    now they finished far earlier than expected, a total of {troves} troves!
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "work"
+  author: "Alsend"
+work_event_Alsend_3:
+  event_type: "work"
+  description: >
+    As your size starts to get to greater and greater amounts, you need more and more resources, and thus need
+    bigger and bigger jobs. That's how you found yourself working as a transport. You weren't large enough to replace
+    long distance haulers yet, but you could move things in a smaller area quickly and easilly, not requiring loading
+    and strapping down, just take the load outside and let you carry it.
+
+
+    It's hard work, as some loads are a bit heavier than planned, but you manage to transport the cargo quickly
+    and efficently, earning yourself a nice payday while saving the client a lot of time and money, and told if
+    you are ever up for it, theyd love to enlist you for longer distance loads.
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "work"
+  author: "Alsend"
+work_event_Alsend_4:
+  event_type: "work"
+  description: >
+    You managed to find a very interesting employment opportunity recently. A local open air theatre wanted to
+    do a production with lots of heavy sets and props, but didn't have the volunteers able to run tech and still
+    move the sets around! Lucky for them, you were so big and strong you could not only easily move the sets around,
+    but could act as a makeshift curtain at the same time! It was interesting and let you broaden your horizons...
+    And maybe they provided catering, even if never enough for you to do more than sample. 
+
+
+    The actors seem to appreciate your help, even when you accidentally stepped on and broke a prop log and had
+    to quickly figure out a way to replace it, wrapping some brown paper on yourself, having the actors draw on
+    it, and using that part of your body as a replacement. On the upside, you could move it to make the scene a
+    bit more comical as the log really does move in his way! 
+
+
+    After another night's work, you're paid a cut of the show's take, a whopping {troves} of troves! Though nobody
+    is quite sure if everyone is coming for the show, or just to see you. No matter. Money is money!
+  requirements:
+    min_size: 10240
+    max_size: 40960.0
+  reward:
+    type: "work"
+  author: "Alsend"
+work_event_Huelun_1:
+  event_type: "work"
+  description: >
+    Looking to once again to increase your troves, you decide that your stature might finally be impressive enough
+    to get something better than the dirty work on that pig farm you used to work at.
+
+
+    Heading out of town to the farm once again, you are greeted by the farmer who recognizes you after several
+    seconds due to being much larger than before. After thinking for a few moments he decides that you're probably
+    strong enough to do some more heavy lifting than the last time you're here. For almost the entire shift he
+    has you working your butt off. Chopping down trees, hauling around heavy supplies, and even helping him maintain
+    his equipment. It's definitely less dirty work than before, but man is it exhausting!
+
+
+    Exhausted from your shift, you head over to the farmer to get your pay. And while he still doesn't pay you
+    in pigs, you do get a much larger amount of troves this time! He once again thanks you for your hard work as
+    you head home, still a little disappointed you didn't get a pig.
+  requirements:
+    min_size: 640
+    max_size: 2560.0
+  reward:
+    type: "work"
+  author: "Huelun"
+work_event_Huelun_2:
+  event_type: "work"
+  description: >
+    Your size has left your daily work options almost solely limited to manual labor at thispoint.
+
+
+    Looking around for general hard labor jobs, you find an opening for moving debris out of a quarry. Heading
+    to the jobsite, the ground quakes under your steps as you clock in for your job. It's exhausting work, but
+    you manage to move tons upon tons of rocks out of the way, more than the rest of the workforce combined!
+
+
+    In recognition of your larger than life contributions, you are paid handsomely for the day's work. 
+
+     You walk away with {troves} of troves in your name!
+  requirements:
+    min_size: 2560
+    max_size: 10240.0
+  reward:
+    type: "work"
+  author: "Huelun"
+workout_event_Jagaz_1:
+  event_type: "workout"
+  description: >
+    You decide to worship at the Iron Temple of Brodin the All-Spotter.
+
+
+    Aside from the stupid name, it's actually a pretty decent gym with all the usual amenities you'd expect. Steaming
+    showers, the ever present reek of old sweat, grunting and bellowing beefcakes and constantly misplaced weights.
+
+
+    For now though, you take to the work out machines and get some reps in. The butter flies, the lats spread,
+    and all those other things.
+
+
+    Some people do leg day or arm day, you do everything-day every(other)day. While you feel completely wrecked
+    afterwards, you are also left with an incredible euphoric feeling. All that exertion, all that sweating, feeling
+    your muscles swell and strain! Oh the warmth it feels you with is exhilarating.
+
+
+    While your mind may want to keep going, your body does need its rest.
+
+
+    When you check yourself out, you are pleased to discover that you have burned {fat_n} and instead gained {muscle}
+    in its place! You can practically feel and see (or at least imagine) your new definition!
+  requirements:
+    min_size: 40
+    max_size: 160.0
+  reward:
+    type: "workout"
+  author: "Jagaz"
+workout_event_Alsend_1:
+  event_type: "workout"
+  description: >
+    You return once more to your old stomping grounds, the Iron Temple of Brodin the All-Spotter. But recently
+    your size has been causing complications.
+
+
+    For one, youre starting to have to duck through doors and twist to get through. Then there's the issue of machines.
+
+
+    Any machine that involves sitting on it or laying on it strains at best, and you feel soon they'd break under
+    your weight. Then theres the bars. They just aren't quite doing it for you anymore. You use barbells like dumbells
+    and still it feels like you're doing max reps instead of trying to max out your weight.
+
+
+    That's not to say you dont get a good burn going, but you feel your time here may be coming to an end, as every
+    day it gets harder to get a good workout with the increasingly smaller equipment and lighter weights. At least
+    today wasnt such a day as you put on {muscle} of pure muscle and burn {fat_n} of fat. Keep this up and you'll
+    look like a greek god, in definition and size!
+  requirements:
+    min_size: 160
+    max_size: 320.0
+  reward:
+    type: "workout"
+  author: "Alsend"
+workout_event_Mangetsu_1:
+  event_type: "workout"
+  description: >
+    On your way to the Iron Temple of Brodin the All-Spotter the feeling of if you should even go through the trouble
+    to get into that stupid place. The feeling all the stuff you do there is just worthless at your size really
+    annoys you.
+
+
+    You even consider just go to the beach and grab tons of ice cream so much it annoys you seeing only the little
+    gains you can get there! Looking down you saw a trashcan and let out a sigh how should you keep your body in
+    shape if you can’t even get exhausted fast there.
+
+
+    Looking to your side you saw a construction side for a new skyscraper, but there was something off to it, the
+    fence was almost torn down as if some big snake made its way over it. Looking at all the stuff there in the
+    back area you realize something, footprints of different sized people!
+
+
+    Climbing over the half torn down fence you quickly find self build weights, self made workout benches, they
+    even build a treadmill out of the rest from big 18 wheeler! You got here everything to sacrifice your body
+    gains that you are missing!
+
+
+    As you started you gain you quickly get into the new rhythm, everything was a lot tougher without the help
+    of electricity or well balanced and thought thru benches to maximize your gain!
+
+
+    Forgetting the time you start to hear voices coming from the other side of the site, a bit sad but more then
+    sure that you are not big enough, yet, to fight of a whole swat squad for trespassing for you workout you get
+    up and quickly jumped back over the fence and make your way fast back home.
+
+
+    Looking down at your from sweat glistering body you are sure you can see the new muscles that you gain, you
+    are pleased to discover that you have burned {fat_n} of fat and instead gained {muscle} of muscle in this improvised
+    gym!
+  requirements:
+    min_size: 320
+    max_size: 10240.0
+  reward:
+    type: "workout"
+  author: "Mangetsu"
+exercise_event_Alsend_1:
+  event_type: "exercise"
+  description: >
+    Cardio time! You return to the park where you've been a regular now, and gradually become NOT just another
+    face in the mass of people, standing above them all physically, and drawing eyes.
+
+
+    You wave to some and encourage others, it seems your exercise routine is inspiring others to do it too, even
+    if they arent gaining height like you are to many's disappointment, it was too late by then and they were hooked.
+    A cardio revolution! You even get laughs when you give a cheeky "on your left!" Getting a reply of "Don't say
+    it! After your run you feel better, shedding {fat_n} of fat and feeling fitter than ever!
+  requirements:
+    min_size: 160
+    max_size: 640.0
+  reward:
+    type: "exercise"
+  author: "Alsend"
+exercise_event_Alsend_2:
+  event_type: "exercise"
+  description: >
+    You're starting to get to scales where you have to watch your path or trample others. Fortunately the fitness
+    craze that's been growing means the community has been pulling in more people and lots of money to invest in
+    a new area! The park is expanded with a jogging area, with safeties to warn people when big folk are running!
+    Life truly finds a way.
+
+
+    You take advantage of this, waving to the joggers who stepped aside, and playfully acting like a monster chasing
+    them to those who stay. Everyone has lots of fun.
+
+
+    After your run you feel better than ever, losing {fat_n} of fat and feeling you can run forever! (Or at least
+    longer than before)
+  requirements:
+    min_size: 640
+    max_size: 10240.0
+  reward:
+    type: "exercise"
+  author: "Alsend"

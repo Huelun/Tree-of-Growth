@@ -1,5 +1,6 @@
 from discord.ext import commands, tasks
 import universe
+import util
 
 
 class ClockCog(commands.Cog):
@@ -21,12 +22,13 @@ class ClockCog(commands.Cog):
     async def hourly_task(self):
         universe.save_data()
 
-    @tasks.loop(hours=2)
+    @tasks.loop(minutes=5)
     async def process_food(self):
         print("Processing food for all universes...")
         for u in universe.multiverse_instance:
             for player in u.players:
-                player.digest()
+                player.digest(300)
+                player.grow_from_troves(dt=300)
 
     @tasks.loop(hours=24)
     async def daily_task(self):
@@ -44,8 +46,10 @@ class ClockCog(commands.Cog):
         print('ClockCog is ready.')
 
         if not self.save_loaded:  # Only load if it hasn't been loaded yet
-            universe.load_most_recent_save()
+            # universe.load_most_recent_save()
             self.save_loaded = True  # Mark as loaded to prevent reloading
+
+        util.food_of_the_day.choose_for_missing(universe.multiverse_instance.get_universes())
 
 
 # Required setup function
