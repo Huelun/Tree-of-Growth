@@ -5,10 +5,12 @@ Description:
 
 Version: 6.1.0
 """
+import asyncio
+import os
 
 import discord
 from discord import app_commands
-from discord.ext import commands
+from discord.ext import tasks, commands  # Ensure tasks is imported from discord.ext
 from discord.ext.commands import Context
 
 import universe
@@ -173,19 +175,48 @@ class Owner(commands.Cog, name="owner"):
 
     @commands.hybrid_command(
         name="shutdown",
-        description="Make the bot shutdown.",
+        description="Safely shuts down the bot.",
     )
     @commands.is_owner()
-    async def shutdown(self, context: Context) -> None:
+    async def shutdown(self, context: commands.Context) -> None:
         """
-        Shuts down the bot.
-
-        :param context: The hybrid command context.
+        Initiates an external shutdown sequence to avoid internal event loop conflicts.
         """
-        universe.save_data()
-        embed = discord.Embed(description="Shutting down. Bye! :wave:", color=0xBEBEFE)
+        # 1. Immediate UI Feedback
+        embed = discord.Embed(description="Shutting down.", color=0xBEBEFE)
         await context.send(embed=embed)
-        await self.bot.close()
+
+        # 2. Define the cleanup and exit routine
+        async def run_shutdown():
+            # 1. Give the original command time to finish sending the message
+            await asyncio.sleep(1)
+
+            # 2. Save the universe data
+            universe.save_data()
+            print("[SHUTDOWN] Data saved.")
+
+            # 3. Stop background tasks to prevent further processing
+            for cog_name, cog in self.bot.cogs.items():
+                for attr_name in dir(cog):
+                    attr = getattr(cog, attr_name)
+                    if isinstance(attr, tasks.Loop):
+                        if attr.is_running():
+                            attr.stop()
+                            print(f"[SHUTDOWN] Stopped loop: {cog_name}.{attr_name}")
+
+            # 4. EXPLICIT LOGOUT - This makes the bot disappear from Discord immediately
+            print("[SHUTDOWN] Logging out from Discord Gateway...")
+            try:
+                # We set a timeout so the bot doesn't hang here forever if the gateway is slow
+                await asyncio.wait_for(self.bot.close(), timeout=5.0)
+            except Exception as e:
+                print(f"[SHUTDOWN] Logout timed out or failed: {e}")
+
+            # 5. FINAL EXIT - Now we can safely kill the process
+            print("[SHUTDOWN] Hard exit initiated.")
+            os._exit(0)
+
+        asyncio.create_task(run_shutdown())
 
     @commands.hybrid_command(
         name="backup",
