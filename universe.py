@@ -34,20 +34,36 @@ class Market:
             self.offers.remove(offer)
 
 
+class MassValidationMode(Enum):
+    BOTH = "both"      # Both min_mass and max_mass are required
+    MIN_ONLY = "minimum only"  # Only min_mass is required
+    MAX_ONLY = "maximum only"  # Only max_mass is required
+    NONE = "neither"      # Skip mass validation entirely
+
+
 class Universe:
     def __init__(self, name):
         from player import Player
         self.name = name
         self.players: set[Player] = set()
         self.market = Market()
+        from datetime import datetime, timezone
+        self.last_refund_grant_date: datetime = datetime.now(timezone.utc)
 
         # Centralized game rules and coefficients
         self.rules = {
             "metabolic_rate": 1.0,  # Metabolic rate multiplier (e.g., 1.0 is standard, 2.0 is twice as fast)
             "belly_rubs_stack": False,
 
-            # NEW: Size Reserve rule configuration with its three options (Default: TALENT_REQUIRED)
+            # Size Reserve rule configuration with its three options (Default: TALENT_REQUIRED)
             "size_reserve": SizeReserveRule.TALENT_REQUIRED,
+
+            # NEW: Mass validation rule configuration for cache loading
+            "mass_validation_mode": MassValidationMode.BOTH,
+
+            # Crafting cost rules
+            "cooking_cost": 0.0,
+            "alchemy_cost": 10.0,
         }
 
     def get_main_channel(self):
@@ -321,6 +337,13 @@ def load_data(save_file):
                     player.talent_refund_points = 1
                 if not hasattr(player, 'talents'):
                     player.talents = {}
+
+                # Ensure initial_mass baseline tracking exists for all loaded players
+                if not hasattr(player, 'initial_mass') or player.initial_mass <= 0.0:
+                    if hasattr(player, 'get_mass'):
+                        player.initial_mass = player.get_mass()
+                    else:
+                        player.initial_mass = getattr(player, 'mass', getattr(player, 'size', 70.0))
 
                 if hasattr(player, 'body') and isinstance(player.body, dict):
                     key_mapping = {

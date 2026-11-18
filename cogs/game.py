@@ -1,19 +1,21 @@
 import asyncio
 import datetime
+import json
+import logging
 import math
 import os
-import logging
 import random
+import traceback
 from enum import Enum
 from typing import Any
 
 import discord
-import pint
 import yaml
 from discord import Member, app_commands
 from discord.ext import commands
 from discord.ext.commands import Context
 
+import ai_engine
 import effect
 import item
 import player
@@ -126,7 +128,7 @@ async def meal(ctx: Context, meal_type: str):
     if grower.can_eat(amount):
         # Generate the random food object using our new unified type-based system
         # This function handles cache hits, AI creation, and fallbacks automatically
-        generated_food = util.create_food_by_type(
+        generated_food = await util.create_food_by_type(
             meal_type=meal_type,
             size_kg=amount,
             tier=0
@@ -252,7 +254,7 @@ class CookMealModal(discord.ui.Modal, title="Cook a Meal"):
         self.max_name_length = 45
 
         # Cost in troves (kg) per 1 kg of the meal's mass
-        self.cost_per_kg = 1.0
+        self.cost_per_kg = self.player.universe.get_rule("cooking_cost")
 
         self.meal_name = discord.ui.TextInput(
             label="Meal Name",
@@ -273,9 +275,14 @@ class CookMealModal(discord.ui.Modal, title="Cook a Meal"):
                 custom_id="use_cook_talent",
                 default=False
             )
+            desc = (
+                "Costs 1 stamina bar."
+                if self.cost_per_kg == 0
+                else f"Costs 1 stamina bar & {self.cost_per_kg} kg troves per kg of meal mass."
+            )
             self.talent_label = discord.ui.Label(
                 text=f"Use Cook Talent Tier {self.cook_tier}",
-                description=f"Costs 1 stamina bar & {self.cost_per_kg} kg troves per kg of meal mass.",
+                description=desc,
                 component=self.use_talent_checkbox
             )
             self.add_item(self.talent_label)
@@ -283,16 +290,25 @@ class CookMealModal(discord.ui.Modal, title="Cook a Meal"):
             self.use_talent_checkbox = None
 
     async def on_submit(self, interaction: discord.Interaction):
+        await interaction.response.defer(ephemeral=True, thinking=True)
         try:
             meal_name_value = self.meal_name.value.strip().lower()
+            if not meal_name_value: raise ValueError("Enter a meal name.")
 
             articles = ["a", "an"]
             meal_name_value = ' '.join(meal_name_value.split()[1:]) if meal_name_value.split()[
                                                                            0] in articles else meal_name_value
 
             meal_name = meal_name_value.capitalize()
-            size_kg = self.parse_meal_size(self.meal_size.value)
             display_name = meal_name.strip().capitalize()
+
+            # Fetch meal data from the AI/cache engine first, because natural limits depend on it
+            meal_data = await ai_engine.get_nutrients_from_ai(display_name, meal_type="dinner", tier=self.cook_tier)
+            if meal_data is None:
+                raise ValueError("Couldn't get data for this meal, please try again.")
+
+            # Parse size and validate everything in one centralized place
+            size_kg = self.parse_meal_size(self.meal_size.value, meal_data=meal_data)
 
             target_tier = 0
             use_talent = self.use_talent_checkbox.value if self.use_talent_checkbox else False
@@ -304,7 +320,7 @@ class CookMealModal(discord.ui.Modal, title="Cook a Meal"):
                 if self.player.stamina < self.player.workout_cost:
                     raise ValueError("You do not have enough stamina to use your Cook talent.")
                 if self.player.troves < total_cost_kg:
-                    await interaction.response.send_message(
+                    await interaction.followup.send(
                         f"You don't have enough troves! Required: "
                         f"**{util.format_quantity(total_cost_kg * ureg.kg, self.player.units)}**, "
                         f"available: **{util.format_quantity(self.player.troves * ureg.kg, self.player.units)}**.",
@@ -319,7 +335,7 @@ class CookMealModal(discord.ui.Modal, title="Cook a Meal"):
             if cooking_effects:
                 target_tier += sum(int(e.power) for e in cooking_effects)
 
-            new_meal = util.create_food_by_name(display_name, size_kg, target_tier)
+            new_meal = await util.create_food_by_name(display_name, size_kg, target_tier)
             new_meal.creator_id = self.player.id
 
             if use_talent:
@@ -334,7 +350,7 @@ class CookMealModal(discord.ui.Modal, title="Cook a Meal"):
             final_fat = new_meal.fat
 
             # Check if troves were spent for the talent
-            cost_text = f"\nCost: **{util.format_quantity(total_cost_kg * ureg.kg, self.player.units)} kg** troves" \
+            cost_text = f"\nCost: **{util.format_quantity(total_cost_kg * ureg.kg, self.player.units)}** troves" \
                 if use_talent and total_cost_kg > 0 else ""
 
             embed = discord.Embed(
@@ -358,34 +374,60 @@ class CookMealModal(discord.ui.Modal, title="Cook a Meal"):
                 inline=False
             )
 
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
 
         except ValueError as e:
-            await interaction.response.send_message(str(e), ephemeral=True)
+            await interaction.followup.send(str(e), ephemeral=True)
+        except Exception:
+            traceback.print_exc()
+            await interaction.followup.send("Something went wrong, please try again.", ephemeral=True)
 
-    def parse_meal_size(self, input_size: str) -> float:
-        input_size = input_size.strip()
-        input_size = input_size.replace(',', '.')
+    def parse_meal_size(self, input_size: str, meal_data: dict | None = None) -> float:
+        """
+        Parses the meal size using utility functions and validates it against
+        both the cook's capability limits and the food-specific natural size bounds.
+        """
+        # Parse physical quantity into kilograms (handles ug, mg, kg, tons, tonnes, etc.)
+        value_kg = util.parse_physical_quantity(input_size, dimension="mass")
 
-        try:
-            quantity = ureg(input_size).to("kg")
-            value_kg = quantity.magnitude
+        if value_kg <= 0:
+            raise ValueError("Meal size must be greater than zero.")
 
-            if value_kg <= 0:
-                raise ValueError("Meal size must be greater than zero.")
-            if value_kg < self.min_size_kg:
-                raise ValueError(
-                    f"Meal size cannot be smaller than {format_quantity(self.min_size_kg * ureg.kg, self.unit_system)}."
-                )
-            if value_kg > self.max_size_kg:
-                raise ValueError(
-                    f"Meal size cannot exceed {format_quantity(self.max_size_kg * ureg.kg, self.unit_system)}."
-                )
+        # 1. Check cook's capability limits
+        if value_kg < self.min_size_kg:
+            raise ValueError(
+                f"Meal size cannot be smaller than {format_quantity(self.min_size_kg * ureg.kg, self.unit_system)}."
+            )
+        if value_kg > self.max_size_kg:
+            raise ValueError(
+                f"Meal size cannot exceed {format_quantity(self.max_size_kg * ureg.kg, self.unit_system)}."
+            )
 
-            return value_kg
+        # 2. Check food-specific natural size bounds if meal data and validation mode are provided
+        if meal_data:
+            validation_mode = self.player.universe.rules.get(
+                "mass_validation_mode", universe.MassValidationMode.BOTH
+            )
 
-        except (pint.UndefinedUnitError, pint.DimensionalityError):
-            raise ValueError("Invalid unit! Try something like '2 kg', '500 g', '1.5 lbs', '3 stones', etc.")
+            if validation_mode != universe.MassValidationMode.NONE:
+                min_mass = meal_data.get('min_mass', 0.0)
+                raw_max = meal_data.get('max_mass')
+                max_mass = float('inf') if raw_max is None else float(raw_max)
+                display_name = meal_data.get('name', 'This meal')
+
+                # Validate minimum mass
+                if validation_mode in (universe.MassValidationMode.BOTH, universe.MassValidationMode.MIN_ONLY):
+                    if value_kg < min_mass:
+                        min_fmt = util.format_quantity(min_mass * ureg.kg, self.unit_system)
+                        raise ValueError(f"{display_name} doesn't come smaller than {min_fmt}.")
+
+                # Validate maximum mass
+                if validation_mode in (universe.MassValidationMode.BOTH, universe.MassValidationMode.MAX_ONLY):
+                    if value_kg > max_mass:
+                        max_fmt = util.format_quantity(max_mass * ureg.kg, self.unit_system)
+                        raise ValueError(f"{display_name} doesn't come larger than {max_fmt}.")
+
+        return value_kg
 
 
 class UnitSelection(discord.ui.Select):
@@ -760,7 +802,7 @@ class BodyRewardView(discord.ui.View):
 
         # Base size calculated from the grower's stomach capacity
         size = self.grower.stomach_capacity / 2
-        new_meal = util.create_food_by_type(
+        new_meal = await util.create_food_by_type(
             meal_type="dessert",
             size_kg=size,
             tier=new_tier
@@ -1312,7 +1354,7 @@ async def execute_event(ctx: commands.Context, event_type: str):
             amount = grower.get_muscle_mass() / 9
             current_tier = int(math.floor(grower.stomach_content_quality_avg + 1))
 
-            reward_food = util.create_food_by_type(
+            reward_food = await util.create_food_by_type(
                 meal_type=r_type,
                 size_kg=amount,
                 tier=current_tier
@@ -1337,7 +1379,7 @@ async def execute_event(ctx: commands.Context, event_type: str):
                 amount = grower.get_muscle_mass() / 9
 
             current_tier = int(math.floor(grower.stomach_content_quality_avg + 1))
-            reward_food = util.create_food_by_name(
+            reward_food = await util.create_food_by_name(
                 meal_name=meal_name,
                 size_kg=amount,
                 tier=current_tier
@@ -1371,7 +1413,7 @@ async def execute_event(ctx: commands.Context, event_type: str):
                 amount = grower.get_muscle_mass() / 9
 
             current_tier = int(math.floor(grower.stomach_content_quality_avg + 1))
-            reward_food = util.create_food_by_name(
+            reward_food = await util.create_food_by_name(
                 meal_name=forced_name,
                 size_kg=amount,
                 tier=current_tier,
@@ -1651,6 +1693,17 @@ async def process_workout(this_player: player.Player, exercise: str, workout_typ
                     if hasattr(t, 'metabolic_chyme'):
                         t.metabolic_chyme += take
                     protein_to_consume -= take
+
+            # --- GRANT XP TO ALCHEMISTS FOR MUSCLE GROWTH ---
+            if muscle_growth_effects:
+                # Filter effects that have a valid creator other than the player themselves
+                valid_creators = [e for e in muscle_growth_effects if e.creator_id != this_player.id]
+                if valid_creators:
+                    # Split the earned XP equally among active valid creators
+                    share_per_creator = actual_growth_total / len(valid_creators)
+                    for e in valid_creators:
+                        creator = this_player.universe.get_player_by_id(e.creator_id)
+                        creator.add_experience("alchemist", share_per_creator)
 
         weight_lifted_kg = involved_muscle * strength_coeff
 
@@ -2359,7 +2412,7 @@ class BrewPotionModal(discord.ui.Modal, title="Brew a Potion"):
         self.min_size_l = player_mass * min_fraction
         self.max_size_l = player_mass * max_fraction
 
-        self.cost_per_liter = 10.0
+        self.cost_per_liter = self.player.universe.get_rule("alchemy_cost")
 
         min_size_formatted = util.format_quantity(self.min_size_l * ureg.l, self.player.units)
         max_size_formatted = util.format_quantity(self.max_size_l * ureg.l, self.player.units)
@@ -2504,6 +2557,168 @@ class BrewPotionView(discord.ui.View):
     def __init__(self, potions_dict: dict, grower, unit_system):
         super().__init__(timeout=60)
         self.add_item(BrewPotionSelect(potions_dict, grower, unit_system))
+
+
+class MealCachePaginator(discord.ui.View):
+    def __init__(self, meals: list[dict], author_id: int, unit_system=None, items_per_page: int = 5):
+        super().__init__(timeout=120)
+        self.meals = meals
+        self.author_id = author_id
+        self.unit_system = unit_system
+        self.items_per_page = items_per_page
+        self.current_page = 0
+        self.total_pages = max(1, math.ceil(len(meals) / items_per_page))
+
+    def create_embed(self) -> discord.Embed:
+
+        embed = discord.Embed(
+            title="🍲 Recipe Book",
+            description=f"Found meals: **{len(self.meals)}**",
+            color=discord.Color.blue()
+        )
+
+        if not self.meals:
+            embed.description = "No meals found matching the specified criteria."
+            return embed
+
+        start_idx = self.current_page * self.items_per_page
+        end_idx = start_idx + self.items_per_page
+        page_meals = self.meals[start_idx:end_idx]
+
+        lines = []
+        for meal in page_meals:
+            # Safely retrieve values
+            emoji = meal.get("e") or "🍽️"
+
+            name = str(meal.get("name") or "Unknown").strip()
+            name = discord.utils.escape_markdown(name)
+
+            meal_type = str(meal.get("meal_type") or "").strip()
+
+            # Construct field name dynamically based on whether meal_type exists
+            if meal_type:
+                meal_type_esc = discord.utils.escape_markdown(meal_type)
+                field_name = f"{emoji} {name} ({meal_type_esc})"
+            else:
+                field_name = f"{emoji} {name}"
+
+            min_mass = meal.get("min_mass", 0.0)
+            max_mass = meal.get("max_mass", 0.0)
+
+            protein = meal.get("p", 0)
+            carbs = meal.get("c", 0)
+            fat = meal.get("f", 0)
+
+            def safe_number(value, default=0.0):
+                try:
+                    return float(value) if value is not None else default
+                except (TypeError, ValueError):
+                    return default
+
+            min_mass = safe_number(min_mass)
+            max_mass = safe_number(max_mass)
+
+            protein = safe_number(protein)
+            carbs = safe_number(carbs)
+            fat = safe_number(fat)
+
+            # Format masses using the centralized format_quantity function
+            min_fmt = util.format_quantity(min_mass * util.ureg.kg, self.unit_system, show_alternative=False)
+
+            if math.isinf(max_mass):
+                max_fmt = "∞"
+            else:
+                max_fmt = util.format_quantity(max_mass * util.ureg.kg, self.unit_system, show_alternative=False)
+
+            # Clean and uniform formatting for each meal entry
+            line = (
+                f"{field_name}\n"
+                f"> Mass: `{min_fmt}` - `{max_fmt}` | P: `{protein}g` | C: `{carbs}g` | F: `{fat}g`"
+            )
+            lines.append(line)
+
+        field_value = "\n\n".join(lines)
+
+        # Safety fallback to prevent exceeding Discord's 1024 character limit per field
+        if len(field_value) > 1024:
+            field_value = field_value[:1021] + "..."
+
+        embed.add_field(name="Meals", value=field_value, inline=False)
+        embed.set_footer(text=f"Page {self.current_page + 1}/{self.total_pages}")
+        return embed
+
+    async def interaction_check(self, interaction: discord.Interaction) -> bool:
+        if interaction.user.id != self.author_id:
+            await interaction.response.send_message("You cannot control this menu.", ephemeral=True)
+            return False
+        return True
+
+    @discord.ui.button(label="◀ Prev", style=discord.ButtonStyle.primary)
+    async def prev_page(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if self.current_page > 0:
+            self.current_page -= 1
+            await interaction.response.edit_message(embed=self.create_embed(), view=self)
+        else:
+            await interaction.response.defer()
+
+    @discord.ui.button(label="Next ▶", style=discord.ButtonStyle.primary)
+    async def next_page(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if self.current_page < self.total_pages - 1:
+            self.current_page += 1
+            await interaction.response.edit_message(embed=self.create_embed(), view=self)
+        else:
+            await interaction.response.defer()
+
+
+class SplitConfirmView(discord.ui.View):
+    def __init__(self, player, item):
+        super().__init__(timeout=60)
+        self.player = player
+        self.item = item
+
+    @discord.ui.button(label="Confirm", style=discord.ButtonStyle.green)
+    async def confirm_split(self, interaction: discord.Interaction, button: discord.ui.Button):
+        # Halve the properties of the original item
+        self.item.size /= 2.0
+        self.item.protein /= 2.0
+        self.item.fat /= 2.0
+        self.item.value /= 2.0
+
+        # Create the second half as a new item instance
+        split_piece = item.Food(
+            name=self.item.name,
+            value=self.item.value,
+            size=self.item.size,
+            tier=self.item.tier,
+            protein=self.item.protein,
+            fat=self.item.fat,
+            emoji=self.item.emoji,
+            nsfw=self.item.nsfw,
+            creator_id=self.item.creator_id
+        )
+
+        # Add the second half using player's method
+        self.player.add_item(split_piece)
+
+        for child in self.children:
+            child.disabled = True
+
+        await interaction.response.edit_message(
+            content=f"✅ You successfully split **{self.item.name}** into two halves.",
+            view=self
+        )
+        self.stop()
+
+    @discord.ui.button(label="Cancel", style=discord.ButtonStyle.red)
+    async def cancel_split(self, interaction: discord.Interaction, button: discord.ui.Button):
+        for child in self.children:
+            child.disabled = True
+
+        await interaction.response.edit_message(
+            content="❌ You do not split the meal.",
+            view=self
+        )
+        self.stop()
 
 
 class Game(commands.Cog, name="game"):
@@ -2697,6 +2912,35 @@ class Game(commands.Cog, name="game"):
             title="💰 Hoard Balance",
             description=f"Your troves: **{formatted_troves}**.",
             color=0xf1c40f
+        )
+
+        # Send the embed to the channel
+        await ctx.send(embed=embed)
+
+    @commands.hybrid_command(name="experience", description="Checks your current level and experience progress.")
+    @require_player(allow_trapped=True, allow_overfilled=True)
+    async def experience_command(self, ctx: commands.Context):
+        """Displays the player's talent level and experience progression."""
+        # Retrieve the player profile associated with the context
+        grower = util.get_player_from_ctx(ctx)
+
+        # Gather level and experience metrics
+        current_level = grower.level
+        current_exp = grower.experience
+        exp_to_next = grower.get_exp_required_for_next_level()
+
+        # Format values nicely (using utility formatting if available, or standard string representation)
+        formatted_exp = f"{current_exp:.0f}" if isinstance(current_exp, float) else f"{current_exp:,}"
+        formatted_next = f"{exp_to_next:.0f}" if isinstance(exp_to_next, float) else f"{exp_to_next:,}"
+
+        # Build an embed displaying the user's level and experience status
+        embed = discord.Embed(
+            title="✨ Experience",
+            description=(
+                f"Talent level: **{current_level}**\n"
+                f"Exp: **{formatted_exp} / {formatted_next}**"
+            ),
+            color=0x3498db
         )
 
         # Send the embed to the channel
@@ -3425,7 +3669,8 @@ class Game(commands.Cog, name="game"):
         view = ConfirmBuyView(interaction, this_player, offer, market)
         embed = discord.Embed(
             title="Confirm Purchase",
-            description=f"Do you really want to buy **{offer.item.name}** for **{offer.price} kg**?",
+            description=f"Do you really want to buy **{offer.item.name}** for "
+                        f"**{util.format_quantity(offer.price * ureg.kg, this_player.units)}**?",
             color=0xFFA500
         )
         await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
@@ -3571,6 +3816,72 @@ class Game(commands.Cog, name="game"):
         )
         await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
+    @inventory_group.command(name="split", description="Splits a meal in your inventory in half.")
+    @require_player(allow_trapped=True, allow_overfilled=True)
+    async def inventory_split(self, interaction: discord.Interaction, item_index: int):
+        ctx = await commands.Context.from_interaction(interaction)
+        this_player = util.get_player_from_ctx(ctx)
+
+        # Check if the player possesses the 'cook' talent
+        cook_talent = this_player.talents.get("cook")
+        if cook_talent is None or (isinstance(cook_talent, (int, float)) and cook_talent <= 0):
+            await interaction.response.send_message(
+                "❌ Only a cook can split meals.",
+                ephemeral=True
+            )
+            return
+
+        inventory = this_player.get_inventory()
+
+        if not inventory:
+            await interaction.response.send_message("Your do not have an inventory.", ephemeral=True)
+            return
+
+        # Validate item index bounds
+        if item_index < 1 or item_index > len(inventory):
+            await interaction.response.send_message(
+                f"❌ Incorrect number. Choose a value between 1 and {len(inventory)}.",
+                ephemeral=True
+            )
+            return
+
+        thing = inventory[item_index - 1]
+
+        # Verify if the selected item is a Food instance
+        if not isinstance(thing, item.Food):
+            await interaction.response.send_message(
+                "❌ This item is not a meal and can't be cut.",
+                ephemeral=True
+            )
+            return
+
+        # Retrieve meal definition/nutrients from cache or AI using the item's name
+        meal_data = await ai_engine.get_nutrients_from_ai(thing.name)
+        min_allowed_size = float(meal_data.get("min_mass", 0.0) or 0.0)
+
+        half_size = thing.size / 2.0
+
+        # Check against the minimum allowed size/mass limit from the meal definition
+        if half_size < min_allowed_size:
+            unit_system = getattr(this_player, "units", None)
+            formatted_min = util.format_quantity(min_allowed_size * util.ureg.kg, unit_system, show_alternative=False)
+            formatted_half = util.format_quantity(half_size * util.ureg.kg, unit_system, show_alternative=False)
+
+            await interaction.response.send_message(
+                f"❌ This meal is too small to be cut. "
+                f"Minimum size: `{formatted_min}`.",
+                ephemeral=True
+            )
+            return
+
+        # Trigger confirmation view
+        view = SplitConfirmView(this_player, thing)
+        await interaction.response.send_message(
+            f"Are you sure you want to cut **{thing.name}** in half?",
+            view=view,
+            ephemeral=True
+        )
+
     @commands.hybrid_command(name="brew", description="Brew a magical potion and add it to your inventory.")
     @require_player(allow_trapped=False, allow_overfilled=False)
     async def brew(self, ctx: commands.Context):
@@ -3644,6 +3955,177 @@ class Game(commands.Cog, name="game"):
     @require_player(allow_trapped=False, allow_overfilled=False)
     async def dessert(self, ctx: Context):
         await meal(ctx, "Dessert")
+
+    @commands.hybrid_command(
+        name="list_meals",
+        description="Displays a paginated list of meals from the cache with optional filters."
+    )
+    async def list_meals(
+            self,
+            ctx: Context,
+            target_mass: str | None = None,
+            min_mass: str | None = None,
+            max_mass: str | None = None,
+            meal_type: str | None = None
+    ):
+        # Check whether the cache exists
+        if not os.path.exists(ai_engine.CACHE_FILE):
+            await ctx.send("Meal cache is empty.", ephemeral=True)
+            return
+
+        # Load cache
+        try:
+            with open(ai_engine.CACHE_FILE, 'r', encoding='utf-8') as f:
+                cache = json.load(f)
+
+            if not isinstance(cache, dict):
+                await ctx.send("Invalid meal cache format.", ephemeral=True)
+                return
+
+        except (json.JSONDecodeError, IOError):
+            await ctx.send("Failed to read the cache file.", ephemeral=True)
+            return
+
+        # Parse mass filters
+        try:
+            parsed_target = (
+                util.parse_physical_quantity(target_mass, dimension="mass")
+                if target_mass else None
+            )
+
+            parsed_min = (
+                util.parse_physical_quantity(min_mass, dimension="mass")
+                if min_mass else None
+            )
+
+            parsed_max = (
+                util.parse_physical_quantity(max_mass, dimension="mass")
+                if max_mass else None
+            )
+
+        except ValueError as e:
+            await ctx.send(
+                f"❌ Invalid mass filter format: {e}",
+                ephemeral=True
+            )
+            return
+
+        # Validate filter boundaries
+        if (
+                parsed_min is not None
+                and parsed_max is not None
+                and parsed_min > parsed_max
+        ):
+            await ctx.send(
+                "❌ Minimum mass cannot be greater than maximum mass.",
+                ephemeral=True
+            )
+            return
+
+        # Deduplicate meals by their complete contents
+        unique_meals = {}
+
+        for meal in cache.values():
+            if not isinstance(meal, dict):
+                continue
+
+            if not meal.get("name"):
+                continue
+
+            signature = json.dumps(
+                meal,
+                sort_keys=True,
+                ensure_ascii=False
+            )
+
+            unique_meals[signature] = meal
+
+        filtered_meals = []
+
+        requested_type = str(meal_type or "").strip().casefold()
+
+        # Apply filters
+        for meal in unique_meals.values():
+
+            # Safely retrieve mass boundaries
+            try:
+                m_min = float(meal.get("min_mass", 0.0) or 0.0)
+                raw_max = meal.get("max_mass")
+
+                if raw_max is not None:
+                    m_max = float(raw_max)
+                else:
+                    m_max = None  # Unassigned max mass
+            except (TypeError, ValueError):
+                # Skip meals with invalid mass values
+                continue
+
+            # If a mass filter is active, require max_mass to be properly assigned and valid
+            has_mass_filter = (parsed_target is not None or parsed_min is not None or parsed_max is not None)
+            if has_mass_filter and (raw_max is None or m_max <= 0):
+                continue
+
+            # Treat unassigned max_mass as infinity only when no mass filter is applied
+            effective_max = m_max if m_max is not None else float("inf")
+
+            # Skip invalid mass ranges
+            if m_min < 0 or (effective_max != float("inf") and effective_max < m_min):
+                continue
+
+            # Safely retrieve meal category
+            m_type = str(
+                meal.get("meal_type") or ""
+            ).strip().casefold()
+
+            # Target mass must be within the meal's range
+            if parsed_target is not None:
+                if not (m_min <= parsed_target <= effective_max):
+                    continue
+
+            # Minimum mass filter:
+            # The ranges must overlap.
+            if parsed_min is not None:
+                if effective_max < parsed_min:
+                    continue
+
+            # Maximum mass filter:
+            # The ranges must overlap.
+            if parsed_max is not None:
+                if m_min > parsed_max:
+                    continue
+
+            # Meal category filter
+            if requested_type:
+                if requested_type not in m_type:
+                    continue
+
+            filtered_meals.append(meal)
+
+        # Sort alphabetically
+        filtered_meals.sort(
+            key=lambda meal: str(
+                meal.get("name") or ""
+            ).casefold()
+        )
+
+        # Handle empty results
+        if not filtered_meals:
+            await ctx.send(
+                "No meals found matching the specified criteria.",
+                ephemeral=True
+            )
+            return
+
+        # Retrieve player unit system for proper formatting
+        player = util.get_player_from_member(ctx, ctx.author)
+        unit_system = player.units if player else None
+        # Create paginator using already filtered meals
+        paginator = MealCachePaginator(filtered_meals, author_id=ctx.author.id, unit_system=unit_system)
+
+        await ctx.send(
+            embed=paginator.create_embed(),
+            view=paginator
+        )
 
     @commands.hybrid_command(name="units", description="Set your preferred unit system.")
     @require_player(allow_trapped=True, allow_overfilled=True)
@@ -3788,7 +4270,6 @@ class Game(commands.Cog, name="game"):
         )
 
         await ctx.send(final_report, ephemeral=True)
-
 
     @commands.hybrid_command(name="debug_digest", description="[ADMIN] Manually triggers digestion for a player.")
     @commands.has_permissions(administrator=True)

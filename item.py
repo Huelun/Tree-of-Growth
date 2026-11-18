@@ -152,8 +152,8 @@ class Food(Consumable):
 
     def use(self, grower: 'player.Player'):
         """
-        Handles consuming food items.
-        Reports physical changes only if the player has an active GROWTH effect.
+        Handles consuming food items, applying growth effects,
+        and rewarding the creator with experience based on mass/reserve gain.
         """
         ureg = util.ureg
 
@@ -164,6 +164,7 @@ class Food(Consumable):
         # 2. Record state before feeding for delta calculations
         mass_before = grower.get_mass()
         height_before = grower.get_height()
+        reserve_before = getattr(grower, '_size_reserve', 0.0)
 
         # Body fat ratio calculation before feeding
         total_fat_before = sum(p.fat_mass for p in grower.body.values() if hasattr(p, 'fat_mass'))
@@ -181,17 +182,32 @@ class Food(Consumable):
             food_of_the_day_discovered = True
 
         # 4. Apply nutrients to the player
-        grower.feed(self.protein, self.size, self.fat, self.tier)
+        grower.feed(self.protein, self.size, self.fat, tier=self.tier)
 
         # 5. Record state after feeding
         mass_after = grower.get_mass()
         height_after = grower.get_height()
+        reserve_after = getattr(grower, '_size_reserve', 0.0)
 
         # Body fat ratio calculation after feeding
         total_fat_after = sum(p.fat_mass for p in grower.body.values() if hasattr(p, 'fat_mass'))
         fat_ratio_after = total_fat_after / mass_after if mass_after > 0 else 0
 
-        # 6. Cleanup and basic response preparation
+        # 6. Reward the cook with experience based on actual growth or size reserve increase,
+        # ensuring players do not gain cooking XP from eating their own food.
+        if self.creator_id and self.creator_id != grower.id:
+            cook_player = grower.universe.get_player_by_id(self.creator_id)
+            if cook_player:
+                cook_data = cook_player.talents.get("cook")
+                if cook_data is not None:
+                    actual_mass_gain = max(0.0, mass_after - mass_before)
+                    reserve_gain = max(0.0, reserve_after - reserve_before)
+                    total_growth_effect = actual_mass_gain + reserve_gain
+
+                    if total_growth_effect > 0:
+                        cook_data.exp = getattr(cook_data, "exp", 0.0) + total_growth_effect
+
+        # 7. Cleanup and basic response preparation
         grower.remove_item(self)
         article_name = self.full_name_with_article
         response_parts = [f"You have eaten {article_name}."]
@@ -248,19 +264,21 @@ class Potion(Consumable):
         m_before = player_mass
         h_before = grower.get_height()
 
-        total_fat_before = sum(p.fat_mass for p in grower.body.values() if hasattr(p, 'fat_mass'))
-        fat_ratio_before = total_fat_before / m_before if m_before > 0 else 0.0
+        fat_ratio_before = grower.get_fat_ratio()
 
         for eff_type, duration in self.effects_data.items():
             adjusted_duration = duration * scale_factor if duration is not None else None
 
+            # Apply effect without granting immediate XP.
+            # Pass creator_id so XP can be rewarded gradually during physical activities/workouts or digestion.
             grower.add_effect(
                 effect_type=eff_type,
                 duration=adjusted_duration,
-                power=float(self.tier)
+                power=float(self.tier),
+                creator_id=self.creator_id
             )
 
-        torsos = [part for part in grower.body.values() if hasattr(part, 'add_chyme')]
+        torsos = [part for part in grower.body.values() if isinstance(part, player.Torso)]
         if torsos and self.size > 0:
             chyme_per_torso = self.size / len(torsos)
             for t in torsos:
@@ -269,8 +287,7 @@ class Potion(Consumable):
         m_after = grower.get_mass()
         h_after = grower.get_height()
 
-        total_fat_after = sum(p.fat_mass for p in grower.body.values() if hasattr(p, 'fat_mass'))
-        fat_ratio_after = total_fat_after / m_after if m_after > 0 else 0.0
+        fat_ratio_after = grower.get_fat_ratio()
 
         grower.remove_item(self)
 

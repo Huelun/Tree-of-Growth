@@ -12,7 +12,7 @@ import json
 import os
 import re
 
-import ai
+import ai_engine
 import universe
 
 p = inflect.engine()
@@ -467,6 +467,50 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     import player
+
+
+def parse_physical_quantity(input_str: str | float | int, dimension: str = "mass") -> float:
+    """
+    Parses a physical quantity string or number (e.g., '65.69 mg', '10 tons', '10', 5.0)
+    and converts it to the base SI unit as a float.
+    """
+    base_units = {
+        "mass": "kg",
+        "length": "meter",
+        "volume": "cubic_meter"
+    }
+
+    target_unit = base_units.get(dimension.lower())
+    if not target_unit:
+        raise ValueError(f"Unsupported dimension '{dimension}'. Use 'mass', 'length', or 'volume'.")
+
+    try:
+        if isinstance(input_str, (int, float)):
+            # Direct quantity creation for raw numbers
+            quantity = ureg.Quantity(float(input_str), target_unit)
+        else:
+            cleaned_str = str(input_str).strip().replace(',', '.')
+
+            # Check if the input is a plain number string (e.g., "10", "1.5") without explicit units
+            try:
+                float_val = float(cleaned_str)
+                quantity = ureg.Quantity(float_val, target_unit)
+            except ValueError:
+                # Input contains units (e.g., "10 kg", "500 g"), parse normally with pint
+                quantity = ureg(cleaned_str)
+
+        converted = quantity.to(target_unit)
+        value = float(converted.magnitude)
+
+        if value < 0:
+            raise ValueError("Physical quantity cannot be negative.")
+
+        return value
+
+    except (pint.UndefinedUnitError, pint.DimensionalityError) as e:
+        raise ValueError(f"Invalid unit or incompatible dimensions for {dimension}! Error: {e}")
+    except Exception as e:
+        raise ValueError(f"Failed to parse quantity '{input_str}': {e}")
 
 
 def get_player_from_ctx(ctx) -> 'player.Player':
@@ -1045,7 +1089,7 @@ nutrients = {
 }
 
 
-def create_food_by_name(meal_name: str, size_kg: float, tier: int, meal_type: str = "dinner") -> "Food":
+async def create_food_by_name(meal_name: str, size_kg: float, tier: int, meal_type: str = "dinner") -> "Food":
     """
     Creates a Food object using the provided name or generation string.
     """
@@ -1053,7 +1097,7 @@ def create_food_by_name(meal_name: str, size_kg: float, tier: int, meal_type: st
     display_name = meal_name.strip().capitalize()
 
     # Pass the name, type, and tier to our unified AI engine
-    ai_data = ai.get_nutrients_from_ai(meal_name.strip(), meal_type=meal_type, tier=tier)
+    ai_data = await ai_engine.get_nutrients_from_ai(meal_name.strip(), meal_type=meal_type, tier=tier)
 
     if ai_data:
         # AI SUCCESS PATH (Both for player input and auto-generated meals)
@@ -1115,58 +1159,165 @@ def create_food_by_name(meal_name: str, size_kg: float, tier: int, meal_type: st
     )
 
 
-def create_food_by_type(meal_type: str, size_kg: float, tier: int) -> "Food":
+def _load_cache_file() -> dict:
+    """Safely load and return the entire cache dictionary from disk."""
+    if not os.path.exists(CACHE_FILE):
+        return {}
+
+    try:
+        with open(CACHE_FILE, 'r', encoding='utf-8') as f:
+            cache = json.load(f)
+            return cache if isinstance(cache, dict) else {}
+    except (json.JSONDecodeError, IOError):
+        return {}
+
+
+async def create_food_by_type(meal_type: str, size_kg: float, tier: int):
     """
-    Selects a random meal matching the meal_type from cache.
-    Treats missing min_mass as 0.0. If a chosen meal lacks min_mass,
-    it queries the API to regenerate it, updates the cache, and checks the size.
-    If the final min_mass is greater than size_kg, it rolls again.
+    Selects a random meal from the local cache.
+
+    AI is used ONLY when a meal matching the requested category
+    exists but is missing required fields.
+
+    If no matching category exists, a random meal from any
+    available category is selected without using AI.
     """
+
     meal_type = meal_type.lower().strip()
 
-    while True:
-        cached_matches = []
-        cache_keys_to_remove = []
+    # Load cache
+    cache = {}
 
-        # 1. Gather all matching meals from cache (treating missing min_mass as 0.0)
-        if os.path.exists(ai.CACHE_FILE):
-            try:
-                with open(ai.CACHE_FILE, 'r', encoding='utf-8') as f:
-                    cache = json.load(f)
-                    for key, data in cache.items():
-                        if key.startswith("__generate__"):
-                            continue
-                        if data.get('meal_type', '').lower().strip() == meal_type:
-                            cached_matches.append((key, data))
-            except (json.JSONDecodeError, IOError):
-                pass
+    if os.path.exists(CACHE_FILE):
+        try:
+            with open(CACHE_FILE, 'r', encoding='utf-8') as f:
+                cache = json.load(f)
 
-        # 2. If we have matches, pick one at random
-        if cached_matches:
-            chosen_key, chosen_meal_data = random.choice(cached_matches)
-            meal_name = chosen_meal_data.get('name', 'Unknown Dish')
+            if not isinstance(cache, dict):
+                cache = {}
 
-            # Check if min_mass is missing from this cached entry
-            if "min_mass" not in chosen_meal_data:
-                # Query API to regenerate/update the meal so it gets min_mass
-                # We call get_nutrients_from_ai directly to get the fresh data and update cache
-                updated_data = ai.get_nutrients_from_ai(meal_name, meal_type=meal_type, tier=tier)
+        except (json.JSONDecodeError, IOError):
+            cache = {}
 
-                if updated_data:
-                    chosen_meal_data = updated_data
+    # Collect unique meals, deduplicating by normalized name
+    unique_meals = {}
 
-            min_mass = chosen_meal_data.get('min_mass', 0.0)
+    for meal in cache.values():
+        if not isinstance(meal, dict) or not meal.get("name"):
+            continue
 
-            # 3. Validate mass: if it's too big, roll again by continuing the loop
-            if size_kg < min_mass:
-                continue
+        normalized_name = str(meal["name"]).strip().casefold()
 
-            # If valid, create and return the food item using its name
-            return create_food_by_name(meal_name, size_kg, tier, meal_type=meal_type)
+        if normalized_name:
+            unique_meals[normalized_name] = meal
 
-        # 4. Cache Miss (no meals of this type at all): Request generation via API
-        generation_command = f"__generate_random_{meal_type}__"
-        return create_food_by_name(generation_command, size_kg, tier, meal_type=meal_type)
+    meals = list(unique_meals.values())
+
+    # If cache is completely empty, add Beef Stew
+    if not meals:
+        default_meal = {
+            "name": "Beef Stew",
+            "art": "a",
+            "meal_type": "dinner",
+            "p": 15.0,
+            "c": 10.0,
+            "f": 8.0,
+            "e": "🍲",
+            "min_mass": 0.0,
+            "max_mass": 5.0
+        }
+
+        cache["beef stew"] = default_meal
+
+        try:
+            with open(CACHE_FILE, 'w', encoding='utf-8') as f:
+                json.dump(cache, f, ensure_ascii=False, indent=4)
+        except IOError:
+            pass
+
+        meals = [default_meal]
+
+    # Find meals matching the requested category
+    matching_meals = [
+        meal for meal in meals
+        if str(meal.get("meal_type") or "").lower() == meal_type
+    ]
+
+    # If the requested category doesn't exist,
+    # select from all cached meals without using AI
+    if not matching_meals:
+        candidates = meals
+
+    else:
+        # Prefer complete meals that meet the minimum mass
+        valid_meals = [
+            meal for meal in matching_meals
+            if ai_engine.is_meal_complete(meal)
+               and size_kg >= meal["min_mass"]
+        ]
+
+        if valid_meals:
+            candidates = valid_meals
+
+        else:
+            # There are meals of the requested category,
+            # but none are currently suitable.
+            # Select one and check whether AI can complete it.
+            selected_meal = random.choice(matching_meals)
+
+            if not ai_engine.is_meal_complete(selected_meal):
+                meal_name = selected_meal["name"]
+
+                updated_meal = await ai_engine.get_nutrients_from_ai(
+                    meal_name,
+                    meal_type=meal_type,
+                    tier=tier
+                )
+
+                if updated_meal and ai_engine.is_meal_complete(updated_meal):
+                    selected_meal = updated_meal
+
+            # If the selected meal is now complete and
+            # meets the minimum mass, use it.
+            if (
+                    ai_engine.is_meal_complete(selected_meal)
+                    and size_kg >= selected_meal["min_mass"]
+            ):
+                candidates = [selected_meal]
+
+            else:
+                # AI failed, or the meal is too large for
+                # the requested portion. Fall back to other
+                # complete meals from the cache.
+                candidates = [
+                    meal for meal in meals
+                    if ai_engine.is_meal_complete(meal)
+                       and size_kg >= meal["min_mass"]
+                ]
+
+                # If no complete meal meets the minimum mass,
+                # use any complete cached meal.
+                if not candidates:
+                    candidates = [
+                        meal for meal in meals
+                        if ai_engine.is_meal_complete(meal)
+                    ]
+
+                # Last resort: use any cached meal.
+                if not candidates:
+                    candidates = meals
+
+    # Select a random meal
+    selected_meal = random.choice(candidates)
+
+    meal_name = selected_meal.get("name", "Standard Ration")
+
+    return await create_food_by_name(
+        meal_name,
+        size_kg,
+        tier,
+        meal_type=selected_meal.get("meal_type", meal_type)
+    )
 
 
 class FoodOfTheDay:

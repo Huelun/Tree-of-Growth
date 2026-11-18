@@ -206,8 +206,8 @@ class Player:
         self.stamina = 0
         self.inventory: List[item.Item] = []
         self.effects: List[effect.Effect] = []
-        self.talent_points = 0  # Points available to spend on unlocking or upgrading talents
-        self.talent_refund_points = 0
+        self.talent_points = 1  # Points available to spend on unlocking or upgrading talents
+        self.talent_refund_points = 1
         self.talents: Dict[str, PlayerTalentProgress] = {}
 
         self._fitness = 0.0
@@ -224,13 +224,89 @@ class Player:
         # Initialize stamina to max capacity based on the new body
         self.stamina = self.max_stamina
 
+        self.initial_mass = self.get_mass()
+
     @property
     def experience(self) -> int:
         return sum(progress.exp for progress in self.talents.values())
 
+    def get_growth_talent_experience(self) -> float:
+        """Sum accumulated experience exclusively from growth-related talents."""
+        growth_talent_keys = {"hoard_grower", "growth_spurt"}
+        total_growth_exp = 0.0
+        for talent_id, progress in self.talents.items():
+            if talent_id in growth_talent_keys:
+                total_growth_exp += getattr(progress, "exp", 0.0)
+        return total_growth_exp
+
+    @property
+    def level(self) -> int:
+        """
+        Calculate player level simply and cleanly based on:
+        - Total tiers of talents unlocked/upgraded
+        - Available unspent talent points
+        """
+        spent_talent_tiers = sum(getattr(progress, "tier", 0) for progress in self.talents.values())
+        return spent_talent_tiers + self.talent_points
+
+    def get_exp_required_for_next_level(self) -> float:
+        """Calculate experience required to reach the next level."""
+        if self.initial_mass <= 0:
+            return 100.0
+
+        current_level = self.level
+        next_threshold = self.initial_mass * (10 ** (current_level * (current_level + 1) // 2))
+
+        return next_threshold
+
+    def check_experience_level_up(self):
+        """
+        Check if total accumulated experience crosses the threshold required for the next level.
+        Automatically awards talent points, handles multi-level jumps, and notifies the player.
+        """
+        while self.experience >= self.get_exp_required_for_next_level():
+            self.talent_points += 1
+
+            # Notify the player in the main channel if channel reference exists
+            main_channel_id = getattr(self, 'main_channel_id', None)
+            if main_channel_id and hasattr(self._universe, 'send_to_main_channel'):
+                self._universe.send_to_main_channel(
+                    f"<@{self.id}>, You have gained a new talent point."
+                )
+
+    def add_experience(self, talent_name: str, amount: float):
+        """
+        Add experience to a specific talent, update progress, and check
+        if the player has crossed any experience thresholds for new talent points.
+        """
+        if amount <= 0:
+            return
+
+        talent_name = talent_name.lower().strip()
+
+        # Ensure talents dictionary exists
+        if not hasattr(self, 'talents') or self.talents is None:
+            self.talents = {}
+
+            # Initialize talent progress if it doesn't exist yet
+            if talent_name not in self.talents:
+                self.talents[talent_name] = PlayerTalentProgress()
+
+        # Add experience to the selected talent
+        progress = self.talents[talent_name]
+        current_exp = getattr(progress, 'exp', 0.0)
+        progress.exp = current_exp + float(amount)
+
+        # Check if the total experience milestone was reached for a new talent point
+        self.check_experience_level_up()
+
     @property
     def max_stamina(self) -> float:
-        return self.get_muscle_mass() * 100000.0 * 24
+        """
+        Calculates maximum stamina, ensuring it is at least equal to the workout cost.
+        """
+        calculated_stamina = self.get_muscle_mass() * 100000.0 * 24
+        return max(calculated_stamina, self.workout_cost * 1.01)
 
     # --- FITNESS ---
     @property
@@ -748,7 +824,7 @@ class Player:
 
         from universe import SizeReserveRule
 
-        # Jawne chyme przekazane do funkcji (np. z mikstur) od razu trafia do żołądka
+        # Explicit chyme passed to the function (e.g., from potions) goes directly into the stomach
         if chyme > 0:
             num_t = len(torsos)
             for t in torsos:
@@ -806,20 +882,23 @@ class Player:
                 else:
                     self._size_reserve = getattr(self, '_size_reserve', 0.0) + reserve_mass_gain
 
-            # To jest masa, która uległa spożytkowaniu na wzrost/rezerwę i zamienia się w żołądku w chyme
+            # This is the mass utilized for growth/reserve, which turns into chyme in the stomach
             chyme_mass_h = consumed_base_mass
 
             proteins -= used_p
             carbohydrates -= used_c
             fats -= used_f
 
-        # Dodajemy do żołądka tylko to, co faktycznie zużyto na wzrost/rezerwę jako chyme
+            # Track experience for growth talents when feeding triggers growth or reserve gain
+            self.add_experience("food_grower", consumed_base_mass)
+
+        # Add only the mass utilized for growth/reserve into the stomach as chyme
         if chyme_mass_h > 0:
             num_t = len(torsos)
             for t in torsos:
                 t.add_chyme(chyme_mass_h / num_t)
 
-        # Reszta niezużytych makroskładników trafia normalnie do żołądka jako budulec
+        # Remaining unused macronutrients normally go into the stomach as building blocks
         num_t = len(torsos)
         for t in torsos:
             if proteins > 0:
@@ -830,20 +909,33 @@ class Player:
                 t.add_fats(fats / num_t, tier)
 
     def grow_from_troves(self, dt: float):
-        hg_data = self.talents.get("hoard_grower")
-        tier = getattr(hg_data, "tier", 0) if hg_data is not None else 0
+        # Strict typing check: ensure the talent exists before accessing it
+        if "hoard_grower" not in self.talents:
+            return
+
+        hg_data = self.talents["hoard_grower"]
+        tier = hg_data.tier if hg_data is not None else 0
 
         if tier <= 0:
             return
 
-        troves_kg = getattr(self, "troves", 0.0)
+        troves_kg = self.troves
 
         if troves_kg <= 0 or dt <= 0:
             return
 
-        growth_rate_per_second = (10.0 / (51.0 * 86400.0))
-
+        growth_rate_per_second = 10.0 / (51.0 * 86400.0)
         mass_gain = troves_kg * growth_rate_per_second * dt * tier
+
+        if mass_gain <= 0:
+            return
+
+        # Cap mass gain based on the fastest-growing animals on Earth (proportional to current mass)
+        current_mass = self.get_mass()
+        if current_mass > 0:
+            max_daily_growth_ratio = 0.10  # Maximum 10% body mass increase per day
+            max_allowed_gain = current_mass * (max_daily_growth_ratio / 86400.0) * dt
+            mass_gain = min(mass_gain, max_allowed_gain)
 
         if mass_gain <= 0:
             return
@@ -856,20 +948,17 @@ class Player:
         if current_rule == SizeReserveRule.ENABLED:
             size_reserve_active = True
         elif current_rule == SizeReserveRule.TALENT_REQUIRED:
-            gs_data = self.talents.get("growth_spurt")
-            has_growth_spurt = gs_data is not None and getattr(gs_data, "tier", 0) > 0
-            size_reserve_active = bool(has_growth_spurt)
+            if "growth_spurt" in self.talents:
+                gs_data = self.talents["growth_spurt"]
+                size_reserve_active = bool(gs_data is not None and gs_data.tier > 0)
 
         if not size_reserve_active:
-            if hasattr(self, "apply_proportional_growth"):
-                self.apply_proportional_growth(mass_gain)
+            self.apply_proportional_growth(mass_gain)
         else:
-            if hasattr(self, 'add_size_reserve'):
-                self.add_size_reserve(mass_gain)
-            elif hasattr(self, 'size_reserve'):
-                self.size_reserve += mass_gain
-            else:
-                self._size_reserve = getattr(self, '_size_reserve', 0.0) + mass_gain
+            self.modify_size_reserve(mass_gain)
+
+        # Award experience to hoard_grower based on the mass gained from troves
+        self.add_experience("hoard_grower", mass_gain)
 
     def digest(self, delta_time=1.0):
         """
@@ -971,8 +1060,16 @@ class Player:
                     stamina_deficit = self.max_stamina - self.stamina
 
         # --- 3. STEP TWO: REMAINING UNBALANCED LEFT-OVERS ---
+        # Dictionaries to accumulate XP for alchemists throughout all torso processing
+        ravenous_xp_earned = {}  # {creator_id: total_removed_mass}
+        fat_xp_earned = {}  # {creator_id: total_fat_added}
+
         if total_power > 0:
             power_per_torso = total_power / len(torsos)
+
+            # Check active alchemical effects with creators
+            active_ravenous_effects = self.get_effects(effect.EffectType.RAVENOUS)
+            fat_growth_effects = self.get_effects(effect.EffectType.FAT_GROWTH)
 
             for t in torsos:
                 current_power = power_per_torso
@@ -984,23 +1081,57 @@ class Player:
                     t.metabolic_chyme -= removed
                     current_power -= (removed / efficiency["chyme"])
 
+                    if removed > 0 and active_ravenous_effects:
+                        for rev_eff in active_ravenous_effects:
+                            if rev_eff.creator_id != self.id:
+                                ravenous_xp_earned[rev_eff.creator_id] = ravenous_xp_earned.get(rev_eff.creator_id,
+                                                                                                0.0) + removed
+
                 # B. REMAINING CARBOHYDRATES
                 if t.carbohydrates_content > 0 and current_power > 0:
                     can_process = current_power * efficiency["carbs"]
                     removed = min(t.carbohydrates_content, can_process)
                     t.carbohydrates_content -= removed
+
                     fat_to_add = removed * 0.8 * (1 + t.carbo_quality) * fat_growth_multiplier
                     add_fat(self, fat_to_add)
                     current_power -= (removed / efficiency["carbs"])
+
+                    if removed > 0 and active_ravenous_effects:
+                        for rev_eff in active_ravenous_effects:
+                            if rev_eff.creator_id != self.id:
+                                ravenous_xp_earned[rev_eff.creator_id] = ravenous_xp_earned.get(rev_eff.creator_id,
+                                                                                                0.0) + removed
+
+                    if fat_to_add > 0 and fat_growth_effects:
+                        valid_fat_creators = [e for e in fat_growth_effects if e.creator_id != self.id]
+                        if valid_fat_creators:
+                            share = fat_to_add / len(valid_fat_creators)
+                            for e in valid_fat_creators:
+                                fat_xp_earned[e.creator_id] = fat_xp_earned.get(e.creator_id, 0.0) + share
 
                 # C. REMAINING FAT
                 if t.fat_content > 0 and current_power > 0:
                     can_process = current_power * efficiency["fat"]
                     removed = min(t.fat_content, can_process)
                     t.fat_content -= removed
+
                     fat_to_add = removed * (1 + t.fat_quality) * fat_growth_multiplier
                     add_fat(self, fat_to_add)
                     current_power -= (removed / efficiency["fat"])
+
+                    if removed > 0 and active_ravenous_effects:
+                        for rev_eff in active_ravenous_effects:
+                            if rev_eff.creator_id != self.id:
+                                ravenous_xp_earned[rev_eff.creator_id] = ravenous_xp_earned.get(rev_eff.creator_id,
+                                                                                                0.0) + removed
+
+                    if fat_to_add > 0 and fat_growth_effects:
+                        valid_fat_creators = [e for e in fat_growth_effects if e.creator_id != self.id]
+                        if valid_fat_creators:
+                            share = fat_to_add / len(valid_fat_creators)
+                            for e in valid_fat_creators:
+                                fat_xp_earned[e.creator_id] = fat_xp_earned.get(e.creator_id, 0.0) + share
 
                 # D. PROTEIN
                 if t.protein_content > 0 and current_power > 0:
@@ -1021,6 +1152,7 @@ class Player:
                     else:
                         leftover_for_fat = removed
 
+                    fat_to_add = 0.0
                     if leftover_for_fat > 0:
                         fat_to_add = leftover_for_fat * 0.6 * (1 + t.protein_quality) * fat_growth_multiplier
                         add_fat(self, fat_to_add)
@@ -1028,15 +1160,42 @@ class Player:
                     t.protein_content -= removed
                     current_power -= (removed / efficiency["protein"])
 
+                    if removed > 0 and active_ravenous_effects:
+                        for rev_eff in active_ravenous_effects:
+                            if rev_eff.creator_id != self.id:
+                                ravenous_xp_earned[rev_eff.creator_id] = ravenous_xp_earned.get(rev_eff.creator_id,
+                                                                                                0.0) + removed
+
+                    if fat_to_add > 0 and fat_growth_effects:
+                        valid_fat_creators = [e for e in fat_growth_effects if e.creator_id != self.id]
+                        if valid_fat_creators:
+                            share = fat_to_add / len(valid_fat_creators)
+                            for e in valid_fat_creators:
+                                fat_xp_earned[e.creator_id] = fat_xp_earned.get(e.creator_id, 0.0) + share
+
+        # --- 4. GRANT XP TO ALCHEMISTS ONCE AT THE END ---
+        if ravenous_xp_earned or fat_xp_earned:
+            for creator_id, mass in ravenous_xp_earned.items():
+                creator = self._universe.get_player_by_id(creator_id)
+                if creator is not None:
+                    creator.add_experience("alchemist", mass)
+
+            for creator_id, mass in fat_xp_earned.items():
+                creator = self._universe.get_player_by_id(creator_id)
+                if creator is not None:
+                    creator.add_experience("alchemist", mass)
+
         # --- 5. CHECK IF STOMACH BECAME EMPTY AFTER DIGESTION ---
         is_stomach_empty_now = not any(
             t.protein_content > 0 or t.carbohydrates_content > 0 or t.fat_content > 0 or t.metabolic_chyme > 0
             for t in torsos
         )
 
-        main_channel_id = self.universe.get_main_channel()
+        main_channel_id = self.universe.get_main_channel() if hasattr(self.universe, 'get_main_channel') else getattr(
+            self.universe, 'main_channel_id', None)
         if was_stomach_not_empty and is_stomach_empty_now and main_channel_id:
-            self.universe.send_to_main_channel(f"<@{self.id}>, your stomach is now empty! You are hungry.")
+            if hasattr(self.universe, 'send_to_main_channel'):
+                self.universe.send_to_main_channel(f"<@{self.id}>, your stomach is now empty! You are hungry.")
 
     def can_eat(self, amount):
         torsos = [part for part in self.body.values() if isinstance(part, Torso)]
