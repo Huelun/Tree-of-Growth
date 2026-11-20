@@ -1580,7 +1580,7 @@ async def process_workout(this_player: player.Player, exercise: str, workout_typ
         fitness_growth_effects = this_player.get_effects(effect.EffectType.FITNESS_GROWTH)
         fitness_growth_multiplier = 1.0 + sum(e.power for e in fitness_growth_effects)
 
-        this_player.train_cardio(intensity_fraction=0.01 * fitness_growth_multiplier)
+        this_player.train_cardio(fat_to_burn, intensity_fraction=0.01 * fitness_growth_multiplier)
         delta_fitness = this_player.fitness - fitness_before
 
         # 4. Gather anatomical components (UNIVERSAL: Supports both legged and serpentine forms)

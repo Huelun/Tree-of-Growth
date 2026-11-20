@@ -383,7 +383,7 @@ class Player:
         """
         return 1.0 / (1.0 - self.fitness_ratio)
 
-    def train_cardio(self, intensity_fraction: float = 0.01):
+    def train_cardio(self, total_cost, intensity_fraction: float = 0.01):
         """
         Advances fitness mass (kg) by a fraction of the remaining weight gap
         between current fitness and total body mass. Default is 1% (0.01).
@@ -393,6 +393,7 @@ class Player:
 
         fitness_gain_kg = intensity_fraction * remaining_gap_kg
         self.fitness = self._fitness + fitness_gain_kg
+        self.fitness += total_cost
 
     @property
     def stomach_content(self) -> float:
