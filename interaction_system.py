@@ -43,19 +43,35 @@ class PlayerInteractionView(discord.ui.View):
         initiator_player = get_player_from_member(interaction, self.initiator)
         recipient_player = get_player_from_member(interaction, self.recipient)
 
-        # Check if players exist
         if not initiator_player or not recipient_player:
             await interaction.response.send_message(
                 "One or both players are not registered in the system.", ephemeral=True
             )
             return
 
-        # Apply effects if provided
+        # 1. Apply effect to initiator (The recipient who accepted is the 'creator')
         if self.effect_initiator:
-            initiator_player.add_effect(Effect(*self.effect_initiator))
+            eff_type, power, duration = self.effect_initiator
+            # English: Creating effect where the recipient is the author
+            new_effect_init = Effect(
+                effect_type=eff_type,
+                power=power,
+                duration=duration,
+                creator_id=self.recipient.id
+            )
+            initiator_player.add_effect(new_effect_init)
 
+        # 2. Apply effect to recipient (The initiator who started the command is the 'creator')
         if self.effect_recipient:
-            recipient_player.add_effect(Effect(*self.effect_recipient))
+            eff_type, power, duration = self.effect_recipient
+            # English: Creating effect where the initiator is the author
+            new_effect_recip = Effect(
+                effect_type=eff_type,
+                power=power,
+                duration=duration,
+                creator_id=self.initiator.id
+            )
+            recipient_player.add_effect(new_effect_recip)
 
         # Execute custom function if provided
         if self.custom_function:
